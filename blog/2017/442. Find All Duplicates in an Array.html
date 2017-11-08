@@ -261,7 +261,7 @@
 <p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Example:</span></span><br><span class="line"><span class="symbol">Input:</span></span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="symbol">Output:</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p><strong>题目大意：</strong><br>给定一个整数数组，1 &lt;= a[i] &lt;= n (n = 数组长度)，某些元素出现两次，某些出现一次。寻找数组中所有出现两次的元素。你可以不使用额外空间并且在O(n)运行时间内完成题目吗？</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>解法一（自己的想法）：首先对数组进行排列，例如[4,3,3,2,1] 排列后变为[1,2,3,3,4]，遍历nums，当nums[i] - nums[i + 1] == 0时，也就是当前数字等于下一个数字，再将当前数字存入数组中。</p>
+<h4><span id="思路">思路：</span></h4><p>解法一（自己的想法）：首先对数组进行排列，例如[4,3,3,2,1] 排列后变为[1,2,3,3,4]，遍历nums，当nums[i] - nums[i + 1] == 0时，也就是当前数字等于下一个数字，再将当前数字存入数组中。</p>
 <p><strong>代码：</strong></p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">findDuplicates1</span>(<span class="params"><span class="keyword">int</span>[] nums</span>) </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] - nums[ i+<span class="number">1</span> ] == <span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="keyword">add</span>(nums[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>解法二：正负号标记法（一趟遍历）</p>
@@ -280,7 +280,7 @@
 
 </div>
 
-    <a data-url="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9qnx0qm0000dwelxmfvg6ry" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9qrl3np0000aceljam77kk3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
