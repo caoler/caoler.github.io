@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://caoler.cn/"/>
-  <updated>2017-11-08T06:27:21.835Z</updated>
+  <updated>2017-11-08T06:28:43.140Z</updated>
   <id>http://caoler.cn/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://caoler.cn//blog/2017/Test.html"/>
     <id>http://caoler.cn//blog/2017/Test.html</id>
     <published>2017-11-08T05:33:33.000Z</published>
-    <updated>2017-11-08T06:27:21.835Z</updated>
+    <updated>2017-11-08T06:28:43.140Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Collection collection = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    collection.add(<span class="number">123</span>);</span><br><span class="line">    collection.add(<span class="string">"AA"</span>);</span><br><span class="line">    collection.add(<span class="keyword">new</span> Date());</span><br><span class="line">    collection.add(<span class="string">"BB"</span>);</span><br><span class="line">    collection.add(<span class="keyword">new</span> Employee(<span class="string">"Caole"</span>,<span class="number">23</span>));</span><br><span class="line"></span><br><span class="line">    Iterator iterator = collection.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        System.out.println(iterator.next());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h2&gt;
+        &lt;h2 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
       
     
     </summary>
