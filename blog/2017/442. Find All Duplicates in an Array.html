@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -258,18 +258,18 @@
             
             <p>Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
 <p>Find all the elements that appear twice in this array.</p>
-<p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input:</span><br><span class="line">[4,3,2,7,8,2,3,1]</span><br><span class="line">Output:</span><br><span class="line">[2,3]</span><br></pre></td></tr></table></figure></p>
+<p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Example:</span></span><br><span class="line"><span class="symbol">Input:</span></span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="symbol">Output:</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p><strong>题目大意：</strong><br>给定一个整数数组，1 &lt;= a[i] &lt;= n (n = 数组长度)，某些元素出现两次，某些出现一次。寻找数组中所有出现两次的元素。你可以不使用额外空间并且在O(n)运行时间内完成题目吗？</p>
 <h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>解法一（自己的想法）：首先对数组进行排列，例如[4,3,3,2,1] 排列后变为[1,2,3,3,4]，遍历nums，当nums[i] - nums[i + 1] == 0时，也就是当前数字等于下一个数字，再将当前数字存入数组中。</p>
 <p><strong>代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;Integer&gt; findDuplicates1(int[] nums) &#123;</span><br><span class="line">    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    for (int i = 0; i &lt; nums.length - 1; i++) &#123;</span><br><span class="line">        if (nums[i] - nums[ i+1 ] == 0)&#123;</span><br><span class="line">            res.add(nums[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">findDuplicates1</span>(<span class="params"><span class="keyword">int</span>[] nums</span>) </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] - nums[ i+<span class="number">1</span> ] == <span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="keyword">add</span>(nums[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>解法二：正负号标记法（一趟遍历）</p>
 <p>遍历nums，记当前数字为n（取绝对值），将数字n视为下标（因为a[i]∈[1, n]）</p>
 <p>当n首次出现时，nums[n - 1]-1</p>
 <p>当n再次出现时，则nums[n - 1]一定＜0，将n加入答案</p>
 <p>参考：<a href="https://discuss.leetcode.com/topic/64735/java-simple-solution" target="_blank" rel="external">https://discuss.leetcode.com/topic/64735/java-simple-solution</a><br>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    // when find a number i, flip the number at position i-1 to negative. </span><br><span class="line">    // if the number at position i-1 is already negative, i is the number that occurs twice.</span><br><span class="line">    </span><br><span class="line">    public List&lt;Integer&gt; findDuplicates(int[] nums) &#123;</span><br><span class="line">        List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            int index = Math.abs(nums[i])-1;</span><br><span class="line">            if (nums[index] &lt; 0)</span><br><span class="line">                res.add(Math.abs(index+1));</span><br><span class="line">            nums[index] = -nums[index];</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</span><br><span class="line">    // when find a <span class="keyword">number</span> i, flip the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> to negative. </span><br><span class="line">    // <span class="keyword">if</span> the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> is already negative, i is the <span class="keyword">number</span> that occurs twice.</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> List&lt;<span class="keyword">Integer</span>&gt; findDuplicates(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;<span class="keyword">Integer</span>&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="built_in">int</span> <span class="built_in">index</span> = Math.<span class="built_in">abs</span>(nums[i])-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">index</span>] &lt; <span class="number">0</span>)</span><br><span class="line">                res.add(Math.<span class="built_in">abs</span>(<span class="built_in">index</span>+<span class="number">1</span>));</span><br><span class="line">            nums[<span class="built_in">index</span>] = -nums[<span class="built_in">index</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -280,7 +280,7 @@
 
 </div>
 
-    <a data-url="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9ql0k4j000di8elgk75s3ej" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9qnx0qm0000dwelxmfvg6ry" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,6 +400,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/blog/2017/Test.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://ww4.sinaimg.cn/large/0060lm7Tly1fl75cee205j31hc0u0x1a.jpg)" alt="Hello World" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/Test.html" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-11-08T05:33:33.000Z" itemprop="datePublished">2017-11-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/blog/2017/Java 8系列之重新认识HashMap.html" class="thumbnail">
     
     
@@ -473,25 +492,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/hello-world.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://ww4.sinaimg.cn/large/0060lm7Tly1fl75cee205j31hc0u0x1a.jpg)" alt="Hello World" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/hello-world.html" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-11-03T05:33:33.000Z" itemprop="datePublished">2017-11-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -510,7 +510,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
