@@ -3,18 +3,30 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Caole&#39;s blog</title>
+    <title>多线程笔记 - 并发性和多线程介绍 | Caole&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Caole&#39;s blog">
-<meta property="og:url" content="http://caoler.cn/index.html">
+    <meta name="description" content="介绍在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的">
+<meta name="keywords" content="转载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程笔记 - 并发性和多线程介绍">
+<meta property="og:url" content="http://caoler.cn/blog/2017/并发性和多线程的介绍.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="介绍在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-1.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-2.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-3.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-4.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-5.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-6.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-7.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-8.png">
+<meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-8.png">
+<meta property="og:updated_time" content="2017-11-12T09:48:37.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Caole&#39;s blog">
-<meta name="twitter:description" content="个人博客">
+<meta name="twitter:title" content="多线程笔记 - 并发性和多线程介绍">
+<meta name="twitter:description" content="介绍在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的">
+<meta name="twitter:image" content="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-1.png">
     
 
     
@@ -209,16 +221,15 @@
 </aside>
 
             
-            <section id="main">
-    <article id="post-并发性和多线程的介绍" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-并发性和多线程的介绍" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/并发性和多线程的介绍.html">多线程笔记 - 并发性和多线程介绍</a>
+        <h1 class="article-title" itemprop="name">
+            多线程笔记 - 并发性和多线程介绍
         </h1>
     
 
@@ -252,6 +263,11 @@
         
         <div class="article-entry" itemprop="articleBody">
         
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">多线程的优点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">资源利用率更好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">程序设计更简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">程序响应更快</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">多线程的代价</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">设计更复杂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">上下文切换的开销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">增加资源消耗</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">并发编程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text">并发模型与分布式系统之间的相似性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.</span> <span class="toc-text">并行工作者</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.1.</span> <span class="toc-text">并行工作者模型的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.2.</span> <span class="toc-text">并行工作者模型的缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">共享状态可能会很复杂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">无状态的工作者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.2.3.</span> <span class="toc-text">任务顺序是不确定的</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.</span> <span class="toc-text">流水线模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.1.</span> <span class="toc-text">反应器，事件驱动系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.2.</span> <span class="toc-text">Actors 和 Channels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.3.</span> <span class="toc-text">流水线模型的优点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.3.1.</span> <span class="toc-text">无需共享的状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.3.2.</span> <span class="toc-text">有状态的工作者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.3.3.</span> <span class="toc-text">较好的硬件整合（Hardware Conformity）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.3.4.</span> <span class="toc-text">合理的作业顺序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.4.</span> <span class="toc-text">流水线模型的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.4.</span> <span class="toc-text">函数式并行（Functional Parallelism）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.5.</span> <span class="toc-text">使用那种并发模型最好？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">注：本文转载于并发编程网</span></a></li></ol>
+                </div>
             
             <h1><span id="介绍">介绍</span></h1><p>在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。</p>
 <p>随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的程序榜样是在其不再使用这些资源时对其进行释放，以使得其他程序能有机会使用这些资源。</p>
@@ -436,699 +452,28 @@
         </footer>
     </div>
     
-</article>
-
-
-
-    <article id="post-Java 8系列之重新认识HashMap" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
-                
+<nav id="article-nav">
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/Java 8系列之重新认识HashMap.html">Java 8系列之重新认识HashMap</a>
-        </h1>
     
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/Java 8系列之重新认识HashMap.html">
-            <time datetime="2017-11-07T10:40:00.000Z" itemprop="datePublished">2017-11-07</time>
+        <a href="/blog/2017/Java 8系列之重新认识HashMap.html" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Java 8系列之重新认识HashMap</div>
         </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JAVASE/">JAVASE</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JAVASE/集合框架/">集合框架</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/转载/">转载</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><code>HashMap</code>是Java程序员使用频率最高的用于映射(键值对)处理的数据类型。随着JDK（Java Developmet Kit）版本的更新，JDK1.8对<code>HashMap</code>底层的实现进行了优化，例如引入红黑树的数据结构和扩容的优化等。本文结合JDK1.7和JDK1.8的区别，深入探讨<code>HashMap</code>的结构实现和功能原理。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Java为数据结构中的映射定义了一个接口<code>java.util.Map</code>，此接口主要有四个常用的实现类，分别是<code>HashMap、Hashtable、LinkedHashMap</code>和<code>TreeMap</code>，类继承关系如下图所示：</p></p>
-            <p class="article-more-link">
-                <a href="/blog/2017/Java 8系列之重新认识HashMap.html#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://caoler.cn/blog/2017/Java 8系列之重新认识HashMap.html" data-id="cj9qs5bct000958el2p9s6x42" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
     
-        <a href="http://caoler.cn/blog/2017/Java 8系列之重新认识HashMap.html#comments" id="sourceId::/blog/2017/Java 8系列之重新认识HashMap.html" class="article-comment-link cy_cmt_count">评论</a>
-    
+</nav>
 
-        </footer>
-    </div>
+
     
 </article>
 
 
-
-    <article id="post-442. Find All Duplicates in an Array" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/442. Find All Duplicates in an Array.html">442. Find All Duplicates in an Array</a>
-        </h1>
     
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/442. Find All Duplicates in an Array.html">
-            <time datetime="2017-11-06T11:57:00.000Z" itemprop="datePublished">2017-11-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/leetcode/">leetcode</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/leetcode/Array/">Array</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
-<p>Find all the elements that appear twice in this array.</p>
-<p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Example:</span></span><br><span class="line"><span class="symbol">Input:</span></span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="symbol">Output:</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p></p>
-            <p class="article-more-link">
-                <a href="/blog/2017/442. Find All Duplicates in an Array.html#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9qs5bca000358elwdr4p8bz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
+        <section id="comments">
+    <div id="SOHUCS" sid="/blog/2017/并发性和多线程的介绍.html"></div>
+</section>
     
-        <a href="http://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html#comments" id="sourceId::/blog/2017/442. Find All Duplicates in an Array.html" class="article-comment-link cy_cmt_count">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-561. Array Partition I" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/561. Array Partition I.html">561. Array Partition I</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/561. Array Partition I.html">
-            <time datetime="2017-11-06T11:56:00.000Z" itemprop="datePublished">2017-11-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/leetcode/">leetcode</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/leetcode/Array/">Array</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Inpu<span class="variable">t:</span> [<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">Outpu<span class="variable">t:</span> <span class="number">4</span></span><br><span class="line">Explanation: n <span class="keyword">is</span> <span class="number">2</span>, <span class="built_in">and</span> the maximum sum of pairs <span class="keyword">is</span> <span class="number">4</span> = <span class="built_in">min</span>(<span class="number">1</span>, <span class="number">2</span>) + <span class="built_in">min</span>(<span class="number">3</span>, <span class="number">4</span>).</span><br></pre></td></tr></table></figure></p>
-            <p class="article-more-link">
-                <a href="/blog/2017/561. Array Partition I.html#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://caoler.cn/blog/2017/561. Array Partition I.html" data-id="cj9qs5bcp000758elx1ldvq6f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://caoler.cn/blog/2017/561. Array Partition I.html#comments" id="sourceId::/blog/2017/561. Array Partition I.html" class="article-comment-link cy_cmt_count">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-JAVA迭代器（Interator）详解" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/JAVA迭代器（Interator）详解.html">JAVA迭代器（Interator）详解</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/JAVA迭代器（Interator）详解.html">
-            <time datetime="2017-11-04T03:40:12.000Z" itemprop="datePublished">2017-11-04</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JAVASE/">JAVASE</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JAVASE/集合框架/">集合框架</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="一、迭代器概述"><a href="#一、迭代器概述" class="headerlink" title="一、迭代器概述"></a>一、迭代器概述</h2><h3 id="1、什么是迭代器？"><a href="#1、什么是迭代器？" class="headerlink" title="1、什么是迭代器？"></a>1、什么是迭代器？</h3><p>在Java中，有很多的数据容器，对于这些的操作有很多的共性。Java采用了迭代器来为各种容器提供了公共的操作接口。这样使得对容器的遍历操作与其具体的底层实现相隔离，达到解耦的效果。</p>
-<p>在Iterator接口中定义了四个方法：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>default void forEachRemaining(Consumer&lt;? super E&gt; action)</td>
-<td>对每个剩余元素执行给定的操作，直到所有元素都被处理或动作引发异常。 </td>
-</tr>
-<tr>
-<td>boolean hasNext()</td>
-<td>如果迭代具有更多元素，则返回 true 。  </td>
-</tr>
-<tr>
-<td>E next()</td>
-<td>返回迭代中的下一个元素。  </td>
-</tr>
-<tr>
-<td>default void remove()</td>
-<td>从底层集合中删除此迭代器返回的最后一个元素（可选操作）。  </td>
-</tr>
-</tbody>
-</table></p>
-            <p class="article-more-link">
-                <a href="/blog/2017/JAVA迭代器（Interator）详解.html#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://caoler.cn/blog/2017/JAVA迭代器（Interator）详解.html" data-id="cj9qs5bcr000858el5l2rqwn5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://caoler.cn/blog/2017/JAVA迭代器（Interator）详解.html#comments" id="sourceId::/blog/2017/JAVA迭代器（Interator）详解.html" class="article-comment-link cy_cmt_count">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/hello-world.html" itemprop="url">
-            <img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fl75cee205j31hc0u0x1a.jpg" class="article-banner" />
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/hello-world.html">Hello World</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/hello-world.html">
-            <time datetime="2017-11-03T05:33:33.000Z" itemprop="datePublished">2017-11-03</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>HelloWorld！</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://caoler.cn/blog/2017/hello-world.html" data-id="cj9qs5bch000458el9wu30097" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://caoler.cn/blog/2017/hello-world.html#comments" id="sourceId::/blog/2017/hello-world.html" class="article-comment-link cy_cmt_count">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
 
 </section>
             
