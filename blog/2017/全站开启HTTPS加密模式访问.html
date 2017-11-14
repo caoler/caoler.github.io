@@ -14,7 +14,7 @@
 <meta property="og:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flhqf9fva1j30nm0a0751.jpg">
-<meta property="og:updated_time" content="2017-11-14T09:18:24.826Z">
+<meta property="og:updated_time" content="2017-11-14T09:22:19.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全站开启HTTPS加密模式访问">
 <meta name="twitter:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
@@ -278,14 +278,10 @@
 <li>A记录: 将一个域名指向一个ipv4的地址</li>
 <li>AAAA记录: 将一个域名指向一个ipv6的地址</li>
 <li>CNAME记录: 将一个域名指向另一个域名<br>步骤4中，我们所使用的是flexible的SSL加密方式。这种加密方式<br>根据cloudflare的解释如下：<blockquote>
-<p>Flexible SSL: There is an encrypted connection between your website visitors and Cloudflare, but not from Cloudflare to your server.</p>
+<p>Flexible SSL: There is an encrypted connection between your website visitors and Cloudflare, but not from Cloudflare to your server.<br>You do not need an SSL certificate on your server<br>Visitors will see the SSL lock icon in their browser</p>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<p>You do not need an SSL certificate on your server</p>
-<p>Visitors will see the SSL lock icon in their browser</p>
-</blockquote>
 <p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flhq7b9nwkj30k00cvq36.jpg" alt=""><br>也就是说这其实不是一种安全的加密方式，因为其实服务器与CDN在通信过程中的信息是没有加密的。但是因为我使用的git page 以及没有购买相应的证书，所以没法再服务器上部署SSL。所以CDN与服务器之间的通信就不是加密的通信。</p>
 <p>步骤5共有两种方法</p>
 <ul>
