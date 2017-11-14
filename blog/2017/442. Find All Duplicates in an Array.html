@@ -266,22 +266,14 @@
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</span><br><span class="line">    // when find a <span class="keyword">number</span> i, flip the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> to negative. </span><br><span class="line">    // <span class="keyword">if</span> the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> is already negative, i is the <span class="keyword">number</span> that occurs twice.</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> List&lt;<span class="keyword">Integer</span>&gt; findDuplicates(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;<span class="keyword">Integer</span>&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="built_in">int</span> <span class="built_in">index</span> = Math.<span class="built_in">abs</span>(nums[i])-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">index</span>] &lt; <span class="number">0</span>)</span><br><span class="line">                res.add(Math.<span class="built_in">abs</span>(<span class="built_in">index</span>+<span class="number">1</span>));</span><br><span class="line">            nums[<span class="built_in">index</span>] = -nums[<span class="built_in">index</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
-		<!-- 代码1：放在页面需要展示的位置  -->
-			<!-- 如果您配置过sourceid，建议在div标签中配置sourceid、cid(分类id)，没有请忽略  -->
-			<div id="cyReward" role="cylabs" data-use="reward"></div>
-			<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
-			<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
-			<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
-			<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-			<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytiEHHjj"></script>
-        <footer class="article-footer">
+       <footer class="article-footer">
             <div class="share-container">
 
 
 
 </div>
 
-    <a data-url="https://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9zgq89k00003welcmg9r2ak" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://caoler.cn/blog/2017/442. Find All Duplicates in an Array.html" data-id="cj9zgt6ng0000swelnujuwf7t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
