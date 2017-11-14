@@ -14,7 +14,7 @@
 <meta property="og:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flhqf9fva1j30nm0a0751.jpg">
-<meta property="og:updated_time" content="2017-11-14T09:22:19.304Z">
+<meta property="og:updated_time" content="2017-11-14T09:36:18.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全站开启HTTPS加密模式访问">
 <meta name="twitter:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
@@ -292,6 +292,7 @@
 <li>第二种：在网站head标签中加入如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	   <span class="keyword">var</span> host = <span class="string">"caoler.cn"</span>;</span><br><span class="line">	   <span class="keyword">if</span> ((host == <span class="built_in">window</span>.location.host) &amp;&amp; (<span class="built_in">window</span>.location.protocol != <span class="string">"https:"</span>))</span><br><span class="line">		   <span class="built_in">window</span>.location.protocol = <span class="string">"https"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p><strong>防跳坑：</strong> 上述两种方式只能使用其中一种，不然浏览器会报出循环重定向错误，导致网站无法正常访问。别问我为什么知道~ （逃</p>
 <h2 id="全站HTTPS"><a href="#全站HTTPS" class="headerlink" title="全站HTTPS"></a>全站HTTPS</h2><p>要做到成功让这个博客满足https的要求，在博客所使用所有的图片自然也是要使用https的链接才行的，只要网站上所使用的资源不是全部通过https的就存在着安全的风险。且网站会被chrome等浏览器认为是不安全的。(放弃七牛云作为图床)</p>
 <p>这里所使用的是新浪微博的图床，在chrome商店可以找到对应的插件。在左下角有的https的选项，只要勾选上了就可以默认生成https的图片链接了。<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf/reviews" target="_blank" rel="external">谷歌商店地址</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然这里所使用的方法，不是安全的一种方法。网站仍然会面临中间人攻击等一系列问题。因为服务器与CDN之间的通信未加密。但是至少用户在访问网站的时候，不会被通信服务商再拦截再什么广告了。刚好在学习计算机网络的过程中，了解了一些https、cdn、dns、ssl的知识。随着chrome,firefox等浏览器和苹果的大力推进。HTTPS肯定是接下去的发展趋势了，而且证书的费用也在下降。所以，各个网站都是很有必要，向这里过渡的。还有，看着自己浏览的网站，有一个绿色的小锁，就是一件很酷的事情啊，哈哈。</p>
@@ -305,7 +306,7 @@
 
 </div>
 
-    <a data-url="https://caoler.cn/blog/2017/全站开启HTTPS加密模式访问.html" data-id="cj9zeo15300005kelzvy5q69e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://caoler.cn/blog/2017/全站开启HTTPS加密模式访问.html" data-id="cj9zfbfwv0009c4el2ve6avjk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
