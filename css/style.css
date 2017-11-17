@@ -1357,6 +1357,10 @@ ol.toc {
 .lg-outer .lg-thumb-item {
   border-radius: 0 !important;
 }
+.img-shadow {
+  -webkit-box-shadow: 3px 2px 3px #ddd;
+  box-shadow: 3px 2px 3px #ddd;
+}
 #comments {
   padding: 20px;
   margin: 40px 0;
