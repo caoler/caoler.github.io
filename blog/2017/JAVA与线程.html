@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg">
-<meta property="og:updated_time" content="2017-11-19T07:39:22.229Z">
+<meta property="og:updated_time" content="2017-11-19T07:40:21.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM学习笔记 - JAVA与线程">
 <meta name="twitter:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程    名称 描述     用户级线程(User-">
@@ -292,8 +292,8 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p>实现线程主要有3种方式：使用内核线程、使用用户级线程和使用用户线程加轻量级进程混合实现。</p>
-<h3 id="使用内核线程实现"><a href="#使用内核线程实现" class="headerlink" title="使用内核线程实现"></a>使用内核线程实现</h3><p>内核线程就是直接由操作系统内核支持的线程，这种线程有内核来完成线程切换，内核通过调度器(Scheduler) 对线程进行调度，并负责将线程的任务映射到各个处理器上。</p>
 <a id="more"></a>
+<h3 id="使用内核线程实现"><a href="#使用内核线程实现" class="headerlink" title="使用内核线程实现"></a>使用内核线程实现</h3><p>内核线程就是直接由操作系统内核支持的线程，这种线程有内核来完成线程切换，内核通过调度器(Scheduler) 对线程进行调度，并负责将线程的任务映射到各个处理器上。</p>
 <h4 id="轻量级进程-LWP"><a href="#轻量级进程-LWP" class="headerlink" title="轻量级进程(LWP)"></a>轻量级进程(LWP)</h4><p>程序一般不会直接使用内核线程，而是去使用内核线程的一种高级接口———轻量级进程（LWP），轻量级进程就是我们通常意义上所讲的线程，轻量级进程(LWP)是一种由内核支持的用户线程。它是基于内核线程的高级抽象，因此只有先支持内核线程，才能有LWP。</p>
 <p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg" alt="轻量级进程与内核线程之间的1:1的关系"></p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
