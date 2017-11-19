@@ -5,23 +5,23 @@
     
     <title>JVM学习笔记 - JAVA与线程 | Caole&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
+    <meta name="description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述— | —用户级线程(User-Le">
 <meta name="keywords" content="原创,JVM,操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM学习笔记 - JAVA与线程">
 <meta property="og:url" content="https://caoler.cn/blog/2017/JAVA与线程.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
+<meta property="og:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述— | —用户级线程(User-Le">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flne300p6hj308805mt8n.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg">
-<meta property="og:updated_time" content="2017-11-19T07:31:44.709Z">
+<meta property="og:updated_time" content="2017-11-19T07:34:52.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM学习笔记 - JAVA与线程">
-<meta name="twitter:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
+<meta name="twitter:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述— | —用户级线程(User-Le">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
     
 
@@ -272,7 +272,7 @@ var _hmt = _hmt || [];
                 </div>
             
             <h2 id="线程的实现方式"><a href="#线程的实现方式" class="headerlink" title="线程的实现方式"></a>线程的实现方式</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换</p>
-<p>根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程<br>名称 | 描述<br>– | –<br>用户级线程(User-LevelThread, ULT) | 由应用程序所支持的线程实现, 内核意识不到用户级线程的实现<br>内核级线程(Kemel-LevelThread, KLT) | 内核级线程又称为内核支持的线程<br>实现线程主要有3种方式：使用内核线程、使用用户级线程和使用用户线程加轻量级进程混合实现。</p>
+<p>根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程<br>名称 | 描述<br>— | —<br>用户级线程(User-LevelThread, ULT) | 由应用程序所支持的线程实现, 内核意识不到用户级线程的实现<br>内核级线程(Kemel-LevelThread, KLT) | 内核级线程又称为内核支持的线程<br>实现线程主要有3种方式：使用内核线程、使用用户级线程和使用用户线程加轻量级进程混合实现。</p>
 <h3 id="使用内核线程实现"><a href="#使用内核线程实现" class="headerlink" title="使用内核线程实现"></a>使用内核线程实现</h3><p>内核线程就是直接由操作系统内核支持的线程，这种线程有内核来完成线程切换，内核通过调度器(Scheduler) 对线程进行调度，并负责将线程的任务映射到各个处理器上。</p>
 <a id="more"></a>
 <h4 id="轻量级进程-LWP"><a href="#轻量级进程-LWP" class="headerlink" title="轻量级进程(LWP)"></a>轻量级进程(LWP)</h4><p>程序一般不会直接使用内核线程，而是去使用内核线程的一种高级接口———轻量级进程（LWP），轻量级进程就是我们通常意义上所讲的线程，轻量级进程(LWP)是一种由内核支持的用户线程。它是基于内核线程的高级抽象，因此只有先支持内核线程，才能有LWP。</p>
