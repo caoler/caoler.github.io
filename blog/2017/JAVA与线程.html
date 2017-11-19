@@ -3,26 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>JVM学习笔记 - Java内存模型 | Caole&#39;s blog</title>
+    <title>JVM学习笔记 - JAVA与线程 | Caole&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="并发处理的广泛应用是使得Amdahl定律代替摩尔定律成为计算机性能发展源动力的根本原因，也是人类“压榨”计算机运算能力的最有力武器。 概述Java内存模型规范了Java虚拟机与计算机内存是如何协同工作的。Java虚拟机是一个完整的计算机的一个模型，因此这个模型自然也包含一个内存模型——又称为Java内存模型。 如果你想设计表现良好的并发程序，理解Java内存模型是非常重要的。Java内存模型规定了">
-<meta name="keywords" content="原创,JVM">
+    <meta name="description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
+<meta name="keywords" content="原创,JVM,操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM学习笔记 - Java内存模型">
-<meta property="og:url" content="https://caoler.cn/blog/2017/JAVA内存模型.html">
+<meta property="og:title" content="JVM学习笔记 - JAVA与线程">
+<meta property="og:url" content="https://caoler.cn/blog/2017/JAVA与线程.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="并发处理的广泛应用是使得Amdahl定律代替摩尔定律成为计算机性能发展源动力的根本原因，也是人类“压榨”计算机运算能力的最有力武器。 概述Java内存模型规范了Java虚拟机与计算机内存是如何协同工作的。Java虚拟机是一个完整的计算机的一个模型，因此这个模型自然也包含一个内存模型——又称为Java内存模型。 如果你想设计表现良好的并发程序，理解Java内存模型是非常重要的。Java内存模型规定了">
+<meta property="og:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyymlm4yj30ov09w0t8.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljzmse453j309y07pdfo.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyz7yuqbj30od09v74s.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljynkoplcj30mp0ao0t4.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fljzjvie8jj30nr0af0u2.jpg">
-<meta property="og:updated_time" content="2017-11-16T08:40:21.307Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flne300p6hj308805mt8n.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg">
+<meta property="og:updated_time" content="2017-11-19T07:31:44.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM学习笔记 - Java内存模型">
-<meta name="twitter:description" content="并发处理的广泛应用是使得Amdahl定律代替摩尔定律成为计算机性能发展源动力的根本原因，也是人类“压榨”计算机运算能力的最有力武器。 概述Java内存模型规范了Java虚拟机与计算机内存是如何协同工作的。Java虚拟机是一个完整的计算机的一个模型，因此这个模型自然也包含一个内存模型——又称为Java内存模型。 如果你想设计表现良好的并发程序，理解Java内存模型是非常重要的。Java内存模型规定了">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyymlm4yj30ov09w0t8.jpg">
+<meta name="twitter:title" content="JVM学习笔记 - JAVA与线程">
+<meta name="twitter:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程名称 | 描述– | –用户级线程(User-Le">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
     
 
     
@@ -50,7 +50,7 @@
     
 
 
-	<link rel="canonical" href="https://caoler.cn/blog/2017/JAVA内存模型.html">
+	<link rel="canonical" href="https://caoler.cn/blog/2017/JAVA与线程.html">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-JAVA内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-JAVA与线程" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            JVM学习笔记 - Java内存模型
+            JVM学习笔记 - JAVA与线程
         </h1>
     
 
@@ -240,8 +240,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/JAVA内存模型.html">
-            <time datetime="2017-11-16T08:38:00.000Z" itemprop="datePublished">2017-11-16</time>
+        <a href="/blog/2017/JAVA与线程.html">
+            <time datetime="2017-11-19T07:30:00.000Z" itemprop="datePublished">2017-11-19</time>
         </a>
     </div>
 
@@ -249,13 +249,13 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JVM/">JVM</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JVM/内存模型/">内存模型</a>
+        <a class="article-category-link" href="/categories/JVM/">JVM</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JVM/JAVA与线程/">JAVA与线程</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/原创/">原创</a>
+        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/原创/">原创</a>, <a class="tag-link" href="/tags/操作系统/">操作系统</a>
     </div>
 
                     </div>
@@ -268,102 +268,92 @@ var _hmt = _hmt || [];
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件的效率与一致性"><span class="toc-number">2.</span> <span class="toc-text">硬件的效率与一致性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA内存模型"><span class="toc-number">3.</span> <span class="toc-text">JAVA内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM内部存储结构—堆、线程栈"><span class="toc-number">3.1.</span> <span class="toc-text">JVM内部存储结构—堆、线程栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主内存和工作内存"><span class="toc-number">3.2.</span> <span class="toc-text">主内存和工作内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存间交互操作"><span class="toc-number">3.3.</span> <span class="toc-text">内存间交互操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线程的实现方式"><span class="toc-number">1.</span> <span class="toc-text">线程的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用内核线程实现"><span class="toc-number">1.2.</span> <span class="toc-text">使用内核线程实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#轻量级进程-LWP"><span class="toc-number">1.2.1.</span> <span class="toc-text">轻量级进程(LWP)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-number">1.2.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">1.2.3.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用用户线程实现"><span class="toc-number">1.3.</span> <span class="toc-text">使用用户线程实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用用户线程加轻量级进程混合实现"><span class="toc-number">1.4.</span> <span class="toc-text">使用用户线程加轻量级进程混合实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA线程调度"><span class="toc-number">2.</span> <span class="toc-text">JAVA线程调度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#非抢占方式-Non-preemptive-Mode"><span class="toc-number">2.1.</span> <span class="toc-text">非抢占方式(Non-preemptive Mode)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抢占方式-Preemptive-Mode"><span class="toc-number">2.2.</span> <span class="toc-text">抢占方式(Preemptive Mode)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态转换"><span class="toc-number">3.</span> <span class="toc-text">状态转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
-            <p>并发处理的广泛应用是使得Amdahl定律代替摩尔定律成为计算机性能发展源动力的根本原因，也是人类“压榨”计算机运算能力的最有力武器。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Java内存模型规范了Java虚拟机与计算机内存是如何协同工作的。Java虚拟机是一个完整的计算机的一个模型，因此这个模型自然也包含一个内存模型——又称为Java内存模型。</p>
-<p>如果你想设计表现良好的并发程序，理解Java内存模型是非常重要的。Java内存模型规定了如何和何时可以看到由其他线程修改过后的共享变量的值，以及在必须时如何同步的访问共享变量。</p>
+            <h2 id="线程的实现方式"><a href="#线程的实现方式" class="headerlink" title="线程的实现方式"></a>线程的实现方式</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换</p>
+<p>根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程<br>名称 | 描述<br>– | –<br>用户级线程(User-LevelThread, ULT) | 由应用程序所支持的线程实现, 内核意识不到用户级线程的实现<br>内核级线程(Kemel-LevelThread, KLT) | 内核级线程又称为内核支持的线程<br>实现线程主要有3种方式：使用内核线程、使用用户级线程和使用用户线程加轻量级进程混合实现。</p>
+<h3 id="使用内核线程实现"><a href="#使用内核线程实现" class="headerlink" title="使用内核线程实现"></a>使用内核线程实现</h3><p>内核线程就是直接由操作系统内核支持的线程，这种线程有内核来完成线程切换，内核通过调度器(Scheduler) 对线程进行调度，并负责将线程的任务映射到各个处理器上。</p>
 <a id="more"></a>
-<p>原始的Java内存模型存在一些不足，因此Java内存模型在Java1.5时被重新修订。这个版本的Java内存模型在Java8中仍在使用。</p>
-<h2 id="硬件的效率与一致性"><a href="#硬件的效率与一致性" class="headerlink" title="硬件的效率与一致性"></a>硬件的效率与一致性</h2><p>现代计算机在执行并发任务的时候，为了更充分的利用计算机处理器的效能，所以不得不加入一层读写速度尽可能接近处理器运算速度的<strong>高速缓存（Cache）</strong> 来作为内存与处理器之间的缓冲：将运算与要用到的数据复制到缓存中，让运算能够快速进行，当运算结束后再从缓存同步回内存之中，这样处理器就无须等待缓慢的内存读写了。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyymlm4yj30ov09w0t8.jpg" alt=""></p>
-<p>每个CPU可能还有一个CPU缓存层。实际上，绝大多数的现代CPU都有一定大小的缓存层。CPU访问缓存层的速度快于访问主存的速度，但通常比访问内部寄存器的速度还要慢一点。一些CPU还有多层缓存，但这些对理解Java内存模型如何和内存交互不是那么重要。只要知道CPU中可以有一个缓存层就可以了。</p>
-<p>通常情况下，当一个CPU需要读取主存时，它会将主存的部分读到CPU缓存中。它甚至可能将缓存中的部分内容读到它的内部寄存器中，然后在寄存器中执行操作。当CPU需要将结果写回到主存中去时，它会将内部寄存器的值刷新到缓存中，然后在某个时间点将值刷新回主存。</p>
-<p>当CPU需要在缓存层存放一些东西的时候，存放在缓存中的内容通常会被刷新回主存。CPU缓存可以在某一时刻将数据局部写到它的内存中，和在某一时刻局部刷新它的内存。它不会再某一时刻读/写整个缓存。通常，在一个被称作“cache lines”的更小的内存块中缓存被更新。一个或者多个缓存行可能被读到缓存，一个或者多个缓存行可能再被刷新回主存。</p>
-<p>“内存模型”一词可以理解为在特定的操作协议下，对特定的内存或者高速缓存进行读写访问的过程抽象。</p>
-<h2 id="JAVA内存模型"><a href="#JAVA内存模型" class="headerlink" title="JAVA内存模型"></a>JAVA内存模型</h2><p>JAVA虚拟机规范中视图定义一种JAVA内存模型(JMM)来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让JAVA程序在各种平台下都能够达到一致的内存访问效果。Java1.5发布后，Java内存模型已经成熟和完善起来了。</p>
-<h3 id="JVM内部存储结构—堆、线程栈"><a href="#JVM内部存储结构—堆、线程栈" class="headerlink" title="JVM内部存储结构—堆、线程栈"></a>JVM内部存储结构—堆、线程栈</h3><p>Java内存模型把Java虚拟机内部划分为线程栈和堆。如下图所示：</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fljzmse453j309y07pdfo.jpg" alt=""></p>
-<p>栈是运行时的单位，而堆是存储的单位。在Java中每一个运行在Java虚拟机里的线程都拥有自己的线程栈。一个线程仅能访问自己的线程栈。一个线程创建的本地变量对其它线程不可见，即使两个线程执行的是同一段代码，它们也会在各自的线程栈中创建各自的本地变量。</p>
-<ol>
-<li>所有的基本类型的本地变量和对象引用都存放在栈中，因此对其它线程不可见。一个线程可能向另一个线程传递一个基本类型变量的拷贝，但是它不能共享这个基本类型变量自身。</li>
-<li>对象都存放在堆中，包括基本类型的对象版本。如果一个对象被创建然后赋值给一个局部变量，或者用来作为另一个对象的成员变量，这个对象任然是存放在堆上。</li>
-<li>一个本地变量也可能是指向一个对象的一个引用。在这种情况下，引用（这个本地变量）存放在线程栈上，但是对象本身存放在堆上。</li>
-<li>一个对象可能包含方法，这些方法可能包含本地变量。这些本地变量任然存放在线程栈上，即使这些方法所属的对象存放在堆上。</li>
-<li>一个对象的成员变量可能随着这个对象自身存放在堆上。不管这个成员变量是原始类型还是引用类型。</li>
-<li>静态成员变量跟随着类定义一起也存放在堆上。</li>
-<li>存放在堆上的对象可以被所有持有对这个对象引用的线程访问。当多个线程通过调用同一个对象的相同方法访问其成员变量的时候，每个线程都将拥有该成员变量的拷贝而不是其自身。</li>
-</ol>
-<h3 id="主内存和工作内存"><a href="#主内存和工作内存" class="headerlink" title="主内存和工作内存"></a>主内存和工作内存</h3><p>Java内存模型的主要目标是定义程序中各个变量的访问规则，即在虚拟机中将变量存储到内存中取出变量这样的底层细节。此处的<strong>变量(Variables)</strong> 与Java编程中所说的变量有所区别，它包括了实例字段、静态字段和构成数组对象的元素，但不包括局部变量与方法参数，因为后者不是私有的，<strong>不会被共享，自然就不会存在竞争问题。</strong></p>
-<p>JAVA内存模型规定了所有的变量都存储在主内存中。每条线程还有自己的工作内存(与计算机的高速缓冲类比),线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取、赋值）都必须在工作内存中进行，而不能直接读写主内存中的变量。不同的线程之间也无法访问对方工作内存中的变量，线程间变量值的传递云需要通过主内存来完成。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyz7yuqbj30od09v74s.jpg" alt=""></p>
-<p>Java内存模型与硬件内存架构之间存在差异。硬件内存架构没有区分线程栈和堆。对于硬件，所有的线程栈和堆都分布在主内中。部分线程栈和堆可能有时候会出现在CPU缓存中和CPU内部的寄存器中。这种交叉对应关系如下图所示：  </p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fljynkoplcj30mp0ao0t4.jpg" alt=""></p>
-<p>当对象和变量被存放在计算机中各种不同的内存区域中时，就可能会出现一些具体的问题。主要包括如下两个方面：</p>
-<ul>
-<li>线程对共享变量修改的可见性</li>
-<li>当读，写和检查共享变量时出现race conditions</li>
+<h4 id="轻量级进程-LWP"><a href="#轻量级进程-LWP" class="headerlink" title="轻量级进程(LWP)"></a>轻量级进程(LWP)</h4><p>程序一般不会直接使用内核线程，而是去使用内核线程的一种高级接口———轻量级进程（LWP），轻量级进程就是我们通常意义上所讲的线程，轻量级进程(LWP)是一种由内核支持的用户线程。它是基于内核线程的高级抽象，因此只有先支持内核线程，才能有LWP。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg" alt="轻量级进程与内核线程之间的1:1的关系"></p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>多处理器系统中，内核能够并行执行同一进程内的多个线程</li>
+<li>如果进程中的一个线程被阻塞，能够切换同一进程内的其他线程继续执行（用户级线程的一个缺点）</li>
+<li>所有能够阻塞线程的调用都以系统调用的形式实现，代价可观</li>
+<li>当一个线程阻塞时，内核根据选择可以运行另一个进程的线程，而用户空间实现的线程中，运行时系统始终运行自己进程中的线程</li>
+<li>信号是发给进程而不是线程的，当一个信号到达时，应该由哪一个线程处理它？线程可以“注册”它们感兴趣的信号</li>
 </ul>
-<h3 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h3><p>交互协议，即一个变量如何从主内存拷贝到工作内存、如何从工作内存同步回主内存之间的细节操作。虚拟机保证下列操作都是原子的、不可再分的。</p>
-<table>
-<thead>
-<tr>
-<th>状态</th>
-<th>作用内存</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lock（锁定）</td>
-<td>主</td>
-<td>将变量标识为线程独占状态</td>
-</tr>
-<tr>
-<td>unlock（解锁）</td>
-<td>主</td>
-<td>释放锁定的变量，释放后的变量才可以被锁定</td>
-</tr>
-<tr>
-<td>read（读取）</td>
-<td>主</td>
-<td>将变量的值从主内存传输到线程的工作内存中</td>
-</tr>
-<tr>
-<td>load（载入）</td>
-<td>工作</td>
-<td>把read到的变量放入工作内存的变量副本中</td>
-</tr>
-<tr>
-<td>use（使用）</td>
-<td>工作</td>
-<td>将工作内存中的变量值传递给执行引擎，每当虚拟机遇到一个需要使用到变量的值的字节码指令时会执行这个操作</td>
-</tr>
-<tr>
-<td>assign（赋值）</td>
-<td>工作</td>
-<td>将执行引擎中的变量值传递给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时会执行这个操作</td>
-</tr>
-<tr>
-<td>store（存储）</td>
-<td>工作</td>
-<td>将工作内存中的一个变量的值传递到主内存中</td>
-</tr>
-<tr>
-<td>write（写入）</td>
-<td>主</td>
-<td>将得到的变量的值放入主内存的变量中</td>
-</tr>
-</tbody>
-</table>
-<p>线程、工作内存、主内存三者的交互关系如下图所示：<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fljzjvie8jj30nr0af0u2.jpg" alt=""></p>
-<p>JAVA内存模型规定上述操作必须按顺序执行，但是没有保证是连续执行，也就说其中某连续两个操作之间可以插入其他指令，除此之外JAVA内存模型还规定执行上述操作时需要满足较多规则，<a href="http://pzh9527.iteye.com/blog/2386925" target="_blank" rel="external">规则详情查看</a> 这里不做详细说明。</p>
-<p>8种内存访问操作以及上述规定以及完全确定了JAVA程序中那些内存访问操作在并发下是安全的。由于过于严谨，实践起来很麻烦，所以此篇文章将介绍这种定义的一个等效判断原则————先行发生原则，来确认一个访问在并发环境下是否安全。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>对于用户的线程切换而言，其模式切换到饿开销较大，在同一个进程中，从一个线程切换到另一个线程时，需要从用户态转到核心态进行，这是因为用户的线程在用户态运行，而线程调度和管理实在内核中实现的，系统开销较大。</p>
+<h3 id="使用用户线程实现"><a href="#使用用户线程实现" class="headerlink" title="使用用户线程实现"></a>使用用户线程实现</h3><p>LWP虽然本质上属于用户线程，但LWP线程库是建立在内核之上的，LWP的许多操作都要进行系统调用，因此效率不高。而这里的用户线程指的是完全建立在用户空间的线程库，用户线程的建立，同步，销毁，调度完全在用户空间完成，不需要内核的帮助。因此这种线程的操作是极其快速的且低消耗的。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flne300p6hj308805mt8n.jpg" alt="进程与用户线程之间的1:N的关系"></p>
+<p>从中可以看出，进程中包含线程，用户线程在用户空间中实现，内核并没有直接对用户线程进程调度，内核的调度对象和传统进程一样，还是进程本身，内核并不知道用户线程的存在。用户线程之间的调度由在用户空间实现的线程库实现。</p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>可以在不支持线程的操作系统中实现。</li>
+<li>创建和销毁线程、线程切换代价等线程管理的代价比内核线程少得多, 因为保存线程状态的过程和调用程序都只是本地过程</li>
+<li>允许每个进程定制自己的调度算法，线程管理比较灵活。这就是必须自己写管理程序，与内核线程的区别</li>
+<li>线程能够利用的表空间和堆栈空间比内核级线程多</li>
+<li>不需要陷阱，不需要上下文切换，也不需要对内存高速缓存进行刷新，使得线程调用非常快捷</li>
+<li>线程的调度不需要内核直接参与，控制简单。</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>线程发生I/O或页面故障引起的阻塞时，如果调用阻塞系统调用则内核由于不知道有多线程的存在，而会阻塞整个进程从而阻塞所有线程, 因此同一进程中只能同时有一个线程在运行</li>
+<li>页面失效也会产生类似的问题。</li>
+<li>一个单独的进程内部，没有时钟中断，所以不可能用轮转调度的方式调度线程</li>
+<li>资源调度按照进程进行，多个处理机下，同一个进程中的线程只能在同一个处理机下分时复用</li>
+</ul>
+<blockquote>
+<p>补充<br>在用户级线程中，每个进程里的线程表由运行时系统管理。当一个线程转换到就绪状态或阻塞状态时，在该线程表中存放重新启动该线程所需的信息，与内核在进程表中存放的进程的信息完全一样</p>
+</blockquote>
+<h3 id="使用用户线程加轻量级进程混合实现"><a href="#使用用户线程加轻量级进程混合实现" class="headerlink" title="使用用户线程加轻量级进程混合实现"></a>使用用户线程加轻量级进程混合实现</h3><p>这种模型对应着恐龙书中多对多模型。用户线程库还是完全建立在用户空间中，因此用户线程的操作还是很廉价，因此可以建立任意多需要的用户线程。操作系统提供了 LWP 作为用户线程和内核线程之间的桥梁。 LWP 还是和前面提到的一样，具有内核线程支持，是内核的调度单元，并且用户线程的系统调用要通过 LWP ，因此进程中某个用户线程的阻塞不会影响整个进程的执行。用户线程库将建立的用户线程关联到 LWP 上， LWP 与用户线程的数量不一定一致。当内核调度到某个 LWP 上时，此时与该 LWP 关联的用户线程就被执行。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg" alt="用户线程与轻量级进程之间的N:M的关系"></p>
+<h2 id="JAVA线程调度"><a href="#JAVA线程调度" class="headerlink" title="JAVA线程调度"></a>JAVA线程调度</h2><p>进程调度属于低级调度，用来决定就绪队列中的那个进程获取处理器，然后有分派程序将执行把处理器分派给该进程的具体操作。进程调度的方式有两个非抢占式调度和抢占式调度</p>
+<h3 id="非抢占方式-Non-preemptive-Mode"><a href="#非抢占方式-Non-preemptive-Mode" class="headerlink" title="非抢占方式(Non-preemptive Mode)"></a>非抢占方式(Non-preemptive Mode)</h3><p><strong>概念:</strong> 当某一进程正在处理机上执行时，即使有某个更为重要或紧迫的进程进入就绪队列，该进程仍继续执行，直到其完成或发生某种事件而进入完成或阻 塞状态时，才把处理机分配给更为重要或紧迫的进程 </p>
+<p><strong>引起进程调度的因素:</strong></p>
+<ul>
+<li>正在执行的进程执行完毕， 或因发生某事件而不能再继续执行 </li>
+<li>执行中的进程因提出I/O请求而暂停执行； </li>
+<li>在进程通信或同步过程中执行了某种原语操作，如wait、Block、Wakeup原语 </li>
+</ul>
+<p><strong>优点:</strong> 算法简单，系统开销小 </p>
+<p><strong>缺点:</strong> 紧急任务不能及时响应；短进程到达要等待长进程运行结束<br>适用于大多数批处理系统环境 </p>
+<h3 id="抢占方式-Preemptive-Mode"><a href="#抢占方式-Preemptive-Mode" class="headerlink" title="抢占方式(Preemptive Mode)"></a>抢占方式(Preemptive Mode)</h3><p><strong>概念:</strong> 当某一进程正在处理机上执行时，若有某个更为重要或紧迫的进程进入就绪队列，则立即暂停正在执行的进程，将处理机分配给这个更为重要或紧迫的进程 </p>
+<p><strong>抢占式调度主要有以下原则</strong></p>
+<ul>
+<li>优先权原则 允许高优先权的新到进程抢占当前进程的处理机 </li>
+<li>短作业(进程)优先原则允许执行时间短的新到进程抢占当前进程的处理机 </li>
+<li>时间片原则 时间片用完后停止执行，重新进行调度，适用于分时系统</li>
+</ul>
+<p><strong>优点：</strong> 适于时间要求严格的实时系统 </p>
+<p><strong>缺点：</strong> 调度算法复杂，系统开销大</p>
+<h2 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h2><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg" alt=""></p>
+<p><strong>线程间的状态转换：</strong> </p>
+<ol>
+<li><p>新建(new)：新创建了一个线程对象。</p>
+</li>
+<li><p>可运行(runnable)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
+</li>
+<li><p>运行(running)：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
+</li>
+<li><p>阻塞(block)：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种： </p>
+<ul>
+<li>等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中。</li>
+<li>同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。</li>
+<li>其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</li>
+</ul>
+</li>
+<li><p>死亡(dead)：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</p>
+</li>
+</ol>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg" alt=""></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>并发编程网：<a href="http://ifeve.com/java-memory-model-6/" target="_blank" rel="external">Java内存模型</a></li>
-<li>iteye：<a href="http://pzh9527.iteye.com/blog/2386925" target="_blank" rel="external">Java内存模型JMM之一内存交互操作</a></li>
+<li>CSDN:  <a href="http://blog.csdn.net/ylyuanlu/article/details/9115073" target="_blank" rel="external">linux内核线程、轻量级进程和用户进程</a></li>
+<li>CSDN: <a href="http://blog.csdn.net/gatieme/article/details/51892437" target="_blank" rel="external">线程的3种实现方式–内核级线程, 用户级线程和混合型线程</a></li>
+<li>计算机操作系统（第四版）2.8.1/3.3.1</li>
 <li>深入理解Java虚拟机：JVM高级特性与最佳实践（第二版）</li>
+<li>CSDN ：<a href="http://blog.csdn.net/u011774517/article/details/61418550" target="_blank" rel="external">进程调度方式</a></li>
+<li>OSChina：<a href="https://my.oschina.net/mingdongcheng/blog/139263" target="_blank" rel="external">一张图让你看懂JAVA线程间的状态转换</a></li>
+<li>今日头条：<a href="https://www.toutiao.com/i6368772681411592706/" target="_blank" rel="external">Java线程状态转换</a></li>
 </ul>
 
         
@@ -374,7 +364,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://caoler.cn/blog/2017/JAVA内存模型.html" data-id="cja3kp6cg00064welx3jqjufd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://caoler.cn/blog/2017/JAVA与线程.html" data-id="cja6g34ta0000a0el7g3z7g3f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -442,7 +432,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="https://caoler.cn/blog/2017/JAVA内存模型.html#comments" id="sourceId::/blog/2017/JAVA内存模型.html" class="article-comment-link cy_cmt_count">评论</a>
+        <a href="https://caoler.cn/blog/2017/JAVA与线程.html#comments" id="sourceId::/blog/2017/JAVA与线程.html" class="article-comment-link cy_cmt_count">评论</a>
     
 
         </footer>
@@ -451,19 +441,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/blog/2017/Volatile型变量的语义解释.html" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    JVM学习笔记 - Volatile型变量的语义解释
-                
-            </div>
-        </a>
     
-    
-        <a href="/blog/2017/全站开启HTTPS加密模式访问.html" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2017/先行发生原则（Happens-before）.html" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">全站开启HTTPS加密模式访问</div>
+            <div class="article-nav-title">JVM学习笔记 - 先行并发原则</div>
         </a>
     
 </nav>
@@ -476,7 +457,7 @@ var _hmt = _hmt || [];
     
     
         <section id="comments">
-    <div id="SOHUCS" sid="/blog/2017/JAVA内存模型.html"></div>
+    <div id="SOHUCS" sid="/blog/2017/JAVA与线程.html"></div>
 </section>
     
 
