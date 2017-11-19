@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljyz7yuqbj30od09v74s.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fljynkoplcj30mp0ao0t4.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fljzjvie8jj30nr0af0u2.jpg">
-<meta property="og:updated_time" content="2017-11-19T07:42:19.446Z">
+<meta property="og:updated_time" content="2017-11-19T07:44:22.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM学习笔记 - Java内存模型">
 <meta name="twitter:description" content="并发处理的广泛应用是使得Amdahl定律代替摩尔定律成为计算机性能发展源动力的根本原因，也是人类“压榨”计算机运算能力的最有力武器。 概述Java内存模型规范了Java虚拟机与计算机内存是如何协同工作的。Java虚拟机是一个完整的计算机的一个模型，因此这个模型自然也包含一个内存模型——又称为Java内存模型。 如果你想设计表现良好的并发程序，理解Java内存模型是非常重要的。Java内存模型规定了">
@@ -359,7 +359,7 @@ var _hmt = _hmt || [];
 </table>
 <p>线程、工作内存、主内存三者的交互关系如下图所示：<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fljzjvie8jj30nr0af0u2.jpg" alt=""></p>
 <p>JAVA内存模型规定上述操作必须按顺序执行，但是没有保证是连续执行，也就说其中某连续两个操作之间可以插入其他指令，除此之外JAVA内存模型还规定执行上述操作时需要满足较多规则，<a href="http://pzh9527.iteye.com/blog/2386925" target="_blank" rel="external">规则详情查看</a> 这里不做详细说明。</p>
-<p>8种内存访问操作以及上述规定以及完全确定了JAVA程序中那些内存访问操作在并发下是安全的。由于过于严谨，实践起来很麻烦，所以<a href="https://caoler.cn/blog/2017/%E5%85%88%E8%A1%8C%E5%8F%91%E7%94%9F%E5%8E%9F%E5%88%99%EF%BC%88Happens-before%EF%BC%89.html">此篇文章</a>将介绍这种定义的一个等效判断原则————先行发生原则，来确认一个访问在并发环境下是否安全。</p>
+<p>8种内存访问操作以及上述规定以及完全确定了JAVA程序中那些内存访问操作在并发下是安全的。由于过于严谨，实践起来很麻烦，所以 <a href="https://caoler.cn/blog/2017/%E5%85%88%E8%A1%8C%E5%8F%91%E7%94%9F%E5%8E%9F%E5%88%99%EF%BC%88Happens-before%EF%BC%89.html">此篇文章</a> 将介绍这种定义的一个等效判断原则————先行发生原则，来确认一个访问在并发环境下是否安全。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>并发编程网：<a href="http://ifeve.com/java-memory-model-6/" target="_blank" rel="external">Java内存模型</a></li>
 <li>iteye：<a href="http://pzh9527.iteye.com/blog/2386925" target="_blank" rel="external">Java内存模型JMM之一内存交互操作</a></li>
