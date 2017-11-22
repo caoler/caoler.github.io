@@ -14,7 +14,7 @@
 <meta property="og:description" content="概述线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。 例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题： 通过共享对象通信线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flr17ajfdjj30a4083t8r.jpg">
-<meta property="og:updated_time" content="2017-11-22T10:28:42.331Z">
+<meta property="og:updated_time" content="2017-11-22T10:31:58.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM学习笔记 - 线程通信">
 <meta name="twitter:description" content="概述线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。 例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题： 通过共享对象通信线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步">
@@ -237,7 +237,7 @@ var _hmt = _hmt || [];
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/blog/2017/线程通信.html">
-            <time datetime="2017-11-22T10:26:00.000Z" itemprop="datePublished">2017-11-22</time>
+            <time datetime="2017-11-22T10:31:00.000Z" itemprop="datePublished">2017-11-22</time>
         </a>
     </div>
 
@@ -270,6 +270,7 @@ var _hmt = _hmt || [];
             <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。</p>
 <p>例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题：</p>
 <h3 id="通过共享对象通信"><a href="#通过共享对象通信" class="headerlink" title="通过共享对象通信"></a>通过共享对象通信</h3><p>线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步块里读取hasDataToProcess这个成员变量。这个简单的例子使用了一个持有信号的对象，并提供了set和check方法:</p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySignal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">boolean</span> hasDataToProcess = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">hasDataToProcess</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.hasDataToProcess;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setHasDataToProcess</span><span class="params">(<span class="keyword">boolean</span> hasData)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.hasDataToProcess = hasData;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>线程A和B必须获得指向一个MySignal共享实例的引用，以便进行通信。如果它们持有的引用指向不同的MySingal实例，那么彼此将不能检测到对方的信号。需要处理的数据可以存放在一个共享缓存区里，它和MySignal实例是分开存放的。</p>
 <h3 id="忙等待"><a href="#忙等待" class="headerlink" title="忙等待"></a>忙等待</h3><p>准备处理数据的线程B正在等待数据变为可用。换句话说，它在等待线程A的一个信号，这个信号使hasDataToProcess()返回true。线程B运行在一个循环里，以等待这个信号：</p>
@@ -384,19 +385,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/blog/2017/线程安全及其实现方法.html" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    JVM学习笔记 - 线程安全及其实现方法
-                
-            </div>
-        </a>
     
-    
-        <a href="/blog/2017/使用WMITool解决浏览器主页被hao123劫持问题.html" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2017/线程安全及其实现方法.html" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">使用WMITool解决浏览器主页被hao123劫持问题</div>
+            <div class="article-nav-title">JVM学习笔记 - 线程安全及其实现方法</div>
         </a>
     
 </nav>
@@ -427,6 +419,25 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/blog/2017/线程通信.html" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JVM/">JVM</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JVM/线程通信/">线程通信</a></p>
+                            <p class="item-title"><a href="/blog/2017/线程通信.html" class="title">JVM学习笔记 - 线程通信</a></p>
+                            <p class="item-date"><time datetime="2017-11-22T10:31:00.000Z" itemprop="datePublished">2017-11-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/blog/2017/线程安全及其实现方法.html" class="thumbnail">
     
     
@@ -440,25 +451,6 @@ var _hmt = _hmt || [];
                             <p class="item-category"><a class="article-category-link" href="/categories/JVM/">JVM</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JVM/线程安全/">线程安全</a></p>
                             <p class="item-title"><a href="/blog/2017/线程安全及其实现方法.html" class="title">JVM学习笔记 - 线程安全及其实现方法</a></p>
                             <p class="item-date"><time datetime="2017-11-22T10:28:00.000Z" itemprop="datePublished">2017-11-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/线程通信.html" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JVM/">JVM</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JVM/线程通信/">线程通信</a></p>
-                            <p class="item-title"><a href="/blog/2017/线程通信.html" class="title">JVM学习笔记 - 线程通信</a></p>
-                            <p class="item-date"><time datetime="2017-11-22T10:26:00.000Z" itemprop="datePublished">2017-11-22</time></p>
                         </div>
                     </li>
                 
