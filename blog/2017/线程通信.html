@@ -6,7 +6,7 @@
     <title>JVM学习笔记 - 线程通信 | Caole&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="概述线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。 例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题： 通过共享对象通信线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步">
-<meta name="keywords" content="JVM,转载">
+<meta name="keywords" content="转载,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM学习笔记 - 线程通信">
 <meta property="og:url" content="https://caoler.cn/blog/2017/线程通信.html">
@@ -14,7 +14,7 @@
 <meta property="og:description" content="概述线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。 例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题： 通过共享对象通信线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flr17ajfdjj30a4083t8r.jpg">
-<meta property="og:updated_time" content="2017-11-22T10:31:58.243Z">
+<meta property="og:updated_time" content="2017-11-26T08:34:25.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM学习笔记 - 线程通信">
 <meta name="twitter:description" content="概述线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。 例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题： 通过共享对象通信线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步">
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过共享对象通信"><span class="toc-number">1.1.</span> <span class="toc-text">通过共享对象通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忙等待"><span class="toc-number">1.2.</span> <span class="toc-text">忙等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wait-notify-和notifyAll"><span class="toc-number">1.3.</span> <span class="toc-text">wait(),notify()和notifyAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#丢失的信号"><span class="toc-number">1.4.</span> <span class="toc-text">丢失的信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假唤醒"><span class="toc-number">1.5.</span> <span class="toc-text">假唤醒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程等待相同信号"><span class="toc-number">1.6.</span> <span class="toc-text">多线程等待相同信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要对常量字符串或全局对象调用wait"><span class="toc-number">1.7.</span> <span class="toc-text">不要对常量字符串或全局对象调用wait()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过共享对象通信"><span class="toc-number">1.1.</span> <span class="toc-text">通过共享对象通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忙等待"><span class="toc-number">1.2.</span> <span class="toc-text">忙等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wait-notify-和notifyAll"><span class="toc-number">1.3.</span> <span class="toc-text">wait(),notify()和notifyAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#丢失的信号"><span class="toc-number">1.4.</span> <span class="toc-text">丢失的信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假唤醒"><span class="toc-number">1.5.</span> <span class="toc-text">假唤醒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程等待相同信号"><span class="toc-number">1.6.</span> <span class="toc-text">多线程等待相同信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要对常量字符串或全局对象调用wait"><span class="toc-number">1.7.</span> <span class="toc-text">不要对常量字符串或全局对象调用wait()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等待-通知机制-总结"><span class="toc-number">2.</span> <span class="toc-text">等待/通知机制 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相关方法"><span class="toc-number">2.1.</span> <span class="toc-text">相关方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码清单"><span class="toc-number">2.2.</span> <span class="toc-text">代码清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用wait-notify注意事项和问题"><span class="toc-number">2.3.</span> <span class="toc-text">使用wait/notify注意事项和问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等待-通知的经典范式"><span class="toc-number">2.4.</span> <span class="toc-text">等待/通知的经典范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
             <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。</p>
@@ -298,7 +298,80 @@ var _hmt = _hmt || [];
 <p>本文早期的一个版本在MyWaitNotify例子里使用字符串常量（””）作为管程对象。以下是那个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWaitNotify3</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">  String myMonitorObject = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">boolean</span> wasSignalled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doWait</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(myMonitorObject)&#123;</span><br><span class="line">      <span class="keyword">while</span>(!wasSignalled)&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">          myMonitorObject.wait();</span><br><span class="line">         &#125; <span class="keyword">catch</span>(InterruptedException e)&#123;...&#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//clear signal and continue running.</span></span><br><span class="line">      wasSignalled = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doNotify</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(myMonitorObject)&#123;</span><br><span class="line">      wasSignalled = <span class="keyword">true</span>;</span><br><span class="line">      myMonitorObject.notify();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在空字符串作为锁的同步块(或者其他常量字符串)里调用wait()和notify()产生的问题是，JVM/编译器内部会把常量字符串转换成同一个对象。这意味着，即使你有2个不同的MyWaitNotify实例，它们都引用了相同的空字符串实例。同时也意味着存在这样的风险：在第一个MyWaitNotify实例上调用doWait()的线程会被在第二个MyWaitNotify实例上调用doNotify()的线程唤醒。这种情况可以画成以下这张图：</p>
 <p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flr17ajfdjj30a4083t8r.jpg" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>转载自并发编程网 – <a href="http://ifeve.com" target="_blank" rel="external">ifeve.com</a>本文链接地址: <a href="http://ifeve.com/thread-signaling/strings-wait-notify/" target="_blank" rel="external">strings-wait-notify</a></p>
+<h2 id="等待-通知机制-总结"><a href="#等待-通知机制-总结" class="headerlink" title="等待/通知机制 总结"></a>等待/通知机制 总结</h2><h3 id="相关方法"><a href="#相关方法" class="headerlink" title="相关方法"></a>相关方法</h3><table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notify()</td>
+<td>通知一个在对象上等待的线程，由WAITING状态变为BLOCKING状态，从等待队列移动到同步队列，等待CPU调度获取该对象的锁，当该线程获取到了对象的锁后，该线程从wait()方法返回</td>
+</tr>
+<tr>
+<td>notifyAll()</td>
+<td>通知所有等待在该对象上的线程，由WAITING状态变为BLOCKING状态，等待CPU调度获取该对象的锁</td>
+</tr>
+<tr>
+<td>wait()</td>
+<td>调用该方法的线程进入WAITING状态，并将当前线程放置到对象的等待队列，只有等待另外线程的通知或被中断才会返回，需要注意，调用wait()方法后，会释放对象的锁</td>
+</tr>
+<tr>
+<td>wait(long)</td>
+<td>超时等待一段时间，这里的参数时间是毫秒，也就是等待长达n毫秒，如果没有通知就超时返回</td>
+</tr>
+<tr>
+<td>wait(long，int)</td>
+<td>对于超时时间更细力度的控制，可以达到纳秒</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码清单"><a href="#代码清单" class="headerlink" title="代码清单"></a>代码清单</h3><p>如下代码本人觉得更加清晰<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.caoler.WaitNotify;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Caole</span></span><br><span class="line"><span class="comment"> * CreateDateTime: 2017/11/23 12:43</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitNotify</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">static</span> Object lock = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread waitThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Wait(), <span class="string">"WaitThread"</span>);</span><br><span class="line">        waitThread.start();</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        Thread notifyThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Notify(), <span class="string">"NotifyThread"</span>);</span><br><span class="line">        notifyThread.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Wait</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">//加锁，拥有lock的Monitor</span></span><br><span class="line">            <span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">                <span class="comment">//当条件不满足时继续wait，同时释放了lock的锁</span></span><br><span class="line">                <span class="keyword">while</span> (flag)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(Thread.currentThread() + <span class="string">"flag is true .wait@"</span></span><br><span class="line">                         + <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>).format(<span class="keyword">new</span> Date()));</span><br><span class="line">                        lock.wait();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//条件满足时，完成工作</span></span><br><span class="line">                System.out.println(Thread.currentThread() + <span class="string">"flag is false .running@"</span></span><br><span class="line">                 + <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>).format(<span class="keyword">new</span> Date()));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Notify</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">//加锁，拥有lock的Monitor</span></span><br><span class="line">            <span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">                <span class="comment">//获取lock的锁，然后进行通知，通知时不会释放lock的锁</span></span><br><span class="line">                <span class="comment">//直到当前线程释放了lock锁之后，WaitThread才能从wait方法中返回</span></span><br><span class="line">                System.out.println(Thread.currentThread() + <span class="string">"hold lock .notify @"</span></span><br><span class="line">                        + <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>).format(<span class="keyword">new</span> Date()));</span><br><span class="line">                lock.notifyAll();</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                SleepUtils.second(<span class="number">5</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//再次加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread() + <span class="string">"hold lock again .sleep @"</span></span><br><span class="line">                        + <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>).format(<span class="keyword">new</span> Date()));</span><br><span class="line">                SleepUtils.second(<span class="number">5</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出如下：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Thread</span><span class="selector-attr">[WaitThread,5,main]</span><span class="selector-tag">flag</span> <span class="selector-tag">is</span> <span class="selector-tag">true</span> <span class="selector-class">.wait</span>@<span class="selector-tag">15</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:24</span></span><br><span class="line"><span class="selector-tag">Thread</span><span class="selector-attr">[NotifyThread,5,main]</span><span class="selector-tag">hold</span> <span class="selector-tag">lock</span> <span class="selector-class">.notify</span> @<span class="selector-tag">15</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:24</span></span><br><span class="line"><span class="selector-tag">Thread</span><span class="selector-attr">[NotifyThread,5,main]</span><span class="selector-tag">hold</span> <span class="selector-tag">lock</span> <span class="selector-tag">again</span> <span class="selector-class">.sleep</span> @<span class="selector-tag">15</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:30</span></span><br><span class="line"><span class="selector-tag">Thread</span><span class="selector-attr">[WaitThread,5,main]</span><span class="selector-tag">flag</span> <span class="selector-tag">is</span> <span class="selector-tag">false</span> <span class="selector-class">.running</span>@<span class="selector-tag">15</span><span class="selector-pseudo">:54</span><span class="selector-pseudo">:35</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用wait-notify注意事项和问题"><a href="#使用wait-notify注意事项和问题" class="headerlink" title="使用wait/notify注意事项和问题"></a>使用wait/notify注意事项和问题</h3><ul>
+<li><p>执行完wait后会释放锁， 在执行notify()方法后，当前线程不会立刻释放该对象锁。呈wait状态的线程并不能马上获取该对象锁，要等执行notify()方法的线程将程序执行完，也就是退出synchronized代码块后，当前线程才会释放锁。</p>
+</li>
+<li><p>在调用wait()或notify()方法之前，必须获得该对象的对象级别锁，即只能在同步方法或者同步块中调用wait()方法，在执行wait()方法之后，当前线程释放锁。</p>
+</li>
+<li><p>在调用notify通知某线程后，该线程不会立即进入Running状态，而是先进入Runnable状态。</p>
+</li>
+<li><p>notify每次仅通知一个线程，多次调用可将wait线程全部唤醒。</p>
+</li>
+<li><p>当线程呈wait状态时，调用线程对象的interrupt方法会抛出InterruptedException异常。</p>
+</li>
+<li><p>通知过早: 如果通知过早，会打乱程序正常运行逻辑。</p>
+</li>
+</ul>
+<h3 id="等待-通知的经典范式"><a href="#等待-通知的经典范式" class="headerlink" title="等待/通知的经典范式"></a>等待/通知的经典范式</h3><p>从前断示例中可以提炼出等待/通知经典范式，该范式分为两部分，分别为等待方(消费者)和通知方（生产者）。</p>
+<ul>
+<li><p>等待方遵循如下原则。</p>
+<ol>
+<li>获取对象的锁</li>
+<li>如果条件不满足，那么调用对象的<code>wait()</code>方法，被通知后仍要检查条件。</li>
+<li><p>条件满足则执行对应的逻辑。</p>
+<p>对应的伪代码如下</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">synchronized</span>(对象)&#123;</span><br><span class="line">    <span class="selector-tag">while</span>(不满足)&#123;</span><br><span class="line">        对象<span class="selector-class">.wait</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    对应的处理逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>通知方遵循如下原则</p>
+<ol>
+<li>获得对象的锁</li>
+<li>改变条件</li>
+<li><p>通知所有等待在对象上的线程</p>
+<p>对应的伪代码如下：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">synchronized</span>(对象)&#123;</span><br><span class="line">    改变条件</span><br><span class="line">    对象<span class="selector-class">.notifyAll</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>自并发编程网 – <a href="http://ifeve.com" target="_blank" rel="external">ifeve.com</a>本文链接地址: <a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="external">strings-wait-notify</a></li>
+<li>JAVA并发编程的艺术（方腾飞） 4.3.2节</li>
+</ul>
 
         
        <footer class="article-footer">
@@ -308,7 +381,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="https://caoler.cn/blog/2017/线程通信.html" data-id="cjaawqj680001cselj3q2w39g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://caoler.cn/blog/2017/线程通信.html" data-id="cjagih5do000whwelk58o326f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -440,7 +513,7 @@ var _hmt = _hmt || [];
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/实用教程/">实用教程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/实用教程/科学上网/">科学上网</a></p>
                             <p class="item-title"><a href="/blog/2017/基于SSR的科学上网教程.html" class="title">基于SSR的科学上网教程(置顶至12月1日)</a></p>
-                            <p class="item-date"><time datetime="2017-11-24T08:38:00.000Z" itemprop="datePublished">2017-11-24</time></p>
+                            <p class="item-date"><time datetime="2017-12-24T08:38:00.000Z" itemprop="datePublished">2017-12-24</time></p>
                         </div>
                     </li>
                 
@@ -538,7 +611,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">18</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">17</span></li></ul>
         </div>
     </div>
 
