@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caoler.cn/"/>
-  <updated>2017-11-26T08:39:00.760Z</updated>
+  <updated>2017-11-27T05:38:52.479Z</updated>
   <id>https://caoler.cn/</id>
   
   <author>
@@ -15,35 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>基于SSR的科学上网教程(置顶至12月1日)</title>
-    <link href="https://caoler.cn//blog/2017/%E5%9F%BA%E4%BA%8ESSR%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B.html"/>
-    <id>https://caoler.cn//blog/2017/基于SSR的科学上网教程.html</id>
-    <published>2017-12-24T08:38:00.000Z</published>
-    <updated>2017-11-26T08:39:00.760Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="PC客户端"><a href="#PC客户端" class="headerlink" title="PC客户端"></a>PC客户端</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1dFzus4h" target="_blank" rel="external">https://pan.baidu.com/s/1dFzus4h</a> 密码: bfrd</p><h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>将压缩包内文件解压到一个固定位置会后，选择<code>ShadowsocksR-dotnet4.0.exe</code> 打开客户端。</p><p>这时候，右下角托盘图标会出现一个纸飞机，<strong>然后右键 纸飞机 图标</strong>，弹出菜单并选择 <code>服务器 —— 编辑服务器</code>。</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg" alt=""></p><a id="more"></a><p>然后就会出现 <strong>编辑服务器的窗口</strong>，默认是有一个节点配置示例的，你可以 直接改 或者 删掉 新添加一个服务器。</p><p>然后就是填写Shadowsocks账号信息。</p><p>依次填写 <strong>服务器 IP、服务器端口、密码、加密方式</strong>，如果你的账号是原版Shadowsocks，那么写到这里就行了。</p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p>如果你的账号是ShadowsocksR账号，那么根据ShadowsocksR账号信息，选择对应的协议和混淆（origin/plain是原版SS的意思）</p><p>根据需要，你可以填写 备注 和 Group（分组） ，具体效果自己试一下就知道了。</p><p>密码前面的 选择框 是明文显示密码的意思。</p><hr><p>然后一些人会问为什么右边显示二维码的地方老是显示一个图片却不显示二维码？</p><p>实际上主要是很多人截图不知道打码，暴露了自己的Shadowsocks账号所有信息，所以默认都是不显示二维码的，只要点击 下图蓝条选中的SSR链接输入框，就会显示二维码了。</p><p>而SSR链接前面的 选择框 ，勾选代表是显示SSR的二维码，不勾选则显示SS的二维码。</p><p>填写完毕后，点击 确定 按钮，继续下一步。</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg" alt=""></p><h3 id="选择服务器"><a href="#选择服务器" class="headerlink" title="选择服务器"></a>选择服务器</h3><p>右键 纸飞机 图标，出现菜单并选择 <code>服务器 —— 分组(empty group) —— 要使用的Shadowsocks账号</code>。(如果没有设置分组，直接选择要连接的服务器即可)</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg" alt=""></p><p>右键 纸飞机 图标弹出菜单并选择<code>系统代理模式 —— PAC模式</code> </p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg" alt=""></p><p>代理规则选 <strong>用户自定义</strong></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg" alt=""></p><blockquote><p>目前ShadowsocksR客户端的国内外分流规则分两种，PAC规则（系统代理模式） 和 代理规则<br>PAC规则 是根据PAC文件中的黑白地址名单来判断那些网站走代理，也就是判断 流量数据是进入SSR客户端还是直连。<br>代理规则 是根据IP判断，分 绕过局域网/绕过局域网和大陆/绕过局域网和非大陆 ，用于判断 进入SSR客户端的数据流量是走代理还是直连。</p></blockquote><p>至此，PC端设置完毕。点击试试看：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h3 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h3><p>右键选择选项设置</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg" alt=""></p><p>选择开机自启，设置开机自启后，只要电脑一开机就可以直接访问google了</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg" alt=""></p><h2 id="iOS客户端"><a href="#iOS客户端" class="headerlink" title="iOS客户端"></a>iOS客户端</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><ul><li>方式一：登录美区AppStore，购买并下载shadowrocket（18RMB）</li><li>方式二：使用电脑下载PP助手并安装，官网：<a href="https://pro.25pp.com/" target="_blank" rel="external">https://pro.25pp.com/</a></li></ul><p>连接手机之后搜索shadowrocket并安装</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg" alt=""></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开shadowrocket，点击右上角加号</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg" alt=""></p><p><strong>类型选择shadowrocksR</strong> 输入账号密码，以及混淆参数等等。</p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg" alt=""></p><p>在首页全局路由处选择<code>配置</code></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg" alt=""></p><p>点击连接即可。</p><p>至此iOS端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h2 id="安卓客户端"><a href="#安卓客户端" class="headerlink" title="安卓客户端"></a>安卓客户端</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1i5vi3tz" target="_blank" rel="external">https://pan.baidu.com/s/1i5vi3tz</a> 密码: 9y9t</p><h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装之后配置你的服务器信息，<strong>远程端口为我给你的端口，本地端口为默认1080</strong></p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg" alt=""></p><p>路由处选择如图所示绕过局域网和大陆，如果不能上网，再设置为全局</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg" alt=""></p><p>当处于全局状态时，手机消耗的所有数据将使用那50G流量，也可切换为<code>仅代理为中国大陆无法访问的网址</code></p><p>点击右上角小飞机，同意连接之后，即可成功FQ<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg" alt=""></p><p>至此，安卓客户端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>设置切记按照文章中所说的一步一步操作，尤其是PC端的选择PAC，iOS端的配置，还有安卓客户端的路由选项</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;PC客户端&quot;&gt;&lt;a href=&quot;#PC客户端&quot; class=&quot;headerlink&quot; title=&quot;PC客户端&quot;&gt;&lt;/a&gt;PC客户端&lt;/h2&gt;&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;链接: &lt;a href=&quot;https://pan.baidu.com/s/1dFzus4h&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://pan.baidu.com/s/1dFzus4h&lt;/a&gt; 密码: bfrd&lt;/p&gt;
-&lt;h3 id=&quot;添加服务器&quot;&gt;&lt;a href=&quot;#添加服务器&quot; class=&quot;headerlink&quot; title=&quot;添加服务器&quot;&gt;&lt;/a&gt;添加服务器&lt;/h3&gt;&lt;p&gt;将压缩包内文件解压到一个固定位置会后，选择&lt;code&gt;ShadowsocksR-dotnet4.0.exe&lt;/code&gt; 打开客户端。&lt;/p&gt;
-&lt;p&gt;这时候，右下角托盘图标会出现一个纸飞机，&lt;strong&gt;然后右键 纸飞机 图标&lt;/strong&gt;，弹出菜单并选择 &lt;code&gt;服务器 —— 编辑服务器&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="实用教程" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="科学上网" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-    
-      <category term="原创" scheme="https://caoler.cn/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-      <category term="科学上网" scheme="https://caoler.cn/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-  </entry>
   
   <entry>
     <title>join()方法和TheadLocal类</title>
@@ -109,6 +80,35 @@
       <category term="转载" scheme="https://caoler.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
       <category term="死锁" scheme="https://caoler.cn/tags/%E6%AD%BB%E9%94%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于SSR的科学上网教程(置顶至12月1日)</title>
+    <link href="https://caoler.cn//blog/2017/%E5%9F%BA%E4%BA%8ESSR%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B.html"/>
+    <id>https://caoler.cn//blog/2017/基于SSR的科学上网教程.html</id>
+    <published>2017-11-24T08:38:00.000Z</published>
+    <updated>2017-11-27T12:17:19.698Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PC客户端"><a href="#PC客户端" class="headerlink" title="PC客户端"></a>PC客户端</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1dFzus4h" target="_blank" rel="external">https://pan.baidu.com/s/1dFzus4h</a> 密码: bfrd</p><h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>将压缩包内文件解压到一个固定位置会后，选择<code>ShadowsocksR-dotnet4.0.exe</code> 打开客户端。</p><p>这时候，右下角托盘图标会出现一个纸飞机，<strong>然后右键 纸飞机 图标</strong>，弹出菜单并选择 <code>服务器 —— 编辑服务器</code>。</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg" alt=""></p><a id="more"></a><p>然后就会出现 <strong>编辑服务器的窗口</strong>，默认是有一个节点配置示例的，你可以 直接改 或者 删掉 新添加一个服务器。</p><p>然后就是填写Shadowsocks账号信息。</p><p>依次填写 <strong>服务器 IP、服务器端口、密码、加密方式</strong>，如果你的账号是原版Shadowsocks，那么写到这里就行了。</p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p>如果你的账号是ShadowsocksR账号，那么根据ShadowsocksR账号信息，选择对应的协议和混淆（origin/plain是原版SS的意思）</p><p>根据需要，你可以填写 备注 和 Group（分组） ，具体效果自己试一下就知道了。</p><p>密码前面的 选择框 是明文显示密码的意思。</p><hr><p>然后一些人会问为什么右边显示二维码的地方老是显示一个图片却不显示二维码？</p><p>实际上主要是很多人截图不知道打码，暴露了自己的Shadowsocks账号所有信息，所以默认都是不显示二维码的，只要点击 下图蓝条选中的SSR链接输入框，就会显示二维码了。</p><p>而SSR链接前面的 选择框 ，勾选代表是显示SSR的二维码，不勾选则显示SS的二维码。</p><p>填写完毕后，点击 确定 按钮，继续下一步。</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg" alt=""></p><h3 id="选择服务器"><a href="#选择服务器" class="headerlink" title="选择服务器"></a>选择服务器</h3><p>右键 纸飞机 图标，出现菜单并选择 <code>服务器 —— 分组(empty group) —— 要使用的Shadowsocks账号</code>。(如果没有设置分组，直接选择要连接的服务器即可)</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg" alt=""></p><p>右键 纸飞机 图标弹出菜单并选择<code>系统代理模式 —— PAC模式</code> </p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg" alt=""></p><p>代理规则选 <strong>用户自定义</strong></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg" alt=""></p><blockquote><p>目前ShadowsocksR客户端的国内外分流规则分两种，PAC规则（系统代理模式） 和 代理规则<br>PAC规则 是根据PAC文件中的黑白地址名单来判断那些网站走代理，也就是判断 流量数据是进入SSR客户端还是直连。<br>代理规则 是根据IP判断，分 绕过局域网/绕过局域网和大陆/绕过局域网和非大陆 ，用于判断 进入SSR客户端的数据流量是走代理还是直连。</p></blockquote><p>至此，PC端设置完毕。点击试试看：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h3 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h3><p>右键选择选项设置</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg" alt=""></p><p>选择开机自启，设置开机自启后，只要电脑一开机就可以直接访问google了</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg" alt=""></p><h2 id="iOS客户端"><a href="#iOS客户端" class="headerlink" title="iOS客户端"></a>iOS客户端</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><ul><li>方式一：登录美区AppStore，购买并下载shadowrocket（18RMB）</li><li>方式二：使用电脑下载PP助手并安装，官网：<a href="https://pro.25pp.com/" target="_blank" rel="external">https://pro.25pp.com/</a></li></ul><p>连接手机之后搜索shadowrocket并安装</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg" alt=""></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开shadowrocket，点击右上角加号</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg" alt=""></p><p><strong>类型选择shadowrocksR</strong> 输入账号密码，以及混淆参数等等。</p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg" alt=""></p><p>在首页全局路由处选择<code>配置</code></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg" alt=""></p><p>点击连接即可。</p><p>至此iOS端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h2 id="安卓客户端"><a href="#安卓客户端" class="headerlink" title="安卓客户端"></a>安卓客户端</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1i5vi3tz" target="_blank" rel="external">https://pan.baidu.com/s/1i5vi3tz</a> 密码: 9y9t</p><h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装之后配置你的服务器信息，<strong>远程端口为我给你的端口，本地端口为默认1080</strong></p><blockquote><p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p></blockquote><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg" alt=""></p><p>路由处选择如图所示绕过局域网和大陆，如果不能上网，再设置为全局</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg" alt=""></p><p>当处于全局状态时，手机消耗的所有数据将使用那50G流量，也可切换为<code>仅代理为中国大陆无法访问的网址</code></p><p>点击右上角小飞机，同意连接之后，即可成功FQ<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg" alt=""></p><p>至此，安卓客户端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>设置切记按照文章中所说的一步一步操作，尤其是PC端的选择PAC，iOS端的配置，还有安卓客户端的路由选项</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;PC客户端&quot;&gt;&lt;a href=&quot;#PC客户端&quot; class=&quot;headerlink&quot; title=&quot;PC客户端&quot;&gt;&lt;/a&gt;PC客户端&lt;/h2&gt;&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;链接: &lt;a href=&quot;https://pan.baidu.com/s/1dFzus4h&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://pan.baidu.com/s/1dFzus4h&lt;/a&gt; 密码: bfrd&lt;/p&gt;
+&lt;h3 id=&quot;添加服务器&quot;&gt;&lt;a href=&quot;#添加服务器&quot; class=&quot;headerlink&quot; title=&quot;添加服务器&quot;&gt;&lt;/a&gt;添加服务器&lt;/h3&gt;&lt;p&gt;将压缩包内文件解压到一个固定位置会后，选择&lt;code&gt;ShadowsocksR-dotnet4.0.exe&lt;/code&gt; 打开客户端。&lt;/p&gt;
+&lt;p&gt;这时候，右下角托盘图标会出现一个纸飞机，&lt;strong&gt;然后右键 纸飞机 图标&lt;/strong&gt;，弹出菜单并选择 &lt;code&gt;服务器 —— 编辑服务器&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="实用教程" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="科学上网" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+    
+      <category term="原创" scheme="https://caoler.cn/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="科学上网" scheme="https://caoler.cn/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
