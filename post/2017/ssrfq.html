@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="原创,并发编程," />
+  <meta name="keywords" content="原创,科学上网," />
 
 
 
@@ -81,18 +81,33 @@
 
 
 
-<meta name="description" content="关键字volatile可以说是Java虚拟机提供的最轻量级的同步机制，但是它并不容易完全被正确、 完整地理解，以至于许多程序员都习惯不去使用它，遇到需要处理多线程数据竞争问题的时候一律使用synchronized来进行同步。 了解volatile变量的语义对后面了解多线程操作的其他特性很有意义，在这里我们将多花费一些时间去弄清楚volatile的语义到底是什么。 Java内存模型对volatile">
-<meta name="keywords" content="原创,并发编程">
+<meta name="description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
+<meta name="keywords" content="原创,科学上网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Volatile型变量的语义解释">
-<meta property="og:url" content="https://caoler.cn/post/2017/Volatile型变量的语义解释.html">
+<meta property="og:title" content="基于SSR的科学上网教程(置顶至12月1日)">
+<meta property="og:url" content="https://caoler.cn/post/2017/ssrfq.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="关键字volatile可以说是Java虚拟机提供的最轻量级的同步机制，但是它并不容易完全被正确、 完整地理解，以至于许多程序员都习惯不去使用它，遇到需要处理多线程数据竞争问题的时候一律使用synchronized来进行同步。 了解volatile变量的语义对后面了解多线程操作的其他特性很有意义，在这里我们将多花费一些时间去弄清楚volatile的语义到底是什么。 Java内存模型对volatile">
+<meta property="og:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T05:43:12.659Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg">
+<meta property="og:updated_time" content="2017-11-27T12:26:48.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Volatile型变量的语义解释">
-<meta name="twitter:description" content="关键字volatile可以说是Java虚拟机提供的最轻量级的同步机制，但是它并不容易完全被正确、 完整地理解，以至于许多程序员都习惯不去使用它，遇到需要处理多线程数据竞争问题的时候一律使用synchronized来进行同步。 了解volatile变量的语义对后面了解多线程操作的其他特性很有意义，在这里我们将多花费一些时间去弄清楚volatile的语义到底是什么。 Java内存模型对volatile">
+<meta name="twitter:title" content="基于SSR的科学上网教程(置顶至12月1日)">
+<meta name="twitter:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
 
 
 
@@ -122,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/post/2017/Volatile型变量的语义解释.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/ssrfq.html"/>
 
 
 
 
 
-  <title>Volatile型变量的语义解释 | Caole's blog</title>
+  <title>基于SSR的科学上网教程(置顶至12月1日) | Caole's blog</title>
   
 
 
@@ -303,13 +318,15 @@
   
   
   
+    
+  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal post-sticky" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/Volatile型变量的语义解释.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/ssrfq.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -326,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Volatile型变量的语义解释</h1>
+          <h1 class="post-title" itemprop="name headline">基于SSR的科学上网教程(置顶至12月1日)</h1>
         
 
         <div class="post-meta">
@@ -338,8 +355,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T16:41:00+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T16:38:00+08:00">
+                2017-11-24
               </time>
             
 
@@ -361,8 +378,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
                   </a>
                 </span>
 
@@ -372,8 +389,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/内存模型/" itemprop="url" rel="index">
-                    <span itemprop="name">内存模型</span>
+                  <a href="/categories/实用教程/科学上网/" itemprop="url" rel="index">
+                    <span itemprop="name">科学上网</span>
                   </a>
                 </span>
 
@@ -391,8 +408,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2017/Volatile型变量的语义解释.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/Volatile型变量的语义解释.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/ssrfq.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/ssrfq.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -425,18 +442,69 @@
       
 
       
-        <p>关键字volatile可以说是Java虚拟机提供的最轻量级的同步机制，但是它并不容易完全被正确、 完整地理解，以至于许多程序员都习惯不去使用它，遇到需要处理多线程数据竞争问题的时候一律使用synchronized来进行同步。 了解volatile变量的语义对后面了解多线程操作的其他特性很有意义，在这里我们将多花费一些时间去弄清楚volatile的语义到底是什么。</p>
-<p>Java内存模型对volatile专门定义了一些特殊的访问规则，在介绍这些比较拗口的规则定义之前，笔者先用不那么正式但通俗易懂的语言来介绍一下这个关键字的作用。</p>
+        <h2 id="PC客户端"><a href="#PC客户端" class="headerlink" title="PC客户端"></a>PC客户端</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1dFzus4h" target="_blank" rel="external">https://pan.baidu.com/s/1dFzus4h</a> 密码: bfrd</p>
+<h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>将压缩包内文件解压到一个固定位置会后，选择<code>ShadowsocksR-dotnet4.0.exe</code> 打开客户端。</p>
+<p>这时候，右下角托盘图标会出现一个纸飞机，<strong>然后右键 纸飞机 图标</strong>，弹出菜单并选择 <code>服务器 —— 编辑服务器</code>。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><p><strong>当一个变量定义为volatile之后，它将具备两种特性，第一是保证此变量对所有线程的可见性，这里的“可见性”是指当一条线程修改了这个变量的值，新值对于其他线程来说是可以立即得知的。</strong> 而普通变量不能做到这一点，普通变量的值在线程间传递均需要通过主内存来完成，例如，线程A修改一个普通变量的值，然后向主内存进行回写，另外一条线程B在线程A回写完成了之后再从主内存进行读取操作，新变量值才会对线程B可见。</p>
-<p>volatile变量在各个线程的工作内存中不存在一致性问题（在各个线程的工作内存中，volatile变量也可以存在不一致的情况，但由于每次使用之前都要先刷新，执行引擎看不到不一致的情况，因此可以认为不存在一致性问题），但是Java里面的运算并非原子操作，导致volatile变量的运算在并发下一样是不安全的.</p>
-<h2 id="禁止指令重排序优化"><a href="#禁止指令重排序优化" class="headerlink" title="禁止指令重排序优化"></a>禁止指令重排序优化</h2><p>使用volatile变量的第二个语义是禁止指令重排序优化，普通的变量仅仅会保证在该方法的执行过程中所有依赖赋值结果的地方都能获取到正确的结果，而不能保证变量赋值操作的顺序与程序代码中的执行顺序一致。 因为在一个线程的方法执行过程中无法感知到这点，这也就是Java内存模型中描述的所谓的“线程内表现为串行的语义”（Within-Thread As-If-SerialSemantics）。 </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>解决了volatile的语义问题，再来看看在众多保障并发安全的工具中选用volatile的意义——它能让我们的代码比使用其他的同步工具更快吗？在某些情况下，volatile的同步机制的性能确实要优于锁（使用synchronized关键字或java.util.concurrent包里面的锁），但是由于虚拟机对锁实行的许多消除和优化，使得我们很难量化地认为volatile就会比synchronized快多少。 如果让volatile自己与自己比较，那可以确定一个原则：volatile变量读操作的性能消耗与普通变量几乎没有什么差别，但是写操作则可能会慢一些，因为它需要在本地代码中插入许多内存屏障指令来保证处理器不发生乱序执行。 不过即便如此，大多数场景下volatile的总开销仍然要比锁低，我们在volatile与锁之中选择的唯一依据仅仅是volatile的语义能否满足使用场景的需求。</p>
-<p>需要注意两点</p>
-<ol>
-<li>load、read动作相关联，必须连续一起出现。</li>
-<li>store、writer动作相关联，必须连续一起出现。</li>
-</ol>
+<p>然后就会出现 <strong>编辑服务器的窗口</strong>，默认是有一个节点配置示例的，你可以 直接改 或者 删掉 新添加一个服务器。</p>
+<p>然后就是填写Shadowsocks账号信息。</p>
+<p>依次填写 <strong>服务器 IP、服务器端口、密码、加密方式</strong>，如果你的账号是原版Shadowsocks，那么写到这里就行了。</p>
+<blockquote>
+<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+</blockquote>
+<p>如果你的账号是ShadowsocksR账号，那么根据ShadowsocksR账号信息，选择对应的协议和混淆（origin/plain是原版SS的意思）</p>
+<p>根据需要，你可以填写 备注 和 Group（分组） ，具体效果自己试一下就知道了。</p>
+<p>密码前面的 选择框 是明文显示密码的意思。</p>
+<hr>
+<p>然后一些人会问为什么右边显示二维码的地方老是显示一个图片却不显示二维码？</p>
+<p>实际上主要是很多人截图不知道打码，暴露了自己的Shadowsocks账号所有信息，所以默认都是不显示二维码的，只要点击 下图蓝条选中的SSR链接输入框，就会显示二维码了。</p>
+<p>而SSR链接前面的 选择框 ，勾选代表是显示SSR的二维码，不勾选则显示SS的二维码。</p>
+<p>填写完毕后，点击 确定 按钮，继续下一步。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg" alt=""></p>
+<h3 id="选择服务器"><a href="#选择服务器" class="headerlink" title="选择服务器"></a>选择服务器</h3><p>右键 纸飞机 图标，出现菜单并选择 <code>服务器 —— 分组(empty group) —— 要使用的Shadowsocks账号</code>。(如果没有设置分组，直接选择要连接的服务器即可)</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg" alt=""></p>
+<p>右键 纸飞机 图标弹出菜单并选择<code>系统代理模式 —— PAC模式</code> </p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg" alt=""></p>
+<p>代理规则选 <strong>用户自定义</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg" alt=""></p>
+<blockquote>
+<p>目前ShadowsocksR客户端的国内外分流规则分两种，PAC规则（系统代理模式） 和 代理规则<br>PAC规则 是根据PAC文件中的黑白地址名单来判断那些网站走代理，也就是判断 流量数据是进入SSR客户端还是直连。<br>代理规则 是根据IP判断，分 绕过局域网/绕过局域网和大陆/绕过局域网和非大陆 ，用于判断 进入SSR客户端的数据流量是走代理还是直连。</p>
+</blockquote>
+<p>至此，PC端设置完毕。点击试试看：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
+<h3 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h3><p>右键选择选项设置</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg" alt=""></p>
+<p>选择开机自启，设置开机自启后，只要电脑一开机就可以直接访问google了</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg" alt=""></p>
+<h2 id="iOS客户端"><a href="#iOS客户端" class="headerlink" title="iOS客户端"></a>iOS客户端</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><ul>
+<li>方式一：登录美区AppStore，购买并下载shadowrocket（18RMB）</li>
+<li>方式二：使用电脑下载PP助手并安装，官网：<a href="https://pro.25pp.com/" target="_blank" rel="external">https://pro.25pp.com/</a></li>
+</ul>
+<p>连接手机之后搜索shadowrocket并安装</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg" alt=""></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开shadowrocket，点击右上角加号</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg" alt=""></p>
+<p><strong>类型选择shadowrocksR</strong> 输入账号密码，以及混淆参数等等。</p>
+<blockquote>
+<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+</blockquote>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg" alt=""></p>
+<p>在首页全局路由处选择<code>配置</code></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg" alt=""></p>
+<p>点击连接即可。</p>
+<p>至此iOS端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
+<h2 id="安卓客户端"><a href="#安卓客户端" class="headerlink" title="安卓客户端"></a>安卓客户端</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1i5vi3tz" target="_blank" rel="external">https://pan.baidu.com/s/1i5vi3tz</a> 密码: 9y9t</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装之后配置你的服务器信息，<strong>远程端口为我给你的端口，本地端口为默认1080</strong></p>
+<blockquote>
+<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+</blockquote>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg" alt=""></p>
+<p>路由处选择如图所示绕过局域网和大陆，如果不能上网，再设置为全局</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg" alt=""></p>
+<p>当处于全局状态时，手机消耗的所有数据将使用那50G流量，也可切换为<code>仅代理为中国大陆无法访问的网址</code></p>
+<p>点击右上角小飞机，同意连接之后，即可成功FQ<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg" alt=""></p>
+<p>至此，安卓客户端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>设置切记按照文章中所说的一步一步操作，尤其是PC端的选择PAC，iOS端的配置，还有安卓客户端的路由选项</p>
 
       
     </div>
@@ -456,7 +524,7 @@
           
             <a href="/tags/原创/" rel="tag"># 原创</a>
           
-            <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
+            <a href="/tags/科学上网/" rel="tag"># 科学上网</a>
           
         </div>
       
@@ -469,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/2017/JAVA内存模型.html" rel="next" title="Java内存模型">
-                <i class="fa fa-chevron-left"></i> Java内存模型
+              <a href="/post/2017/undefined.html" rel="next" title="线程通信">
+                <i class="fa fa-chevron-left"></i> 线程通信
               </a>
             
           </div>
@@ -479,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/2017/原子性、可见性、有序性.html" rel="prev" title="JAVA的原子性、可见性、有序性">
-                JAVA的原子性、可见性、有序性 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/undefined.html" rel="prev" title="死锁以及如何避免死锁">
+                死锁以及如何避免死锁 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -675,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#可见性"><span class="nav-number">1.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止指令重排序优化"><span class="nav-number">2.</span> <span class="nav-text">禁止指令重排序优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PC客户端"><span class="nav-number">1.</span> <span class="nav-text">PC客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加服务器"><span class="nav-number">1.2.</span> <span class="nav-text">添加服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择服务器"><span class="nav-number">1.3.</span> <span class="nav-text">选择服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加设置"><span class="nav-number">1.4.</span> <span class="nav-text">附加设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS客户端"><span class="nav-number">2.</span> <span class="nav-text">iOS客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-1"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓客户端"><span class="nav-number">3.</span> <span class="nav-text">安卓客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-2"><span class="nav-number">3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
