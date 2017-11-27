@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="原创,科学上网," />
+  <meta name="keywords" content="并发编程,转载," />
 
 
 
@@ -81,33 +81,18 @@
 
 
 
-<meta name="description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
-<meta name="keywords" content="原创,科学上网">
+<meta name="description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
+<meta name="keywords" content="并发编程,转载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于SSR的科学上网教程(置顶至12月1日)">
-<meta property="og:url" content="https://caoler.cn/post/2017/ssrfq.html">
+<meta property="og:title" content="线程安全">
+<meta property="og:url" content="https://caoler.cn/post/2017/thread-safety.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
+<meta property="og:description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg">
-<meta property="og:updated_time" content="2017-11-27T12:34:00.852Z">
+<meta property="og:updated_time" content="2017-11-27T12:39:34.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于SSR的科学上网教程(置顶至12月1日)">
-<meta name="twitter:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
+<meta name="twitter:title" content="线程安全">
+<meta name="twitter:description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
 
 
 
@@ -137,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/post/2017/ssrfq.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/thread-safety.html"/>
 
 
 
 
 
-  <title>基于SSR的科学上网教程(置顶至12月1日) | Caole's blog</title>
+  <title>线程安全 | Caole's blog</title>
   
 
 
@@ -318,15 +303,13 @@
   
   
   
-    
-  
 
-  <article class="post post-type-normal post-sticky" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/ssrfq.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/thread-safety.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -343,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于SSR的科学上网教程(置顶至12月1日)</h1>
+          <h1 class="post-title" itemprop="name headline">线程安全</h1>
         
 
         <div class="post-meta">
@@ -355,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T16:38:00+08:00">
-                2017-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T18:48:00+08:00">
+                2017-11-13
               </time>
             
 
@@ -378,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/" itemprop="url" rel="index">
-                    <span itemprop="name">实用教程</span>
+                  <a href="/categories/并发编程/" itemprop="url" rel="index">
+                    <span itemprop="name">并发编程</span>
                   </a>
                 </span>
 
@@ -389,8 +372,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/科学上网/" itemprop="url" rel="index">
-                    <span itemprop="name">科学上网</span>
+                  <a href="/categories/并发编程/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -408,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2017/ssrfq.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/ssrfq.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/thread-safety.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/thread-safety.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -442,69 +425,57 @@
       
 
       
-        <h2 id="PC客户端"><a href="#PC客户端" class="headerlink" title="PC客户端"></a>PC客户端</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1dFzus4h" target="_blank" rel="external">https://pan.baidu.com/s/1dFzus4h</a> 密码: bfrd</p>
-<h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>将压缩包内文件解压到一个固定位置会后，选择<code>ShadowsocksR-dotnet4.0.exe</code> 打开客户端。</p>
-<p>这时候，右下角托盘图标会出现一个纸飞机，<strong>然后右键 纸飞机 图标</strong>，弹出菜单并选择 <code>服务器 —— 编辑服务器</code>。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg" alt=""></p>
+        <h2 id="竞态条件与临界区"><a href="#竞态条件与临界区" class="headerlink" title="竞态条件与临界区"></a>竞态条件与临界区</h2><p>在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。</p>
+<p>多线程同时执行下面的代码可能会出错：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">long</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> add(<span class="keyword">long</span> value)&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">count</span> = <span class="keyword">this</span>.<span class="keyword">count</span> + value;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>然后就会出现 <strong>编辑服务器的窗口</strong>，默认是有一个节点配置示例的，你可以 直接改 或者 删掉 新添加一个服务器。</p>
-<p>然后就是填写Shadowsocks账号信息。</p>
-<p>依次填写 <strong>服务器 IP、服务器端口、密码、加密方式</strong>，如果你的账号是原版Shadowsocks，那么写到这里就行了。</p>
+<p>想象下线程A和B同时执行同一个Counter对象的add()方法，我们无法知道操作系统何时会在两个线程之间切换。JVM并不是将这段代码视为单条指令来执行的，而是按照下面的顺序：</p>
 <blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+<p>从内存获取 this.count 的值放到寄存器<br>将寄存器中的值增加value<br>将寄存器中的值写回内存</p>
 </blockquote>
-<p>如果你的账号是ShadowsocksR账号，那么根据ShadowsocksR账号信息，选择对应的协议和混淆（origin/plain是原版SS的意思）</p>
-<p>根据需要，你可以填写 备注 和 Group（分组） ，具体效果自己试一下就知道了。</p>
-<p>密码前面的 选择框 是明文显示密码的意思。</p>
-<hr>
-<p>然后一些人会问为什么右边显示二维码的地方老是显示一个图片却不显示二维码？</p>
-<p>实际上主要是很多人截图不知道打码，暴露了自己的Shadowsocks账号所有信息，所以默认都是不显示二维码的，只要点击 下图蓝条选中的SSR链接输入框，就会显示二维码了。</p>
-<p>而SSR链接前面的 选择框 ，勾选代表是显示SSR的二维码，不勾选则显示SS的二维码。</p>
-<p>填写完毕后，点击 确定 按钮，继续下一步。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg" alt=""></p>
-<h3 id="选择服务器"><a href="#选择服务器" class="headerlink" title="选择服务器"></a>选择服务器</h3><p>右键 纸飞机 图标，出现菜单并选择 <code>服务器 —— 分组(empty group) —— 要使用的Shadowsocks账号</code>。(如果没有设置分组，直接选择要连接的服务器即可)</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg" alt=""></p>
-<p>右键 纸飞机 图标弹出菜单并选择<code>系统代理模式 —— PAC模式</code> </p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg" alt=""></p>
-<p>代理规则选 <strong>用户自定义</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg" alt=""></p>
+<p>观察线程A和B交错执行会发生什么：</p>
 <blockquote>
-<p>目前ShadowsocksR客户端的国内外分流规则分两种，PAC规则（系统代理模式） 和 代理规则<br>PAC规则 是根据PAC文件中的黑白地址名单来判断那些网站走代理，也就是判断 流量数据是进入SSR客户端还是直连。<br>代理规则 是根据IP判断，分 绕过局域网/绕过局域网和大陆/绕过局域网和非大陆 ，用于判断 进入SSR客户端的数据流量是走代理还是直连。</p>
+<pre><code>this.count = 0;
+</code></pre><p>  A:    读取 this.count 到一个寄存器 (0)<br>  B:    读取 this.count 到一个寄存器 (0)<br>  B:     将寄存器的值加2<br>  B:    回写寄存器值(2)到内存. this.count 现在等于 2<br>  A:    将寄存器的值加3<br>  A:    回写寄存器值(3)到内存. this.count 现在等于 3</p>
 </blockquote>
-<p>至此，PC端设置完毕。点击试试看：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h3 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h3><p>右键选择选项设置</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg" alt=""></p>
-<p>选择开机自启，设置开机自启后，只要电脑一开机就可以直接访问google了</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg" alt=""></p>
-<h2 id="iOS客户端"><a href="#iOS客户端" class="headerlink" title="iOS客户端"></a>iOS客户端</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><ul>
-<li>方式一：登录美区AppStore，购买并下载shadowrocket（18RMB）</li>
-<li>方式二：使用电脑下载PP助手并安装，官网：<a href="https://pro.25pp.com/" target="_blank" rel="external">https://pro.25pp.com/</a></li>
-</ul>
-<p>连接手机之后搜索shadowrocket并安装</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg" alt=""></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开shadowrocket，点击右上角加号</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg" alt=""></p>
-<p><strong>类型选择shadowrocksR</strong> 输入账号密码，以及混淆参数等等。</p>
+<p>两个线程分别加了2和3到count变量上，两个线程执行结束后count变量的值应该等于5。然而由于两个线程是交叉执行的，两个线程从内存中读出的初始值都是0。然后各自加了2和3，并分别写回内存。最终的值并不是期望的5，而是最后写回内存的那个线程的值，上面例子中最后写回内存的是线程A，但实际中也可能是线程B。如果没有采用合适的同步机制，线程间的交叉执行情况就无法预料。</p>
+<h3 id="竞态条件-amp-临界区"><a href="#竞态条件-amp-临界区" class="headerlink" title="竞态条件 &amp; 临界区"></a>竞态条件 &amp; 临界区</h3><p>当两个线程竞争同一资源时，如果对资源的访问顺序敏感，就称存在竞态条件。导致竞态条件发生的代码区称作临界区。上例中add()方法就是一个临界区,它会产生竞态条件。在临界区中使用适当的同步就可以避免竞态条件。</p>
+<h2 id="线程安全与共享资源"><a href="#线程安全与共享资源" class="headerlink" title="线程安全与共享资源"></a>线程安全与共享资源</h2><p>允许被多个线程同时执行的代码称作线程安全的代码。线程安全的代码不包含竞态条件。当多个线程同时更新共享资源时会引发竞态条件。因此，了解Java线程执行时共享了什么资源很重要。</p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>局部变量存储在线程自己的栈中。也就是说，局部变量永远也不会被多个线程共享。所以，基础类型的局部变量是线程安全的。下面是基础类型的局部变量的一个例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">long</span> threadSafeInt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  threadSafeInt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="局部的对象引用"><a href="#局部的对象引用" class="headerlink" title="局部的对象引用"></a>局部的对象引用</h3><p>对象的局部引用和基础类型的局部变量不太一样。尽管引用本身没有被共享，但引用所指的对象并没有存储在线程的栈内。所有的对象都存在共享堆中。如果在某个方法中创建的对象不会逃逸出（译者注：即该对象不会被其它方法获得，也不会被非局部变量引用到）该方法，那么它就是线程安全的。实际上，哪怕将这个对象作为参数传给其它方法，只要别的线程获取不到这个对象，那它仍是线程安全的。下面是一个线程安全的局部引用样例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  LocalObject localObject = <span class="keyword">new</span> LocalObject();</span><br><span class="line"></span><br><span class="line">  localObject.callMethod();</span><br><span class="line">  method2(localObject);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">(LocalObject localObject)</span></span>&#123;</span><br><span class="line">  localObject.setValue(<span class="string">"value"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>样例中LocalObject对象没有被方法返回，也没有被传递给someMethod()方法外的对象。每个执行someMethod()的线程都会创建自己的LocalObject对象，并赋值给localObject引用。因此，这里的LocalObject是线程安全的。事实上，整个someMethod()都是线程安全的。即使将LocalObject作为参数传给同一个类的其它方法或其它类的方法时，它仍然是线程安全的。当然，如果LocalObject通过某些方法被传给了别的线程，那它就不再是线程安全的了。</p>
+<h3 id="对象成员"><a href="#对象成员" class="headerlink" title="对象成员"></a>对象成员</h3><p>对象成员存储在堆上。如果两个线程同时更新同一个对象的同一个成员，那这个代码就不是线程安全的。下面是一个样例：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class NotThreadSafe&#123;</span><br><span class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">add</span>(<span class="keyword">String</span> <span class="built_in">text</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>.builder.<span class="built_in">append</span>(<span class="built_in">text</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果两个线程同时调用同一个NotThreadSafe实例上的add()方法，就会有竞态条件问题。例如：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">NotThreadSafe sharedInstance = new NotThreadSafe();</span><br><span class="line"></span><br><span class="line">new Thread(new MyRunnable(sharedInstance)).start();</span><br><span class="line">new Thread(new MyRunnable(sharedInstance)).start();</span><br><span class="line"> </span><br><span class="line">public class MyRunnable implements Runnable&#123;</span><br><span class="line">  NotThreadSafe<span class="built_in"> instance </span>= <span class="literal">null</span>;</span><br><span class="line">   </span><br><span class="line">  public MyRunnable(NotThreadSafe instance)&#123;</span><br><span class="line">    this.instance = instance;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void <span class="builtin-name">run</span>()&#123;</span><br><span class="line">    this.instance.<span class="builtin-name">add</span>(<span class="string">"some text"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意两个MyRunnable共享了同一个NotThreadSafe对象。因此，当它们调用add()方法时会造成竞态条件。</p>
+<p>当然，如果这两个线程在不同的NotThreadSafe实例上调用call()方法，就不会导致竞态条件。下面是稍微修改后的例子：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Thread</span>(<span class="keyword">new</span> <span class="type">MyRunnable</span>(<span class="keyword">new</span> <span class="type">NotThreadSafe</span>())).start();</span><br><span class="line"><span class="keyword">new</span> <span class="type">Thread</span>(<span class="keyword">new</span> <span class="type">MyRunnable</span>(<span class="keyword">new</span> <span class="type">NotThreadSafe</span>())).start();</span><br></pre></td></tr></table></figure></p>
+<p>现在两个线程都有自己单独的NotThreadSafe对象，调用add()方法时就会互不干扰，再也不会有竞态条件问题了。所以非线程安全的对象仍可以通过某种方式来消除竞态条件。</p>
+<h3 id="线程控制逃逸规则"><a href="#线程控制逃逸规则" class="headerlink" title="线程控制逃逸规则"></a>线程控制逃逸规则</h3><p>线程控制逃逸规则可以帮助你判断代码中对某些资源的访问是否是线程安全的。</p>
 <blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+<p>如果一个资源的创建，使用，销毁都在同一个线程内完成，<br>且永远不会脱离该线程的控制，则该资源的使用就是线程安全的。</p>
 </blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg" alt=""></p>
-<p>在首页全局路由处选择<code>配置</code></p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg" alt=""></p>
-<p>点击连接即可。</p>
-<p>至此iOS端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h2 id="安卓客户端"><a href="#安卓客户端" class="headerlink" title="安卓客户端"></a>安卓客户端</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1i5vi3tz" target="_blank" rel="external">https://pan.baidu.com/s/1i5vi3tz</a> 密码: 9y9t</p>
-<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装之后配置你的服务器信息，<strong>远程端口为我给你的端口，本地端口为默认1080</strong></p>
+<p>资源可以是对象，数组，文件，数据库连接，套接字等等。Java中你无需主动销毁对象，所以“销毁”指不再有引用指向对象。</p>
+<p>即使对象本身线程安全，但如果该对象中包含其他资源（文件，数据库连接），整个应用也许就不再是线程安全的了。比如2个线程都创建了各自的数据库连接，每个连接自身是线程安全的，但它们所连接到的同一个数据库也许不是线程安全的。比如，2个线程执行如下代码：</p>
 <blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
+<p>检查记录X是否存在，如果不存在，插入X</p>
 </blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg" alt=""></p>
-<p>路由处选择如图所示绕过局域网和大陆，如果不能上网，再设置为全局</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg" alt=""></p>
-<p>当处于全局状态时，手机消耗的所有数据将使用那50G流量，也可切换为<code>仅代理为中国大陆无法访问的网址</code></p>
-<p>点击右上角小飞机，同意连接之后，即可成功FQ<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg" alt=""></p>
-<p>至此，安卓客户端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>设置切记按照文章中所说的一步一步操作，尤其是PC端的选择PAC，iOS端的配置，还有安卓客户端的路由选项</p>
+<p>如果两个线程同时执行，而且碰巧检查的是同一个记录，那么两个线程最终可能都插入了记录：</p>
+<blockquote>
+<p>线程1检查记录X是否存在。检查结果：不存在<br>线程2检查记录X是否存在。检查结果：不存在<br>线程1插入记录X<br>线程2插入记录X</p>
+</blockquote>
+<p>同样的问题也会发生在文件或其他共享资源上。因此，区分某个线程控制的对象是资源本身，还是仅仅到某个资源的引用很重要。</p>
+<h2 id="线程安全及不可变性"><a href="#线程安全及不可变性" class="headerlink" title="线程安全及不可变性"></a>线程安全及不可变性</h2><p>当多个线程同时访问同一个资源，并且其中的一个或者多个线程对这个资源进行了写操作，才会产生竞态条件。多个线程同时读同一个资源不会产生竞态条件。</p>
+<p>我们可以通过创建不可变的共享对象来保证对象在线程间共享时不会被修改，从而实现线程安全。如下示例：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ImmutableValue</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImmutableValue</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意ImmutableValue类的成员变量value是通过构造函数赋值的，并且在类中没有set方法。这意味着一旦ImmutableValue实例被创建，value变量就不能再被修改，这就是不可变性。但你可以通过getValue()方法读取这个变量的值。</p>
+<p>（<em>译者注：注意，“不变”（Immutable）和“只读”（Read Only）是不同的。当一个变量是“只读”时，变量的值不能直接改变，但是可以在其它变量发生改变的时候发生改变。比如，一个人的出生年月日是“不变”属性，而一个人的年龄便是“只读”属性，但是不是“不变”属性。随着时间的变化，一个人的年龄会随之发生变化，而一个人的出生年月日则不会变化。这就是“不变”和“只读”的区别。（摘自《Java与模式》第34章）</em>）</p>
+<p>如果你需要对ImmutableValue类的实例进行操作，可以通过得到value变量后创建一个新的实例来实现，下面是一个对value变量进行加法操作的示例：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ImmutableValue</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImmutableValue</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ImmutableValue <span class="title">add</span>(<span class="params"><span class="keyword">int</span> valueToAdd</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ImmutableValue(<span class="keyword">this</span>.<span class="keyword">value</span> + valueToAdd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意add()方法以加法操作的结果作为一个新的ImmutableValue类实例返回，而不是直接对它自己的value变量进行操作。</p>
+<p><strong>引用不是线程安全的！</strong></p>
+<p>重要的是要记住，即使一个对象是线程安全的不可变对象，指向这个对象的引用也可能不是线程安全的。看这个例子：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> Calculator&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImmutableValue currentValue = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ImmutableValue <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span>(<span class="params">ImmutableValue newValue</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentValue = newValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> newValue</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentValue = <span class="keyword">this</span>.currentValue.<span class="keyword">add</span>(newValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Calculator类持有一个指向ImmutableValue实例的引用。注意，通过setValue()方法和add()方法可能会改变这个引用。因此，即使Calculator类内部使用了一个不可变对象，但Calculator类本身还是可变的，因此Calculator类不是线程安全的。换句话说：ImmutableValue类是线程安全的，但使用它的类不是。当尝试通过不可变性去获得线程安全时，这点是需要牢记的。</p>
+<p>要使Calculator类实现线程安全，将getValue()、setValue()和add()方法都声明为同步方法即可。</p>
+<h2 id="本文转载于并发编程网"><a href="#本文转载于并发编程网" class="headerlink" title="本文转载于并发编程网"></a>本文转载于并发编程网</h2><p>来源：<a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="external">http://ifeve.com/java-concurrency-thread-directory/</a></p>
 
       
     </div>
@@ -522,9 +493,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/原创/" rel="tag"># 原创</a>
+            <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
           
-            <a href="/tags/科学上网/" rel="tag"># 科学上网</a>
+            <a href="/tags/转载/" rel="tag"># 转载</a>
           
         </div>
       
@@ -537,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/2017/thread-signaling.html" rel="next" title="线程通信">
-                <i class="fa fa-chevron-left"></i> 线程通信
+              <a href="/post/2017/java-concurrency-thread.html" rel="next" title="并发性和多线程介绍">
+                <i class="fa fa-chevron-left"></i> 并发性和多线程介绍
               </a>
             
           </div>
@@ -547,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/2017/deadlock.html" rel="prev" title="死锁以及如何避免死锁">
-                死锁以及如何避免死锁 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/ssl-https.html" rel="prev" title="全站开启HTTPS加密模式访问">
+                全站开启HTTPS加密模式访问 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -743,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PC客户端"><span class="nav-number">1.</span> <span class="nav-text">PC客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加服务器"><span class="nav-number">1.2.</span> <span class="nav-text">添加服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择服务器"><span class="nav-number">1.3.</span> <span class="nav-text">选择服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加设置"><span class="nav-number">1.4.</span> <span class="nav-text">附加设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS客户端"><span class="nav-number">2.</span> <span class="nav-text">iOS客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-1"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓客户端"><span class="nav-number">3.</span> <span class="nav-text">安卓客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-2"><span class="nav-number">3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#竞态条件与临界区"><span class="nav-number">1.</span> <span class="nav-text">竞态条件与临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#竞态条件-amp-临界区"><span class="nav-number">1.1.</span> <span class="nav-text">竞态条件 & 临界区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全与共享资源"><span class="nav-number">2.</span> <span class="nav-text">线程安全与共享资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量"><span class="nav-number">2.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部的对象引用"><span class="nav-number">2.2.</span> <span class="nav-text">局部的对象引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象成员"><span class="nav-number">2.3.</span> <span class="nav-text">对象成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程控制逃逸规则"><span class="nav-number">2.4.</span> <span class="nav-text">线程控制逃逸规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全及不可变性"><span class="nav-number">3.</span> <span class="nav-text">线程安全及不可变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文转载于并发编程网"><span class="nav-number">4.</span> <span class="nav-text">本文转载于并发编程网</span></a></li></ol></div>
             
 
           </div>

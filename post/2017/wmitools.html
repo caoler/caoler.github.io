@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="原创,实用教程," />
 
 
 
@@ -81,16 +81,28 @@
 
 
 
-<meta name="description" content="会写代码，学着做菜">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Caole&#39;s blog">
-<meta property="og:url" content="https://caoler.cn/archives/2017/11/page/2/index.html">
+<meta name="description" content="最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。 一些具体症状：  删掉原先的快捷方式以后再重新创建一个，问题依然存在； 快捷方式属性没有问题，没有后缀网址； 直接启动exe文件没有异常； chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样； 改exe文件名可解决但我不想用这种回避">
+<meta name="keywords" content="原创,实用教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用WMITool解决浏览器主页被hao123劫持问题">
+<meta property="og:url" content="https://caoler.cn/post/2017/wmitools.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="会写代码，学着做菜">
+<meta property="og:description" content="最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。 一些具体症状：  删掉原先的快捷方式以后再重新创建一个，问题依然存在； 快捷方式属性没有问题，没有后缀网址； 直接启动exe文件没有异常； chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样； 改exe文件名可解决但我不想用这种回避">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flpp9oiwtbj30gy0a2wep.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppcbyy6xj30hm09cjrk.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2i3z2j30hm09caah.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2irogj30b907k74i.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iv4cj30ki0aswev.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2j33uj30lb0c0jsn.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppfl3r75j30d106cglv.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iaeij30hm09c3yz.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flppgo35m6j30c307n3yp.jpg">
+<meta property="og:updated_time" content="2017-11-27T12:40:43.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Caole&#39;s blog">
-<meta name="twitter:description" content="会写代码，学着做菜">
+<meta name="twitter:title" content="使用WMITool解决浏览器主页被hao123劫持问题">
+<meta name="twitter:description" content="最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。 一些具体症状：  删掉原先的快捷方式以后再重新创建一个，问题依然存在； 快捷方式属性没有问题，没有后缀网址； 直接启动exe文件没有异常； chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样； 改exe文件名可解决但我不想用这种回避">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flpp9oiwtbj30gy0a2wep.jpg">
 
 
 
@@ -120,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/archives/2017/11/page/2/"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/wmitools.html"/>
 
 
 
 
 
-  <title>归档 | Caole's blog</title>
+  <title>使用WMITool解决浏览器主页被hao123劫持问题 | Caole's blog</title>
   
 
 
@@ -155,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,411 +305,226 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/wmitools.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">使用WMITool解决浏览器主页被hao123劫持问题</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T14:50:00+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/浏览器/" itemprop="url" rel="index">
+                    <span itemprop="name">浏览器</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/volatile.html" itemprop="url">
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
               
-                <span itemprop="name">Volatile型变量的语义解释</span>
+                <a href="/post/2017/wmitools.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/wmitools.html" itemprop="commentsCount"></span>
+                </a>
               
-            </a>
-        
-      </h2>
+            
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-16T16:41:00+08:00"
-              content="2017-11-16" >
-          11-16
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/java-memory-model-1.html" itemprop="url">
-              
-                <span itemprop="name">Java内存模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-16T16:38:00+08:00"
-              content="2017-11-16" >
-          11-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/ssl-https.html" itemprop="url">
-              
-                <span itemprop="name">全站开启HTTPS加密模式访问</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-14T17:17:00+08:00"
-              content="2017-11-14" >
-          11-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。</p>
+<p>一些具体症状：</p>
+<ul>
+<li>删掉原先的快捷方式以后再重新创建一个，问题依然存在；</li>
+<li>快捷方式属性没有问题，没有后缀网址；</li>
+<li>直接启动exe文件没有异常；</li>
+<li>chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；</li>
+<li>改exe文件名可解决但我不想用这种回避的方式。</li>
+</ul>
+<p>本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：</p>
+<a id="more"></a>
+<h3 id="一、下载-WIM-Tools"><a href="#一、下载-WIM-Tools" class="headerlink" title="一、下载 WIM Tools"></a>一、下载 WIM Tools</h3><p>官网连接：<a href="https://www.adremsoft.com/wmitools/" target="_blank" rel="external">https://www.adremsoft.com/wmitools/</a> 软件体积较大(不推荐)</p>
+<p>百度云链接: <a href="https://pan.baidu.com/s/1slJU2Rz" target="_blank" rel="external">https://pan.baidu.com/s/1slJU2Rz</a> 密码: o400</p>
+<h3 id="二、安装完成之后按照如下操作"><a href="#二、安装完成之后按照如下操作" class="headerlink" title="二、安装完成之后按照如下操作"></a>二、安装完成之后按照如下操作</h3><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flpp9oiwtbj30gy0a2wep.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppcbyy6xj30hm09cjrk.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2i3z2j30hm09caah.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2irogj30b907k74i.jpg" alt=""></p>
+<p><strong>在右侧选中后右击——&gt;选择view instant properties</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iv4cj30ki0aswev.jpg" alt=""></p>
+<p>至此查看ScriptText项可知，这是一段VBScript调用系统服务间隔30分钟执行一次，将所有浏览器调用加上如下糟糕链接</p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2j33uj30lb0c0jsn.jpg" alt=""></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>选中左侧选项，点击上面的X按钮。 删不掉？ 到WMITool安装路径（例如：C:\Program Files (x86)\WMI Tools）下，右键点击wbemeventviewer.exe，选择以管理员身份运行！删之！<br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppfl3r75j30d106cglv.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iaeij30hm09c3yz.jpg" alt=""></p>
+<p>还没完，还要手动将快速启动栏中，将各个浏览器快捷命令中的<a href="http://hk.jtsh123.com/?r=b&amp;m=10去掉！" target="_blank" rel="external">http://hk.jtsh123.com/?r=b&amp;m=10去掉！</a></p>
+<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppgo35m6j30c307n3yp.jpg" alt=""></p>
+<p>大功告成！</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/thread-safety.html" itemprop="url">
-              
-                <span itemprop="name">线程安全</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-13T18:48:00+08:00"
-              content="2017-11-13" >
-          11-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/java-concurrency-thread.html" itemprop="url">
-              
-                <span itemprop="name">并发性和多线程介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-12T17:48:00+08:00"
-              content="2017-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/java-8-hashmap.html" itemprop="url">
-              
-                <span itemprop="name">Java 8系列之重新认识HashMap</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-07T18:40:00+08:00"
-              content="2017-11-07" >
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/Find-All-Duplicates-in-an-Array.html" itemprop="url">
-              
-                <span itemprop="name">442. Find All Duplicates in an Array</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-06T19:57:00+08:00"
-              content="2017-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/Array-Partition-I.html" itemprop="url">
-              
-                <span itemprop="name">561. Array Partition I</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-06T19:56:00+08:00"
-              content="2017-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/java-interator.html" itemprop="url">
-              
-                <span itemprop="name">JAVA迭代器（Interator）详解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-04T11:40:12+08:00"
-              content="2017-11-04" >
-          11-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/2017/Hello-World.html" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-03T13:33:33+08:00"
-              content="2017-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/原创/" rel="tag"># 原创</a>
+          
+            <a href="/tags/实用教程/" rel="tag"># 实用教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2017/synchronized-blocks.html" rel="next" title="Java同步块">
+                <i class="fa fa-chevron-left"></i> Java同步块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2017/thread-safety-realize.html" rel="prev" title="线程安全及其实现方法">
+                线程安全及其实现方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/11/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -705,6 +532,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -725,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -843,6 +688,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、下载-WIM-Tools"><span class="nav-number">1.</span> <span class="nav-text">一、下载 WIM Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装完成之后按照如下操作"><span class="nav-number">2.</span> <span class="nav-text">二、安装完成之后按照如下操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -996,6 +857,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
