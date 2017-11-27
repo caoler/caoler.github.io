@@ -819,13 +819,13 @@ code {
   margin-bottom: 14px;
 }
 .article-title {
-  font-size: 2em;
-  color: #38b7ea;
+  font-size: 2.3em;
+  color: #565a5f;
   text-decoration: none;
   line-height: 1.3em;
 }
 a.article-title:visited {
-  color: #38b7ea;
+  color: #565a5f;
 }
 a.article-title:hover {
   color: #38b7ea;
