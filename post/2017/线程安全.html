@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="原创,并发编程,操作系统," />
+  <meta name="keywords" content="并发编程,转载," />
 
 
 
@@ -81,24 +81,18 @@
 
 
 
-<meta name="description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程    名称 描述     用户级线程(User-">
-<meta name="keywords" content="原创,并发编程,操作系统">
+<meta name="description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
+<meta name="keywords" content="并发编程,转载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA与线程">
-<meta property="og:url" content="https://caoler.cn/blog/2017/JAVA与线程.html">
+<meta property="og:title" content="线程安全">
+<meta property="og:url" content="https://caoler.cn/post/2017/线程安全.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程    名称 描述     用户级线程(User-">
+<meta property="og:description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flne300p6hj308805mt8n.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg">
-<meta property="og:updated_time" content="2017-11-27T05:43:12.648Z">
+<meta property="og:updated_time" content="2017-11-27T05:43:12.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA与线程">
-<meta name="twitter:description" content="线程的实现方式概述在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换 根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程    名称 描述     用户级线程(User-">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg">
+<meta name="twitter:title" content="线程安全">
+<meta name="twitter:description" content="竞态条件与临界区在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。 多线程同时执行下面的代码可能会出错：123456public class Counter &amp;">
 
 
 
@@ -128,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/blog/2017/JAVA与线程.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/线程安全.html"/>
 
 
 
 
 
-  <title>JAVA与线程 | Caole's blog</title>
+  <title>线程安全 | Caole's blog</title>
   
 
 
@@ -315,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/blog/2017/JAVA与线程.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/线程安全.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -332,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA与线程</h1>
+          <h1 class="post-title" itemprop="name headline">线程安全</h1>
         
 
         <div class="post-meta">
@@ -344,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T15:30:00+08:00">
-                2017-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T18:48:00+08:00">
+                2017-11-13
               </time>
             
 
@@ -378,8 +372,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/JAVA与线程/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA与线程</span>
+                  <a href="/categories/并发编程/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -397,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/blog/2017/JAVA与线程.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/blog/2017/JAVA与线程.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/线程安全.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/线程安全.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -431,109 +425,57 @@
       
 
       
-        <h2 id="线程的实现方式"><a href="#线程的实现方式" class="headerlink" title="线程的实现方式"></a>线程的实现方式</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。在引入线程的操作系统中，线程是独立调度的基本单位，进程是资源拥有的基本单位。在同一进程中，线程的切换不会引起进程切换。在不同进程中进行线程切换,如从一个进程内的线程切换到另一个进程中的线程时，会引起进程切换</p>
-<p>根据操作系统内核是否对线程可感知，可以把线程分为内核线程和用户线程</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>用户级线程(User-LevelThread, ULT)</td>
-<td>由应用程序所支持的线程实现, 内核意识不到用户级线程的实现</td>
-</tr>
-<tr>
-<td>内核级线程(Kemel-LevelThread, KLT)</td>
-<td>内核级线程又称为内核支持的线程</td>
-</tr>
-</tbody>
-</table>
-<p>实现线程主要有3种方式：使用内核线程、使用用户级线程和使用用户线程加轻量级进程混合实现。</p>
+        <h2 id="竞态条件与临界区"><a href="#竞态条件与临界区" class="headerlink" title="竞态条件与临界区"></a>竞态条件与临界区</h2><p>在同一程序中运行多个线程本身不会导致问题，问题在于多个线程访问了相同的资源。如，同一内存区（变量，数组，或对象）、系统（数据库，web services等）或文件。实际上，这些问题只有在一或多个线程向这些资源做了写操作时才有可能发生，只要资源没有发生变化,多个线程读取相同的资源就是安全的。</p>
+<p>多线程同时执行下面的代码可能会出错：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">long</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> add(<span class="keyword">long</span> value)&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">count</span> = <span class="keyword">this</span>.<span class="keyword">count</span> + value;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="使用内核线程实现"><a href="#使用内核线程实现" class="headerlink" title="使用内核线程实现"></a>使用内核线程实现</h3><p>内核线程就是直接由操作系统内核支持的线程，这种线程有内核来完成线程切换，内核通过调度器(Scheduler) 对线程进行调度，并负责将线程的任务映射到各个处理器上。</p>
-<h4 id="轻量级进程-LWP"><a href="#轻量级进程-LWP" class="headerlink" title="轻量级进程(LWP)"></a>轻量级进程(LWP)</h4><p>程序一般不会直接使用内核线程，而是去使用内核线程的一种高级接口———轻量级进程（LWP），轻量级进程就是我们通常意义上所讲的线程，轻量级进程(LWP)是一种由内核支持的用户线程。它是基于内核线程的高级抽象，因此只有先支持内核线程，才能有LWP。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flndprfk3pj30cq08ot8z.jpg" alt="轻量级进程与内核线程之间的1:1的关系"></p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>多处理器系统中，内核能够并行执行同一进程内的多个线程</li>
-<li>如果进程中的一个线程被阻塞，能够切换同一进程内的其他线程继续执行（用户级线程的一个缺点）</li>
-<li>所有能够阻塞线程的调用都以系统调用的形式实现，代价可观</li>
-<li>当一个线程阻塞时，内核根据选择可以运行另一个进程的线程，而用户空间实现的线程中，运行时系统始终运行自己进程中的线程</li>
-<li>信号是发给进程而不是线程的，当一个信号到达时，应该由哪一个线程处理它？线程可以“注册”它们感兴趣的信号</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>对于用户的线程切换而言，其模式切换到饿开销较大，在同一个进程中，从一个线程切换到另一个线程时，需要从用户态转到核心态进行，这是因为用户的线程在用户态运行，而线程调度和管理实在内核中实现的，系统开销较大。</p>
-<h3 id="使用用户线程实现"><a href="#使用用户线程实现" class="headerlink" title="使用用户线程实现"></a>使用用户线程实现</h3><p>LWP虽然本质上属于用户线程，但LWP线程库是建立在内核之上的，LWP的许多操作都要进行系统调用，因此效率不高。而这里的用户线程指的是完全建立在用户空间的线程库，用户线程的建立，同步，销毁，调度完全在用户空间完成，不需要内核的帮助。因此这种线程的操作是极其快速的且低消耗的。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flne300p6hj308805mt8n.jpg" alt="进程与用户线程之间的1:N的关系"></p>
-<p>从中可以看出，进程中包含线程，用户线程在用户空间中实现，内核并没有直接对用户线程进程调度，内核的调度对象和传统进程一样，还是进程本身，内核并不知道用户线程的存在。用户线程之间的调度由在用户空间实现的线程库实现。</p>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>可以在不支持线程的操作系统中实现。</li>
-<li>创建和销毁线程、线程切换代价等线程管理的代价比内核线程少得多, 因为保存线程状态的过程和调用程序都只是本地过程</li>
-<li>允许每个进程定制自己的调度算法，线程管理比较灵活。这就是必须自己写管理程序，与内核线程的区别</li>
-<li>线程能够利用的表空间和堆栈空间比内核级线程多</li>
-<li>不需要陷阱，不需要上下文切换，也不需要对内存高速缓存进行刷新，使得线程调用非常快捷</li>
-<li>线程的调度不需要内核直接参与，控制简单。</li>
-</ul>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>线程发生I/O或页面故障引起的阻塞时，如果调用阻塞系统调用则内核由于不知道有多线程的存在，而会阻塞整个进程从而阻塞所有线程, 因此同一进程中只能同时有一个线程在运行</li>
-<li>页面失效也会产生类似的问题。</li>
-<li>一个单独的进程内部，没有时钟中断，所以不可能用轮转调度的方式调度线程</li>
-<li>资源调度按照进程进行，多个处理机下，同一个进程中的线程只能在同一个处理机下分时复用</li>
-</ul>
+<p>想象下线程A和B同时执行同一个Counter对象的add()方法，我们无法知道操作系统何时会在两个线程之间切换。JVM并不是将这段代码视为单条指令来执行的，而是按照下面的顺序：</p>
 <blockquote>
-<p>补充<br>在用户级线程中，每个进程里的线程表由运行时系统管理。当一个线程转换到就绪状态或阻塞状态时，在该线程表中存放重新启动该线程所需的信息，与内核在进程表中存放的进程的信息完全一样</p>
+<p>从内存获取 this.count 的值放到寄存器<br>将寄存器中的值增加value<br>将寄存器中的值写回内存</p>
 </blockquote>
-<h3 id="使用用户线程加轻量级进程混合实现"><a href="#使用用户线程加轻量级进程混合实现" class="headerlink" title="使用用户线程加轻量级进程混合实现"></a>使用用户线程加轻量级进程混合实现</h3><p>这种模型对应着恐龙书中多对多模型。用户线程库还是完全建立在用户空间中，因此用户线程的操作还是很廉价，因此可以建立任意多需要的用户线程。操作系统提供了 LWP 作为用户线程和内核线程之间的桥梁。 LWP 还是和前面提到的一样，具有内核线程支持，是内核的调度单元，并且用户线程的系统调用要通过 LWP ，因此进程中某个用户线程的阻塞不会影响整个进程的执行。用户线程库将建立的用户线程关联到 LWP 上， LWP 与用户线程的数量不一定一致。当内核调度到某个 LWP 上时，此时与该 LWP 关联的用户线程就被执行。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flne8uhdi7j30ba078jrj.jpg" alt="用户线程与轻量级进程之间的N:M的关系"></p>
-<h2 id="JAVA线程调度"><a href="#JAVA线程调度" class="headerlink" title="JAVA线程调度"></a>JAVA线程调度</h2><p>进程调度属于低级调度，用来决定就绪队列中的那个进程获取处理器，然后有分派程序将执行把处理器分派给该进程的具体操作。进程调度的方式有两个非抢占式调度和抢占式调度</p>
-<h3 id="非抢占方式-Non-preemptive-Mode"><a href="#非抢占方式-Non-preemptive-Mode" class="headerlink" title="非抢占方式(Non-preemptive Mode)"></a>非抢占方式(Non-preemptive Mode)</h3><p><strong>概念:</strong> 当某一进程正在处理机上执行时，即使有某个更为重要或紧迫的进程进入就绪队列，该进程仍继续执行，直到其完成或发生某种事件而进入完成或阻 塞状态时，才把处理机分配给更为重要或紧迫的进程 </p>
-<p><strong>引起进程调度的因素:</strong></p>
-<ul>
-<li>正在执行的进程执行完毕， 或因发生某事件而不能再继续执行 </li>
-<li>执行中的进程因提出I/O请求而暂停执行； </li>
-<li>在进程通信或同步过程中执行了某种原语操作，如wait、Block、Wakeup原语 </li>
-</ul>
-<p><strong>优点:</strong> 算法简单，系统开销小 </p>
-<p><strong>缺点:</strong> 紧急任务不能及时响应；短进程到达要等待长进程运行结束<br>适用于大多数批处理系统环境 </p>
-<h3 id="抢占方式-Preemptive-Mode"><a href="#抢占方式-Preemptive-Mode" class="headerlink" title="抢占方式(Preemptive Mode)"></a>抢占方式(Preemptive Mode)</h3><p><strong>概念:</strong> 当某一进程正在处理机上执行时，若有某个更为重要或紧迫的进程进入就绪队列，则立即暂停正在执行的进程，将处理机分配给这个更为重要或紧迫的进程 </p>
-<p><strong>抢占式调度主要有以下原则</strong></p>
-<ul>
-<li>优先权原则 允许高优先权的新到进程抢占当前进程的处理机 </li>
-<li>短作业(进程)优先原则允许执行时间短的新到进程抢占当前进程的处理机 </li>
-<li>时间片原则 时间片用完后停止执行，重新进行调度，适用于分时系统</li>
-</ul>
-<p><strong>优点：</strong> 适于时间要求严格的实时系统 </p>
-<p><strong>缺点：</strong> 调度算法复杂，系统开销大</p>
-<h2 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h2><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9avvzlj30hs0cot9e.jpg" alt=""></p>
-<p><strong>线程间的状态转换：</strong> </p>
-<ol>
-<li><p>新建(new)：新创建了一个线程对象。</p>
-</li>
-<li><p>可运行(runnable)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
-</li>
-<li><p>运行(running)：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
-</li>
-<li><p>阻塞(block)：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种： </p>
-<ul>
-<li>等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中。</li>
-<li>同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。</li>
-<li>其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</li>
-</ul>
-</li>
-<li><p>死亡(dead)：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</p>
-</li>
-</ol>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flnf9i3jjoj30qw0iwwgo.jpg" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>CSDN:  <a href="http://blog.csdn.net/ylyuanlu/article/details/9115073" target="_blank" rel="external">linux内核线程、轻量级进程和用户进程</a></li>
-<li>CSDN: <a href="http://blog.csdn.net/gatieme/article/details/51892437" target="_blank" rel="external">线程的3种实现方式–内核级线程, 用户级线程和混合型线程</a></li>
-<li>计算机操作系统（第四版）2.8.1/3.3.1</li>
-<li>深入理解Java虚拟机：JVM高级特性与最佳实践（第二版）</li>
-<li>CSDN ：<a href="http://blog.csdn.net/u011774517/article/details/61418550" target="_blank" rel="external">进程调度方式</a></li>
-<li>OSChina：<a href="https://my.oschina.net/mingdongcheng/blog/139263" target="_blank" rel="external">一张图让你看懂JAVA线程间的状态转换</a></li>
-<li>今日头条：<a href="https://www.toutiao.com/i6368772681411592706/" target="_blank" rel="external">Java线程状态转换</a></li>
-</ul>
+<p>观察线程A和B交错执行会发生什么：</p>
+<blockquote>
+<pre><code>this.count = 0;
+</code></pre><p>  A:    读取 this.count 到一个寄存器 (0)<br>  B:    读取 this.count 到一个寄存器 (0)<br>  B:     将寄存器的值加2<br>  B:    回写寄存器值(2)到内存. this.count 现在等于 2<br>  A:    将寄存器的值加3<br>  A:    回写寄存器值(3)到内存. this.count 现在等于 3</p>
+</blockquote>
+<p>两个线程分别加了2和3到count变量上，两个线程执行结束后count变量的值应该等于5。然而由于两个线程是交叉执行的，两个线程从内存中读出的初始值都是0。然后各自加了2和3，并分别写回内存。最终的值并不是期望的5，而是最后写回内存的那个线程的值，上面例子中最后写回内存的是线程A，但实际中也可能是线程B。如果没有采用合适的同步机制，线程间的交叉执行情况就无法预料。</p>
+<h3 id="竞态条件-amp-临界区"><a href="#竞态条件-amp-临界区" class="headerlink" title="竞态条件 &amp; 临界区"></a>竞态条件 &amp; 临界区</h3><p>当两个线程竞争同一资源时，如果对资源的访问顺序敏感，就称存在竞态条件。导致竞态条件发生的代码区称作临界区。上例中add()方法就是一个临界区,它会产生竞态条件。在临界区中使用适当的同步就可以避免竞态条件。</p>
+<h2 id="线程安全与共享资源"><a href="#线程安全与共享资源" class="headerlink" title="线程安全与共享资源"></a>线程安全与共享资源</h2><p>允许被多个线程同时执行的代码称作线程安全的代码。线程安全的代码不包含竞态条件。当多个线程同时更新共享资源时会引发竞态条件。因此，了解Java线程执行时共享了什么资源很重要。</p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>局部变量存储在线程自己的栈中。也就是说，局部变量永远也不会被多个线程共享。所以，基础类型的局部变量是线程安全的。下面是基础类型的局部变量的一个例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">long</span> threadSafeInt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  threadSafeInt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="局部的对象引用"><a href="#局部的对象引用" class="headerlink" title="局部的对象引用"></a>局部的对象引用</h3><p>对象的局部引用和基础类型的局部变量不太一样。尽管引用本身没有被共享，但引用所指的对象并没有存储在线程的栈内。所有的对象都存在共享堆中。如果在某个方法中创建的对象不会逃逸出（译者注：即该对象不会被其它方法获得，也不会被非局部变量引用到）该方法，那么它就是线程安全的。实际上，哪怕将这个对象作为参数传给其它方法，只要别的线程获取不到这个对象，那它仍是线程安全的。下面是一个线程安全的局部引用样例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  LocalObject localObject = <span class="keyword">new</span> LocalObject();</span><br><span class="line"></span><br><span class="line">  localObject.callMethod();</span><br><span class="line">  method2(localObject);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">(LocalObject localObject)</span></span>&#123;</span><br><span class="line">  localObject.setValue(<span class="string">"value"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>样例中LocalObject对象没有被方法返回，也没有被传递给someMethod()方法外的对象。每个执行someMethod()的线程都会创建自己的LocalObject对象，并赋值给localObject引用。因此，这里的LocalObject是线程安全的。事实上，整个someMethod()都是线程安全的。即使将LocalObject作为参数传给同一个类的其它方法或其它类的方法时，它仍然是线程安全的。当然，如果LocalObject通过某些方法被传给了别的线程，那它就不再是线程安全的了。</p>
+<h3 id="对象成员"><a href="#对象成员" class="headerlink" title="对象成员"></a>对象成员</h3><p>对象成员存储在堆上。如果两个线程同时更新同一个对象的同一个成员，那这个代码就不是线程安全的。下面是一个样例：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class NotThreadSafe&#123;</span><br><span class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">add</span>(<span class="keyword">String</span> <span class="built_in">text</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>.builder.<span class="built_in">append</span>(<span class="built_in">text</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果两个线程同时调用同一个NotThreadSafe实例上的add()方法，就会有竞态条件问题。例如：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">NotThreadSafe sharedInstance = new NotThreadSafe();</span><br><span class="line"></span><br><span class="line">new Thread(new MyRunnable(sharedInstance)).start();</span><br><span class="line">new Thread(new MyRunnable(sharedInstance)).start();</span><br><span class="line"> </span><br><span class="line">public class MyRunnable implements Runnable&#123;</span><br><span class="line">  NotThreadSafe<span class="built_in"> instance </span>= <span class="literal">null</span>;</span><br><span class="line">   </span><br><span class="line">  public MyRunnable(NotThreadSafe instance)&#123;</span><br><span class="line">    this.instance = instance;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void <span class="builtin-name">run</span>()&#123;</span><br><span class="line">    this.instance.<span class="builtin-name">add</span>(<span class="string">"some text"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意两个MyRunnable共享了同一个NotThreadSafe对象。因此，当它们调用add()方法时会造成竞态条件。</p>
+<p>当然，如果这两个线程在不同的NotThreadSafe实例上调用call()方法，就不会导致竞态条件。下面是稍微修改后的例子：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Thread</span>(<span class="keyword">new</span> <span class="type">MyRunnable</span>(<span class="keyword">new</span> <span class="type">NotThreadSafe</span>())).start();</span><br><span class="line"><span class="keyword">new</span> <span class="type">Thread</span>(<span class="keyword">new</span> <span class="type">MyRunnable</span>(<span class="keyword">new</span> <span class="type">NotThreadSafe</span>())).start();</span><br></pre></td></tr></table></figure></p>
+<p>现在两个线程都有自己单独的NotThreadSafe对象，调用add()方法时就会互不干扰，再也不会有竞态条件问题了。所以非线程安全的对象仍可以通过某种方式来消除竞态条件。</p>
+<h3 id="线程控制逃逸规则"><a href="#线程控制逃逸规则" class="headerlink" title="线程控制逃逸规则"></a>线程控制逃逸规则</h3><p>线程控制逃逸规则可以帮助你判断代码中对某些资源的访问是否是线程安全的。</p>
+<blockquote>
+<p>如果一个资源的创建，使用，销毁都在同一个线程内完成，<br>且永远不会脱离该线程的控制，则该资源的使用就是线程安全的。</p>
+</blockquote>
+<p>资源可以是对象，数组，文件，数据库连接，套接字等等。Java中你无需主动销毁对象，所以“销毁”指不再有引用指向对象。</p>
+<p>即使对象本身线程安全，但如果该对象中包含其他资源（文件，数据库连接），整个应用也许就不再是线程安全的了。比如2个线程都创建了各自的数据库连接，每个连接自身是线程安全的，但它们所连接到的同一个数据库也许不是线程安全的。比如，2个线程执行如下代码：</p>
+<blockquote>
+<p>检查记录X是否存在，如果不存在，插入X</p>
+</blockquote>
+<p>如果两个线程同时执行，而且碰巧检查的是同一个记录，那么两个线程最终可能都插入了记录：</p>
+<blockquote>
+<p>线程1检查记录X是否存在。检查结果：不存在<br>线程2检查记录X是否存在。检查结果：不存在<br>线程1插入记录X<br>线程2插入记录X</p>
+</blockquote>
+<p>同样的问题也会发生在文件或其他共享资源上。因此，区分某个线程控制的对象是资源本身，还是仅仅到某个资源的引用很重要。</p>
+<h2 id="线程安全及不可变性"><a href="#线程安全及不可变性" class="headerlink" title="线程安全及不可变性"></a>线程安全及不可变性</h2><p>当多个线程同时访问同一个资源，并且其中的一个或者多个线程对这个资源进行了写操作，才会产生竞态条件。多个线程同时读同一个资源不会产生竞态条件。</p>
+<p>我们可以通过创建不可变的共享对象来保证对象在线程间共享时不会被修改，从而实现线程安全。如下示例：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ImmutableValue</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImmutableValue</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意ImmutableValue类的成员变量value是通过构造函数赋值的，并且在类中没有set方法。这意味着一旦ImmutableValue实例被创建，value变量就不能再被修改，这就是不可变性。但你可以通过getValue()方法读取这个变量的值。</p>
+<p>（<em>译者注：注意，“不变”（Immutable）和“只读”（Read Only）是不同的。当一个变量是“只读”时，变量的值不能直接改变，但是可以在其它变量发生改变的时候发生改变。比如，一个人的出生年月日是“不变”属性，而一个人的年龄便是“只读”属性，但是不是“不变”属性。随着时间的变化，一个人的年龄会随之发生变化，而一个人的出生年月日则不会变化。这就是“不变”和“只读”的区别。（摘自《Java与模式》第34章）</em>）</p>
+<p>如果你需要对ImmutableValue类的实例进行操作，可以通过得到value变量后创建一个新的实例来实现，下面是一个对value变量进行加法操作的示例：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ImmutableValue</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImmutableValue</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.<span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ImmutableValue <span class="title">add</span>(<span class="params"><span class="keyword">int</span> valueToAdd</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ImmutableValue(<span class="keyword">this</span>.<span class="keyword">value</span> + valueToAdd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意add()方法以加法操作的结果作为一个新的ImmutableValue类实例返回，而不是直接对它自己的value变量进行操作。</p>
+<p><strong>引用不是线程安全的！</strong></p>
+<p>重要的是要记住，即使一个对象是线程安全的不可变对象，指向这个对象的引用也可能不是线程安全的。看这个例子：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> Calculator&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImmutableValue currentValue = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ImmutableValue <span class="title">getValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span>(<span class="params">ImmutableValue newValue</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentValue = newValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> newValue</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentValue = <span class="keyword">this</span>.currentValue.<span class="keyword">add</span>(newValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Calculator类持有一个指向ImmutableValue实例的引用。注意，通过setValue()方法和add()方法可能会改变这个引用。因此，即使Calculator类内部使用了一个不可变对象，但Calculator类本身还是可变的，因此Calculator类不是线程安全的。换句话说：ImmutableValue类是线程安全的，但使用它的类不是。当尝试通过不可变性去获得线程安全时，这点是需要牢记的。</p>
+<p>要使Calculator类实现线程安全，将getValue()、setValue()和add()方法都声明为同步方法即可。</p>
+<h2 id="本文转载于并发编程网"><a href="#本文转载于并发编程网" class="headerlink" title="本文转载于并发编程网"></a>本文转载于并发编程网</h2><p>来源：<a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="external">http://ifeve.com/java-concurrency-thread-directory/</a></p>
 
       
     </div>
@@ -551,11 +493,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/原创/" rel="tag"># 原创</a>
-          
             <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
           
-            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+            <a href="/tags/转载/" rel="tag"># 转载</a>
           
         </div>
       
@@ -568,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/先行发生原则（Happens-before）.html" rel="next" title="先行并发原则">
-                <i class="fa fa-chevron-left"></i> 先行并发原则
+              <a href="/post/2017/并发性和多线程的介绍.html" rel="next" title="并发性和多线程介绍">
+                <i class="fa fa-chevron-left"></i> 并发性和多线程介绍
               </a>
             
           </div>
@@ -578,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/JAVA同步块.html" rel="prev" title="Java同步块">
-                Java同步块 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/全站开启HTTPS加密模式访问.html" rel="prev" title="全站开启HTTPS加密模式访问">
+                全站开启HTTPS加密模式访问 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -774,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的实现方式"><span class="nav-number">1.</span> <span class="nav-text">线程的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用内核线程实现"><span class="nav-number">1.2.</span> <span class="nav-text">使用内核线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级进程-LWP"><span class="nav-number">1.2.1.</span> <span class="nav-text">轻量级进程(LWP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程实现"><span class="nav-number">1.3.</span> <span class="nav-text">使用用户线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程加轻量级进程混合实现"><span class="nav-number">1.4.</span> <span class="nav-text">使用用户线程加轻量级进程混合实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA线程调度"><span class="nav-number">2.</span> <span class="nav-text">JAVA线程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非抢占方式-Non-preemptive-Mode"><span class="nav-number">2.1.</span> <span class="nav-text">非抢占方式(Non-preemptive Mode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抢占方式-Preemptive-Mode"><span class="nav-number">2.2.</span> <span class="nav-text">抢占方式(Preemptive Mode)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态转换"><span class="nav-number">3.</span> <span class="nav-text">状态转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#竞态条件与临界区"><span class="nav-number">1.</span> <span class="nav-text">竞态条件与临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#竞态条件-amp-临界区"><span class="nav-number">1.1.</span> <span class="nav-text">竞态条件 & 临界区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全与共享资源"><span class="nav-number">2.</span> <span class="nav-text">线程安全与共享资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量"><span class="nav-number">2.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部的对象引用"><span class="nav-number">2.2.</span> <span class="nav-text">局部的对象引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象成员"><span class="nav-number">2.3.</span> <span class="nav-text">对象成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程控制逃逸规则"><span class="nav-number">2.4.</span> <span class="nav-text">线程控制逃逸规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全及不可变性"><span class="nav-number">3.</span> <span class="nav-text">线程安全及不可变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文转载于并发编程网"><span class="nav-number">4.</span> <span class="nav-text">本文转载于并发编程网</span></a></li></ol></div>
             
 
           </div>

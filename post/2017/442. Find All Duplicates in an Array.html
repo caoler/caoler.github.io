@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="博客相关," />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -81,21 +81,18 @@
 
 
 
-<meta name="description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
-<meta name="keywords" content="博客相关">
+<meta name="description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全站开启HTTPS加密模式访问">
-<meta property="og:url" content="https://caoler.cn/blog/2017/全站开启HTTPS加密模式访问.html">
+<meta property="og:title" content="442. Find All Duplicates in an Array">
+<meta property="og:url" content="https://caoler.cn/post/2017/442. Find All Duplicates in an Array.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
+<meta property="og:description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flhq7b9nwkj30k00cvq36.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flhq9h68szj317k0tktd3.jpg">
-<meta property="og:updated_time" content="2017-11-14T09:39:18.205Z">
+<meta property="og:updated_time" content="2017-11-14T08:45:50.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全站开启HTTPS加密模式访问">
-<meta name="twitter:description" content="前言最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flhq7b9nwkj30k00cvq36.jpg">
+<meta name="twitter:title" content="442. Find All Duplicates in an Array">
+<meta name="twitter:description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/blog/2017/全站开启HTTPS加密模式访问.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/442. Find All Duplicates in an Array.html"/>
 
 
 
 
 
-  <title>全站开启HTTPS加密模式访问 | Caole's blog</title>
+  <title>442. Find All Duplicates in an Array | Caole's blog</title>
   
 
 
@@ -312,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/blog/2017/全站开启HTTPS加密模式访问.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/442. Find All Duplicates in an Array.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -329,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">全站开启HTTPS加密模式访问</h1>
+          <h1 class="post-title" itemprop="name headline">442. Find All Duplicates in an Array</h1>
         
 
         <div class="post-meta">
@@ -341,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T17:17:00+08:00">
-                2017-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T19:57:00+08:00">
+                2017-11-06
               </time>
             
 
@@ -364,8 +361,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客相关/" itemprop="url" rel="index">
-                    <span itemprop="name">博客相关</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/Array/" itemprop="url" rel="index">
+                    <span itemprop="name">Array</span>
                   </a>
                 </span>
 
@@ -383,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/blog/2017/全站开启HTTPS加密模式访问.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/blog/2017/全站开启HTTPS加密模式访问.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/442. Find All Duplicates in an Array.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/442. Find All Duplicates in an Array.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -417,41 +425,20 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现，各大网站好像已经开始全站使用HTTPS，看着浏览器地址栏左边有着一把绿色的小锁，好像是一件很酷的事情。国内的网络环境好像越来越差，除了学会科学上网之外，好像也难免会遇到通讯服务商在网站上加上小广告的问题。随着不断了解计算机的知识，安全概念也越来越重。看着某某网站又被脱裤，一不小心自己的隐私可能就泄露出去了。在社工库上一查，还真能发现自己小学时候使用过的密码。不过，现在当然已经学会了各种措施，每个网站独立密码，能双重保护地就进行双重保护。1password也是我经常使用的一个密码管理软件……啊，好像扯远了。今天，天气很好，也想给自己的博客加上把绿色的小锁HTTPS。</p>
-<h2 id="什么是HTTPS"><a href="#什么是HTTPS" class="headerlink" title="什么是HTTPS"></a>什么是HTTPS</h2><a id="more"></a>
-<p>HTTPS全称Hypertext Transfer Protocol Secure 超文本安全协议。也就是HTTP加上安全传输层协议TSL/SSL。介于HTTP层与TCP层之间的一层安全协议。通过安全认证，可以避免HTTP中间人攻击，信息污染，信息劫持等问题。详细信息的话<a href="https://segmentfault.com/a/1190000004199917" target="_blank" rel="external">腾讯Bugly的文章</a>全站HTTPS来了介绍得很详细。HTTPS基础原理，通信过程，在这篇文章里都有详细地讲到。</p>
-<p>直接进入主题，为博客加上HTTPS吧。</p>
-<h2 id="给博客加上HTTPS"><a href="#给博客加上HTTPS" class="headerlink" title="给博客加上HTTPS"></a>给博客加上HTTPS</h2><h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>通过上述的HTTPS介绍，可以知道如果我们要给让博客的协议变成HTTPS，就需要有CA认可的证书才可以，一般这样子的证书是需要自己进行购买和申请认证的。简单RSA非对称性的加密算法是无法避免中间人攻击的。存在着中间人攻击和信息抵赖的风险。所以我这里所采用的方法是用，Cloudflare所提供的CDN来作为HTTPS的接入口。</p>
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>什么是CDN? CDN的全称就是Content Delivery Network，内容分发网络。其最基本的思路就是，用户在访问一个网站的时候，不直接访问这个网站的服务器，CDN系统会根据地理位置，将用户重新导向离其最近的CDN服务器。网站的内容在这个CDN服务器上会有相应的缓存，从而使用户更快地访问到所需要的内容，可以减少网络拥堵的情况，也可以减轻网站的服务器承受太大的访问量，以及带宽不足的情况。</p>
-<h3 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h3><ul>
-<li>注册Cloudflare，添加个人网站</li>
-<li>获取Cloudflare的Domain Name Server</li>
-<li>在域名提供商处修改自己域名的Domain Name Server为2所获取的DNS</li>
-<li>开启SSL加密，选择flexible</li>
-<li>开启强制跳转，使http自动跳转到https</li>
-</ul>
-<p>步骤1，2在注册cloudflare的过程中，跟着流程一步一步做就好了。步骤3的话我们要先取消掉原有的DNS的解析服务，修改为cloudflare的DNS的地址。然后在Cloudflare的DNS中添加相应的DNS记录即可。可能会用到的DNS record大概有下面几种</p>
-<blockquote>
-<p>A记录: 将一个域名指向一个ipv4的地址<br>AAAA记录: 将一个域名指向一个ipv6的地址<br>CNAME记录: 将一个域名指向另一个域名</p>
-</blockquote>
-<p>步骤4中，我们所使用的是flexible的SSL加密方式。这种加密方式<br>根据cloudflare的解释如下：</p>
-<blockquote>
-<p>Flexible SSL: There is an encrypted connection between your website visitors and Cloudflare, but not from Cloudflare to your server.<br>You do not need an SSL certificate on your server<br>Visitors will see the SSL lock icon in their browser</p>
-</blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flhq7b9nwkj30k00cvq36.jpg" alt=""><br>也就是说这其实不是一种安全的加密方式，因为其实服务器与CDN在通信过程中的信息是没有加密的。但是因为我使用的git page 以及没有购买相应的证书，所以没法再服务器上部署SSL。所以CDN与服务器之间的通信就不是加密的通信。</p>
-<p>步骤5共有两种方法</p>
-<ul>
-<li>第一种：在cloudflare上的Page Rules设置中，添加上一条规则使得通过http协议的访问也会强制跳转到https上。</li>
-</ul>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flhq9h68szj317k0tktd3.jpg" alt=""></p>
-<ul>
-<li>第二种：在网站head标签中加入如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	   <span class="keyword">var</span> host = <span class="string">"caoler.cn"</span>;</span><br><span class="line">	   <span class="keyword">if</span> ((host == <span class="built_in">window</span>.location.host) &amp;&amp; (<span class="built_in">window</span>.location.protocol != <span class="string">"https:"</span>))</span><br><span class="line">		   <span class="built_in">window</span>.location.protocol = <span class="string">"https"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>防跳坑：</strong> 上述两种方式只能使用其中一种，不然浏览器会报出循环重定向错误，导致网站无法正常访问。别问我为什么知道~ （逃</p>
-<h2 id="全站HTTPS"><a href="#全站HTTPS" class="headerlink" title="全站HTTPS"></a>全站HTTPS</h2><p>要做到成功让这个博客满足https的要求，在博客所使用所有的图片自然也是要使用https的链接才行的，只要网站上所使用的资源不是全部通过https的就存在着安全的风险。且网站会被chrome等浏览器认为是不安全的。(放弃七牛云作为图床)</p>
-<p>这里所使用的是新浪微博的图床，在chrome商店可以找到对应的插件。在左下角有的https的选项，只要勾选上了就可以默认生成https的图片链接了。<a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf/reviews" target="_blank" rel="external">谷歌商店地址</a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然这里所使用的方法，不是安全的一种方法。网站仍然会面临中间人攻击等一系列问题。因为服务器与CDN之间的通信未加密。但是至少用户在访问网站的时候，不会被通信服务商再拦截再什么广告了。刚好在学习计算机网络的过程中，了解了一些https、cdn、dns、ssl的知识。随着chrome,firefox等浏览器和苹果的大力推进。HTTPS肯定是接下去的发展趋势了，而且证书的费用也在下降。所以，各个网站都是很有必要，向这里过渡的。还有，看着自己浏览的网站，有一个绿色的小锁，就是一件很酷的事情啊，哈哈。</p>
+        <p>Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
+<p>Find all the elements that appear twice in this array.</p>
+<p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Example:</span></span><br><span class="line"><span class="symbol">Input:</span></span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="symbol">Output:</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>题目大意：</strong><br>给定一个整数数组，1 &lt;= a[i] &lt;= n (n = 数组长度)，某些元素出现两次，某些出现一次。寻找数组中所有出现两次的元素。你可以不使用额外空间并且在O(n)运行时间内完成题目吗？</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>解法一（自己的想法）：首先对数组进行排列，例如[4,3,3,2,1] 排列后变为[1,2,3,3,4]，遍历nums，当nums[i] - nums[i + 1] == 0时，也就是当前数字等于下一个数字，再将当前数字存入数组中。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">findDuplicates1</span>(<span class="params"><span class="keyword">int</span>[] nums</span>) </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] - nums[ i+<span class="number">1</span> ] == <span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="keyword">add</span>(nums[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解法二：正负号标记法（一趟遍历）</p>
+<p>遍历nums，记当前数字为n（取绝对值），将数字n视为下标（因为a[i]∈[1, n]）</p>
+<p>当n首次出现时，nums[n - 1]-1</p>
+<p>当n再次出现时，则nums[n - 1]一定＜0，将n加入答案</p>
+<p>参考：<a href="https://discuss.leetcode.com/topic/64735/java-simple-solution" target="_blank" rel="external">https://discuss.leetcode.com/topic/64735/java-simple-solution</a><br>代码：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</span><br><span class="line">    // when find a <span class="keyword">number</span> i, flip the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> to negative. </span><br><span class="line">    // <span class="keyword">if</span> the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> is already negative, i is the <span class="keyword">number</span> that occurs twice.</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> List&lt;<span class="keyword">Integer</span>&gt; findDuplicates(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;<span class="keyword">Integer</span>&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="built_in">int</span> <span class="built_in">index</span> = Math.<span class="built_in">abs</span>(nums[i])-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">index</span>] &lt; <span class="number">0</span>)</span><br><span class="line">                res.add(Math.<span class="built_in">abs</span>(<span class="built_in">index</span>+<span class="number">1</span>));</span><br><span class="line">            nums[<span class="built_in">index</span>] = -nums[<span class="built_in">index</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -469,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客相关/" rel="tag"># 博客相关</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -482,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/线程安全.html" rel="next" title="线程安全">
-                <i class="fa fa-chevron-left"></i> 线程安全
+              <a href="/post/2017/561. Array Partition I.html" rel="next" title="561. Array Partition I">
+                <i class="fa fa-chevron-left"></i> 561. Array Partition I
               </a>
             
           </div>
@@ -492,8 +479,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/JAVA内存模型.html" rel="prev" title="Java内存模型">
-                Java内存模型 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/Java 8系列之重新认识HashMap.html" rel="prev" title="Java 8系列之重新认识HashMap">
+                Java 8系列之重新认识HashMap <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -688,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HTTPS"><span class="nav-number">2.</span> <span class="nav-text">什么是HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给博客加上HTTPS"><span class="nav-number">3.</span> <span class="nav-text">给博客加上HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字证书"><span class="nav-number">3.1.</span> <span class="nav-text">数字证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN"><span class="nav-number">3.2.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要步骤"><span class="nav-number">3.3.</span> <span class="nav-text">主要步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全站HTTPS"><span class="nav-number">4.</span> <span class="nav-text">全站HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.</span> <span class="nav-text">思路：</span></a></li></ol></div>
             
 
           </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="原创,科学上网," />
+  <meta name="keywords" content="原创,并发编程," />
 
 
 
@@ -81,33 +81,18 @@
 
 
 
-<meta name="description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
-<meta name="keywords" content="原创,科学上网">
+<meta name="description" content="先行发生原则（Happens-Before）是判断数据是否存在竞争、线程是否安全的主要依据。 先行发生是Java内存，模型中定义的两项操作之间的偏序关系，如果操作A先行发生于操作B，那么操作A产生的影响能够被操作B观察到,”影响”包括修改了内存中共享变量的值、发送了消息、调用了方法等。 Java内存模型中存在的天然的先行发生关系：">
+<meta name="keywords" content="原创,并发编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于SSR的科学上网教程(置顶至12月1日)">
-<meta property="og:url" content="https://caoler.cn/blog/2017/基于SSR的科学上网教程.html">
+<meta property="og:title" content="先行并发原则">
+<meta property="og:url" content="https://caoler.cn/post/2017/先行发生原则（Happens-before）.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
+<meta property="og:description" content="先行发生原则（Happens-Before）是判断数据是否存在竞争、线程是否安全的主要依据。 先行发生是Java内存，模型中定义的两项操作之间的偏序关系，如果操作A先行发生于操作B，那么操作A产生的影响能够被操作B观察到,”影响”包括修改了内存中共享变量的值、发送了消息、调用了方法等。 Java内存模型中存在的天然的先行发生关系：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg">
-<meta property="og:updated_time" content="2017-11-27T12:17:19.698Z">
+<meta property="og:updated_time" content="2017-11-27T05:43:12.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于SSR的科学上网教程(置顶至12月1日)">
-<meta name="twitter:description" content="PC客户端下载链接: https://pan.baidu.com/s/1dFzus4h 密码: bfrd 添加服务器将压缩包内文件解压到一个固定位置会后，选择ShadowsocksR-dotnet4.0.exe 打开客户端。 这时候，右下角托盘图标会出现一个纸飞机，然后右键 纸飞机 图标，弹出菜单并选择 服务器 —— 编辑服务器。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg">
+<meta name="twitter:title" content="先行并发原则">
+<meta name="twitter:description" content="先行发生原则（Happens-Before）是判断数据是否存在竞争、线程是否安全的主要依据。 先行发生是Java内存，模型中定义的两项操作之间的偏序关系，如果操作A先行发生于操作B，那么操作A产生的影响能够被操作B观察到,”影响”包括修改了内存中共享变量的值、发送了消息、调用了方法等。 Java内存模型中存在的天然的先行发生关系：">
 
 
 
@@ -137,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/blog/2017/基于SSR的科学上网教程.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/先行发生原则（Happens-before）.html"/>
 
 
 
 
 
-  <title>基于SSR的科学上网教程(置顶至12月1日) | Caole's blog</title>
+  <title>先行并发原则 | Caole's blog</title>
   
 
 
@@ -318,15 +303,13 @@
   
   
   
-    
-  
 
-  <article class="post post-type-normal post-sticky" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/blog/2017/基于SSR的科学上网教程.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/先行发生原则（Happens-before）.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -343,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于SSR的科学上网教程(置顶至12月1日)</h1>
+          <h1 class="post-title" itemprop="name headline">先行并发原则</h1>
         
 
         <div class="post-meta">
@@ -355,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T16:38:00+08:00">
-                2017-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T14:26:00+08:00">
+                2017-11-18
               </time>
             
 
@@ -378,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/" itemprop="url" rel="index">
-                    <span itemprop="name">实用教程</span>
+                  <a href="/categories/并发编程/" itemprop="url" rel="index">
+                    <span itemprop="name">并发编程</span>
                   </a>
                 </span>
 
@@ -389,8 +372,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/科学上网/" itemprop="url" rel="index">
-                    <span itemprop="name">科学上网</span>
+                  <a href="/categories/并发编程/内存模型/" itemprop="url" rel="index">
+                    <span itemprop="name">内存模型</span>
                   </a>
                 </span>
 
@@ -408,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/blog/2017/基于SSR的科学上网教程.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/blog/2017/基于SSR的科学上网教程.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/先行发生原则（Happens-before）.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/先行发生原则（Happens-before）.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -442,69 +425,29 @@
       
 
       
-        <h2 id="PC客户端"><a href="#PC客户端" class="headerlink" title="PC客户端"></a>PC客户端</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1dFzus4h" target="_blank" rel="external">https://pan.baidu.com/s/1dFzus4h</a> 密码: bfrd</p>
-<h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>将压缩包内文件解压到一个固定位置会后，选择<code>ShadowsocksR-dotnet4.0.exe</code> 打开客户端。</p>
-<p>这时候，右下角托盘图标会出现一个纸飞机，<strong>然后右键 纸飞机 图标</strong>，弹出菜单并选择 <code>服务器 —— 编辑服务器</code>。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flt8s04fvfj30dr099q35.jpg" alt=""></p>
+        <p>先行发生原则（Happens-Before）是判断数据是否存在竞争、线程是否安全的主要依据。</p>
+<p>先行发生是Java内存，模型中定义的两项操作之间的偏序关系，如果操作A先行发生于操作B，那么操作A产生的影响能够被操作B观察到,”影响”包括修改了内存中共享变量的值、发送了消息、调用了方法等。</p>
+<p>Java内存模型中存在的天然的先行发生关系：</p>
 <a id="more"></a>
-<p>然后就会出现 <strong>编辑服务器的窗口</strong>，默认是有一个节点配置示例的，你可以 直接改 或者 删掉 新添加一个服务器。</p>
-<p>然后就是填写Shadowsocks账号信息。</p>
-<p>依次填写 <strong>服务器 IP、服务器端口、密码、加密方式</strong>，如果你的账号是原版Shadowsocks，那么写到这里就行了。</p>
-<blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
-</blockquote>
-<p>如果你的账号是ShadowsocksR账号，那么根据ShadowsocksR账号信息，选择对应的协议和混淆（origin/plain是原版SS的意思）</p>
-<p>根据需要，你可以填写 备注 和 Group（分组） ，具体效果自己试一下就知道了。</p>
-<p>密码前面的 选择框 是明文显示密码的意思。</p>
-<hr>
-<p>然后一些人会问为什么右边显示二维码的地方老是显示一个图片却不显示二维码？</p>
-<p>实际上主要是很多人截图不知道打码，暴露了自己的Shadowsocks账号所有信息，所以默认都是不显示二维码的，只要点击 下图蓝条选中的SSR链接输入框，就会显示二维码了。</p>
-<p>而SSR链接前面的 选择框 ，勾选代表是显示SSR的二维码，不勾选则显示SS的二维码。</p>
-<p>填写完毕后，点击 确定 按钮，继续下一步。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8va1w8gj30r40dzabq.jpg" alt=""></p>
-<h3 id="选择服务器"><a href="#选择服务器" class="headerlink" title="选择服务器"></a>选择服务器</h3><p>右键 纸飞机 图标，出现菜单并选择 <code>服务器 —— 分组(empty group) —— 要使用的Shadowsocks账号</code>。(如果没有设置分组，直接选择要连接的服务器即可)</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8xb58q7j30d90993ys.jpg" alt=""></p>
-<p>右键 纸飞机 图标弹出菜单并选择<code>系统代理模式 —— PAC模式</code> </p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ya28lij30ie0djt9g.jpg" alt=""></p>
-<p>代理规则选 <strong>用户自定义</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flt8ztan6bj30ic0cdjs3.jpg" alt=""></p>
-<blockquote>
-<p>目前ShadowsocksR客户端的国内外分流规则分两种，PAC规则（系统代理模式） 和 代理规则<br>PAC规则 是根据PAC文件中的黑白地址名单来判断那些网站走代理，也就是判断 流量数据是进入SSR客户端还是直连。<br>代理规则 是根据IP判断，分 绕过局域网/绕过局域网和大陆/绕过局域网和非大陆 ，用于判断 进入SSR客户端的数据流量是走代理还是直连。</p>
-</blockquote>
-<p>至此，PC端设置完毕。点击试试看：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h3 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h3><p>右键选择选项设置</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltahjj0yuj30cj0c7gm0.jpg" alt=""></p>
-<p>选择开机自启，设置开机自启后，只要电脑一开机就可以直接访问google了</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltai4cu7xj30he0ej752.jpg" alt=""></p>
-<h2 id="iOS客户端"><a href="#iOS客户端" class="headerlink" title="iOS客户端"></a>iOS客户端</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><ul>
-<li>方式一：登录美区AppStore，购买并下载shadowrocket（18RMB）</li>
-<li>方式二：使用电脑下载PP助手并安装，官网：<a href="https://pro.25pp.com/" target="_blank" rel="external">https://pro.25pp.com/</a></li>
-</ul>
-<p>连接手机之后搜索shadowrocket并安装</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltaoljhsqj30ca046gli.jpg" alt=""></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开shadowrocket，点击右上角加号</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltas9wgpaj30ku0edjt4.jpg" alt=""></p>
-<p><strong>类型选择shadowrocksR</strong> 输入账号密码，以及混淆参数等等。</p>
-<blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
-</blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasyhs2rj30ku112773.jpg" alt=""></p>
-<p>在首页全局路由处选择<code>配置</code></p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1fltasqpem2j30ku112dir.jpg" alt=""></p>
-<p>点击连接即可。</p>
-<p>至此iOS端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h2 id="安卓客户端"><a href="#安卓客户端" class="headerlink" title="安卓客户端"></a>安卓客户端</h2><h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>链接: <a href="https://pan.baidu.com/s/1i5vi3tz" target="_blank" rel="external">https://pan.baidu.com/s/1i5vi3tz</a> 密码: 9y9t</p>
-<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装之后配置你的服务器信息，<strong>远程端口为我给你的端口，本地端口为默认1080</strong></p>
-<blockquote>
-<p>注意：<br>协议        : auth_sha1_v4_compatible<br>客户端中选择：auth_sha1_v4<br>混淆        : tls1.2_ticket_auth_compatible<br>客户端中选择：tls1.2_ticket_auth</p>
-</blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbgxqftkj30f00qogmc.jpg" alt=""></p>
-<p>路由处选择如图所示绕过局域网和大陆，如果不能上网，再设置为全局</p>
-<p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbi98qemj30f00qoq3u.jpg" alt=""></p>
-<p>当处于全局状态时，手机消耗的所有数据将使用那50G流量，也可切换为<code>仅代理为中国大陆无法访问的网址</code></p>
-<p>点击右上角小飞机，同意连接之后，即可成功FQ<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fltbkj2pvij30f00qoaal.jpg" alt=""></p>
-<p>至此，安卓客户端设置完毕，点击试试：<a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>设置切记按照文章中所说的一步一步操作，尤其是PC端的选择PAC，iOS端的配置，还有安卓客户端的路由选项</p>
+<ol>
+<li><p>程序次序规则：同一个线程内，按照代码出现的顺序，前面的代码先行于后面的代码，准确的说是控制流顺序，因为要考虑到分支和循环结构。</p>
+</li>
+<li><p>管程锁定规则：一个unlock操作先行发生于后面（时间上）对同一个锁的lock操作。</p>
+</li>
+<li><p>volatile变量规则：对一个volatile变量的写操作先行发生于后面（时间上）对这个变量的读操作。</p>
+</li>
+<li><p>线程启动规则：Thread的start( )方法先行发生于这个线程的每一个操作。</p>
+</li>
+<li><p>线程终止规则：线程的所有操作都先行于此线程的终止检测。可以通过Thread.join( )方法结束、Thread.isAlive( )的返回值等手段检测线程的终止。 </p>
+</li>
+<li><p>线程中断规则：对线程interrupt( )方法的调用先行发生于被中断线程的代码检测到中断事件的发生，可以通过Thread.interrupt( )方法检测线程是否中断</p>
+</li>
+<li><p>对象终结规则：一个对象的初始化完成先行于发生它的finalize（）方法的开始。</p>
+</li>
+<li><p>传递性：如果操作A先行于操作B，操作B先行于操作C，那么操作A先行于操作C。</p>
+</li>
+</ol>
+<p><strong>总结</strong>：一个操作“时间上的先发生”不代表这个操作先行发生；一个操作先行发生也不代表这个操作在时间上是先发生的（重排序的出现）。<br>时间上的先后顺序对先行发生没有太大的关系，所以衡量并发安全问题的时候不要受到时间顺序的影响，一切以先行发生原则为准。</p>
 
       
     </div>
@@ -524,7 +467,7 @@
           
             <a href="/tags/原创/" rel="tag"># 原创</a>
           
-            <a href="/tags/科学上网/" rel="tag"># 科学上网</a>
+            <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
           
         </div>
       
@@ -537,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/线程通信.html" rel="next" title="线程通信">
-                <i class="fa fa-chevron-left"></i> 线程通信
+              <a href="/post/2017/原子性、可见性、有序性.html" rel="next" title="JAVA的原子性、可见性、有序性">
+                <i class="fa fa-chevron-left"></i> JAVA的原子性、可见性、有序性
               </a>
             
           </div>
@@ -547,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/死锁以及如何避免死锁.html" rel="prev" title="死锁以及如何避免死锁">
-                死锁以及如何避免死锁 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/JAVA与线程.html" rel="prev" title="JAVA与线程">
+                JAVA与线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -606,17 +549,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -733,22 +667,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PC客户端"><span class="nav-number">1.</span> <span class="nav-text">PC客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加服务器"><span class="nav-number">1.2.</span> <span class="nav-text">添加服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择服务器"><span class="nav-number">1.3.</span> <span class="nav-text">选择服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加设置"><span class="nav-number">1.4.</span> <span class="nav-text">附加设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS客户端"><span class="nav-number">2.</span> <span class="nav-text">iOS客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-1"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓客户端"><span class="nav-number">3.</span> <span class="nav-text">安卓客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-2"><span class="nav-number">3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

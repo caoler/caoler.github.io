@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="并发编程,转载," />
+  <meta name="keywords" content="原创,并发编程," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="概述Java 同步块（synchronized block）用来标记方法或者代码块是同步的。Java同步块用来避免竞争。 Java 同步关键字（synchronized）Java中的同步块用synchronized标记。同步块在Java中是同步在某个对象上。所有同步在一个对象上的同步块在同时只能被一个线程进入并执行操作。所有其他等待进入该同步块的线程将被阻塞，直到执行该同步块中的线程退出。 有四种">
-<meta name="keywords" content="并发编程,转载">
+<meta name="description" content="原子性定义是指一个操作或多个操作要么全部执行，且执行的过程不会被任何因素打断，要么都不执行。 原子操作原理（处理器是如何实现原子操作的）处理器实现原子操作有3种方式：  处理器自动保证基本内存操作的原子性 使用总线锁保证原子性 使用缓存锁保证原子性">
+<meta name="keywords" content="原创,并发编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java同步块">
-<meta property="og:url" content="https://caoler.cn/blog/2017/JAVA同步块.html">
+<meta property="og:title" content="JAVA的原子性、可见性、有序性">
+<meta property="og:url" content="https://caoler.cn/post/2017/原子性、可见性、有序性.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="概述Java 同步块（synchronized block）用来标记方法或者代码块是同步的。Java同步块用来避免竞争。 Java 同步关键字（synchronized）Java中的同步块用synchronized标记。同步块在Java中是同步在某个对象上。所有同步在一个对象上的同步块在同时只能被一个线程进入并执行操作。所有其他等待进入该同步块的线程将被阻塞，直到执行该同步块中的线程退出。 有四种">
+<meta property="og:description" content="原子性定义是指一个操作或多个操作要么全部执行，且执行的过程不会被任何因素打断，要么都不执行。 原子操作原理（处理器是如何实现原子操作的）处理器实现原子操作有3种方式：  处理器自动保证基本内存操作的原子性 使用总线锁保证原子性 使用缓存锁保证原子性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T05:43:12.635Z">
+<meta property="og:updated_time" content="2017-11-27T05:43:12.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java同步块">
-<meta name="twitter:description" content="概述Java 同步块（synchronized block）用来标记方法或者代码块是同步的。Java同步块用来避免竞争。 Java 同步关键字（synchronized）Java中的同步块用synchronized标记。同步块在Java中是同步在某个对象上。所有同步在一个对象上的同步块在同时只能被一个线程进入并执行操作。所有其他等待进入该同步块的线程将被阻塞，直到执行该同步块中的线程退出。 有四种">
+<meta name="twitter:title" content="JAVA的原子性、可见性、有序性">
+<meta name="twitter:description" content="原子性定义是指一个操作或多个操作要么全部执行，且执行的过程不会被任何因素打断，要么都不执行。 原子操作原理（处理器是如何实现原子操作的）处理器实现原子操作有3种方式：  处理器自动保证基本内存操作的原子性 使用总线锁保证原子性 使用缓存锁保证原子性">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/blog/2017/JAVA同步块.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2017/原子性、可见性、有序性.html"/>
 
 
 
 
 
-  <title>Java同步块 | Caole's blog</title>
+  <title>JAVA的原子性、可见性、有序性 | Caole's blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/blog/2017/JAVA同步块.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/原子性、可见性、有序性.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java同步块</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA的原子性、可见性、有序性</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T18:44:00+08:00">
-                2017-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T17:26:00+08:00">
+                2017-11-16
               </time>
             
 
@@ -372,8 +372,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/线程安全/" itemprop="url" rel="index">
-                    <span itemprop="name">线程安全</span>
+                  <a href="/categories/并发编程/内存模型/" itemprop="url" rel="index">
+                    <span itemprop="name">内存模型</span>
                   </a>
                 </span>
 
@@ -391,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/blog/2017/JAVA同步块.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/blog/2017/JAVA同步块.html" itemprop="commentsCount"></span>
+                <a href="/post/2017/原子性、可见性、有序性.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/原子性、可见性、有序性.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -425,40 +425,30 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Java 同步块（synchronized block）用来标记方法或者代码块是同步的。Java同步块用来避免竞争。</p>
-<h2 id="Java-同步关键字（synchronized）"><a href="#Java-同步关键字（synchronized）" class="headerlink" title="Java 同步关键字（synchronized）"></a>Java 同步关键字（synchronized）</h2><p>Java中的同步块用synchronized标记。同步块在Java中是同步在某个对象上。所有同步在一个对象上的同步块在同时只能被一个线程进入并执行操作。所有其他等待进入该同步块的线程将被阻塞，直到执行该同步块中的线程退出。</p>
-<p>有四种不同的同步块：</p>
-<ul>
-<li>实例方法</li>
-<li>静态方法</li>
-<li>实例方法中的同步块</li>
-<li>静态方法中的同步块</li>
-</ul>
-<p>上述同步块都同步在不同对象上。实际需要那种同步块视具体情况而定。</p>
+        <h2 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>是指一个操作或多个操作要么全部执行，且执行的过程不会被任何因素打断，要么都不执行。</p>
+<h3 id="原子操作原理（处理器是如何实现原子操作的）"><a href="#原子操作原理（处理器是如何实现原子操作的）" class="headerlink" title="原子操作原理（处理器是如何实现原子操作的）"></a>原子操作原理（处理器是如何实现原子操作的）</h3><p>处理器实现原子操作有3种方式：</p>
+<ol>
+<li>处理器自动保证基本内存操作的原子性</li>
+<li>使用总线锁保证原子性</li>
+<li>使用缓存锁保证原子性</li>
+</ol>
 <a id="more"></a>
-<h3 id="实例方法同步"><a href="#实例方法同步" class="headerlink" title="实例方法同步"></a>实例方法同步</h3><p>下面是一个同步的实例方法：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> synchronized <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.count += <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意在方法声明中同步（synchronized ）关键字。这告诉Java该方法是同步的。</p>
-<p><strong>Java实例方法同步是同步在拥有该方法的对象上。</strong> 这样，每个实例其方法同步都同步在不同的对象上，即该方法所属的实例。只有一个线程能够在实例方法同步块中运行。如果有多个实例存在，那么一个线程一次可以在一个实例同步块中执行操作。一个实例一个线程。</p>
-<h3 id="静态方法同步"><a href="#静态方法同步" class="headerlink" title="静态方法同步"></a>静态方法同步</h3><p>静态方法同步和实例方法同步方法一样，也使用synchronized 关键字。Java静态方法同步如下示例：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> synchronized <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">    count += <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>同样，这里synchronized 关键字告诉Java这个方法是同步的。</p>
-<p><strong>静态方法的同步是指同步在该方法所在的类对象上。</strong> 因为在Java虚拟机中一个类只能对应一个类对象，所以同时只允许一个线程执行同一个类中的静态同步方法。</p>
-<p>对于不同类中的静态同步方法，一个线程可以执行每个类中的静态同步方法而无需等待。不管类中的那个静态同步方法被调用，一个类只能由一个线程同时执行。</p>
-<h3 id="实例方法中的同步块"><a href="#实例方法中的同步块" class="headerlink" title="实例方法中的同步块"></a>实例方法中的同步块</h3><p>有时你不需要同步整个方法，而是同步方法中的一部分。Java可以对方法的一部分进行同步。</p>
-<p>在非同步的Java方法中的同步块的例子如下所示：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    synchronized(<span class="keyword">this</span>)&#123;</span><br><span class="line">       <span class="keyword">this</span>.count += <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>示例使用Java同步块构造器来标记一块代码是同步的。该代码在执行时和同步方法一样。</p>
-<p>注意Java同步块构造器用括号将对象括起来。在上例中，使用了“this”，即为调用add方法的实例本身。在同步构造器中用括号括起来的对象叫做监视器对象。上述代码使用监视器对象同步，同步实例方法使用调用方法本身的实例作为监视器对象。</p>
-<p>一次只有一个线程能够在同步于同一个监视器对象的Java方法内执行。</p>
-<p>下面两个例子都同步他们所调用的实例对象上，因此他们在同步的执行效果上是等效的。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class MyClass &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> log1(<span class="keyword">String</span> msg1, <span class="keyword">String</span> msg2)&#123;</span><br><span class="line">      <span class="built_in">log</span>.writeln(msg1);</span><br><span class="line">      <span class="built_in">log</span>.writeln(msg2);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> log2(<span class="keyword">String</span> msg1, <span class="keyword">String</span> msg2)&#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">         <span class="built_in">log</span>.writeln(msg1);</span><br><span class="line">         <span class="built_in">log</span>.writeln(msg2);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在上例中，每次只有一个线程能够在两个同步块中任意一个方法内执行。</p>
-<p>如果第二个同步块不是同步在this实例对象上，那么两个方法可以被线程同时执行。</p>
-<h3 id="静态方法中的同步块"><a href="#静态方法中的同步块" class="headerlink" title="静态方法中的同步块"></a>静态方法中的同步块</h3><p>和上面类似，下面是两个静态方法同步的例子。这些方法同步在该方法所属的类对象上。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class MyClass &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> log1(<span class="keyword">String</span> msg1, <span class="keyword">String</span> msg2)&#123;</span><br><span class="line">       <span class="built_in">log</span>.writeln(msg1);</span><br><span class="line">       <span class="built_in">log</span>.writeln(msg2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> log2(<span class="keyword">String</span> msg1, <span class="keyword">String</span> msg2)&#123;</span><br><span class="line">       <span class="keyword">synchronized</span>(MyClass.class)&#123;</span><br><span class="line">          <span class="built_in">log</span>.writeln(msg1);</span><br><span class="line">          <span class="built_in">log</span>.writeln(msg2);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这两个方法不允许同时被线程访问。</p>
-<p>如果第二个同步块不是同步在MyClass.class这个对象上。那么这两个方法可以同时被线程访问。</p>
-<h2 id="Java同步实例"><a href="#Java同步实例" class="headerlink" title="Java同步实例"></a>Java同步实例</h2><p>在下面例子中，启动了两个线程，都调用Counter类同一个实例的add方法。因为同步在该方法所属的实例上，所以同时只能有一个线程访问该方法。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Counter</span>&#123;</span><br><span class="line">     <span class="keyword">long</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> synchronized <span class="keyword">void</span> <span class="title">add</span>(<span class="params"><span class="keyword">long</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.count += <span class="keyword">value</span>;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CounterThread</span> <span class="title">extends</span> <span class="title">Thread</span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">protected</span> Counter counter = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">CounterThread</span>(<span class="params">Counter counter</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.counter = counter;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</span><br><span class="line">           counter.<span class="keyword">add</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Example</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span>&#123;</span><br><span class="line">      Counter counter = <span class="keyword">new</span> Counter();</span><br><span class="line">      Thread  threadA = <span class="keyword">new</span> CounterThread(counter);</span><br><span class="line">      Thread  threadB = <span class="keyword">new</span> CounterThread(counter);</span><br><span class="line"></span><br><span class="line">      threadA.start();</span><br><span class="line">      threadB.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>创建了两个线程。他们的构造器引用同一个Counter实例。<code>Counter.add</code>方法是同步在实例上，是因为add方法是实例方法并且被标记上<code>synchronized</code>关键字。因此每次只允许一个线程调用该方法。另外一个线程必须要等到第一个线程退出<code>add()</code>方法时，才能继续执行方法。</p>
-<p>如果两个线程引用了两个不同的<code>Counter</code>实例，那么他们可以同时调用<code>add()</code>方法。这些方法调用了不同的对象，因此这些方法也就同步在不同的对象上。这些方法调用将不会被阻塞。如下面这个例子所示：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args)&#123;</span><br><span class="line">     Counter counterA = <span class="keyword">new</span> <span class="type">Counter</span>();</span><br><span class="line">     Counter counterB = <span class="keyword">new</span> <span class="type">Counter</span>();</span><br><span class="line">     Thread  threadA = <span class="keyword">new</span> <span class="type">CounterThread</span>(counterA);</span><br><span class="line">     Thread  threadB = <span class="keyword">new</span> <span class="type">CounterThread</span>(counterB);</span><br><span class="line"></span><br><span class="line">     threadA.start();</span><br><span class="line">     threadB.start();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意这两个线程，<code>threadA和threadB</code>，不再引用同一个<code>counter</code>实例。<code>CounterA和counterB</code>的<code>add</code>方法同步在他们所属的对象上。调用<code>counterA</code>的<code>add</code>方法将不会阻塞调用<code>counterB</code>的<code>add</code>方法。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>本文转载于<a href="http://ifeve.com/synchronized-blocks/" target="_blank" rel="external">并发编程网</a></p>
+<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>可见性是指：当一个线程修改了线程共享变量的值，其它线程能够立即得知这个修改。</p>
+<p>Java内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值这种依赖主内存作为传递媒介的方法来实现可见性的，无论是普通变量还是volatile变量都是如此。</p>
+<h3 id="普通变量与volatile变量的区别"><a href="#普通变量与volatile变量的区别" class="headerlink" title="普通变量与volatile变量的区别"></a>普通变量与volatile变量的区别</h3><p>是volatile的特殊规则保证了新值能立即同步到主内存，以及每使用前立即从内存刷新。因为我们可以说volatile保证了线程操作时变量的可见性，而普通变量则不能保证这一点。</p>
+<h2 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>有序性：即程序执行的顺序按照代码的先后顺序执行。</p>
+<p>Java内存模型中的程序天然有序性可以总结为一句话：<strong>如果在本线程内观察，所有操作都是有序的；如果在一个线程中观察另一个线程，所有操作都是无序的。</strong> 前半句是指“线程内表现为串行语义”，后半句是指“指令重排序”现象和“工作内存主主内存同步延迟”现象。</p>
+<p>有序性的语意有几层， </p>
+<ol>
+<li>最常见的就是保证多线程运行的串行顺序 </li>
+<li>防止重排序引起的问题 </li>
+<li>程序运行的先后顺序。比方JMM定义的一些Happens-before规则</li>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> AtomicInteger atomicCount = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> synchronizedCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  分别调用，打印结果</span></span><br><span class="line">        <span class="comment">// volatileCount();</span></span><br><span class="line">        <span class="comment">//  atomicCount();</span></span><br><span class="line">        synchronizedCount();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">volatileCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            Executors.newFixedThreadPool(<span class="number">3</span>).execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 虽然使用volatile关键字修饰int变量，但是对于多线程的环境下，也很难保证没问题，所以一般用来修饰标志位</span></span><br><span class="line">                    System.out.println(<span class="string">"volatile count: "</span> + ++count);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    打印结果：有重复数据，且顺序错乱。表示数据操作不是原子的，线程之间也不是有序的</span></span><br><span class="line">    <span class="comment">//    volatile count: 1</span></span><br><span class="line">    <span class="comment">//    volatile count: 5</span></span><br><span class="line">    <span class="comment">//    volatile count: 4</span></span><br><span class="line">    <span class="comment">//    volatile count: 3</span></span><br><span class="line">    <span class="comment">//    volatile count: 1</span></span><br><span class="line">    <span class="comment">//    volatile count: 2</span></span><br><span class="line">    <span class="comment">//    volatile count: 6</span></span><br><span class="line">    <span class="comment">//    volatile count: 7</span></span><br><span class="line">    <span class="comment">//    volatile count: 8</span></span><br><span class="line">    <span class="comment">//    volatile count: 9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">atomicCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            Executors.newFixedThreadPool(<span class="number">3</span>).execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 通过使用Atomic包中的原子类保证数据操作是原子的（数据没有重复，表示是原子操作），但是不能保障有序性</span></span><br><span class="line">                    System.out.println(<span class="string">"atomic count: "</span> + atomicCount.incrementAndGet());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    打印结果：虽然顺序错乱，但是数据没有重复，也就说明保障了数据的操作是原子的，但是线程间不是有序的</span></span><br><span class="line">    <span class="comment">//    atomic count: 1</span></span><br><span class="line">    <span class="comment">//    atomic count: 2</span></span><br><span class="line">    <span class="comment">//    atomic count: 3</span></span><br><span class="line">    <span class="comment">//    atomic count: 5</span></span><br><span class="line">    <span class="comment">//    atomic count: 8</span></span><br><span class="line">    <span class="comment">//    atomic count: 9</span></span><br><span class="line">    <span class="comment">//    atomic count: 10</span></span><br><span class="line">    <span class="comment">//    atomic count: 4</span></span><br><span class="line">    <span class="comment">//    atomic count: 7</span></span><br><span class="line">    <span class="comment">//    atomic count: 6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">synchronizedCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            Executors.newFixedThreadPool(<span class="number">3</span>).execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">synchronized</span> (MyClass.class) &#123;  <span class="comment">// 通过synchronized关键字来保证线程之间的有序性</span></span><br><span class="line">                        System.out.println(<span class="string">"synchronized count: "</span> + ++synchronizedCount);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    打印结果：没有重复数据，也没有错乱现象，说明数据操作是原子的，同时线程操作也是顺序的。同时也说明，有序性可以保障数据操作的原子性</span></span><br><span class="line">    <span class="comment">//    synchronized count: 1</span></span><br><span class="line">    <span class="comment">//    synchronized count: 2</span></span><br><span class="line">    <span class="comment">//    synchronized count: 3</span></span><br><span class="line">    <span class="comment">//    synchronized count: 4</span></span><br><span class="line">    <span class="comment">//    synchronized count: 5</span></span><br><span class="line">    <span class="comment">//    synchronized count: 6</span></span><br><span class="line">    <span class="comment">//    synchronized count: 7</span></span><br><span class="line">    <span class="comment">//    synchronized count: 8</span></span><br><span class="line">    <span class="comment">//    synchronized count: 9</span></span><br><span class="line">    <span class="comment">//    synchronized count: 10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
+<li>CSDN:  <a href="http://blog.csdn.net/qq_33689414/article/details/73527438" target="_blank" rel="external">Java的原子性&amp;&amp;可见性&amp;&amp;有序性</a></li>
+<li>深入理解Java虚拟机：JVM高级特性与最佳实践（第二版）</li>
+</ul>
 
       
     </div>
@@ -476,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
+            <a href="/tags/原创/" rel="tag"># 原创</a>
           
-            <a href="/tags/转载/" rel="tag"># 转载</a>
+            <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
           
         </div>
       
@@ -491,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/JAVA与线程.html" rel="next" title="JAVA与线程">
-                <i class="fa fa-chevron-left"></i> JAVA与线程
+              <a href="/post/2017/Volatile型变量的语义解释.html" rel="next" title="Volatile型变量的语义解释">
+                <i class="fa fa-chevron-left"></i> Volatile型变量的语义解释
               </a>
             
           </div>
@@ -501,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/使用WMITool解决浏览器主页被hao123劫持问题.html" rel="prev" title="使用WMITool解决浏览器主页被hao123劫持问题">
-                使用WMITool解决浏览器主页被hao123劫持问题 <i class="fa fa-chevron-right"></i>
+              <a href="/post/2017/先行发生原则（Happens-before）.html" rel="prev" title="先行并发原则">
+                先行并发原则 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-同步关键字（synchronized）"><span class="nav-number">2.</span> <span class="nav-text">Java 同步关键字（synchronized）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法同步"><span class="nav-number">2.1.</span> <span class="nav-text">实例方法同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法同步"><span class="nav-number">2.2.</span> <span class="nav-text">静态方法同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法中的同步块"><span class="nav-number">2.3.</span> <span class="nav-text">实例方法中的同步块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法中的同步块"><span class="nav-number">2.4.</span> <span class="nav-text">静态方法中的同步块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java同步实例"><span class="nav-number">3.</span> <span class="nav-text">Java同步实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性"><span class="nav-number">1.</span> <span class="nav-text">原子性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原子操作原理（处理器是如何实现原子操作的）"><span class="nav-number">1.2.</span> <span class="nav-text">原子操作原理（处理器是如何实现原子操作的）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可见性"><span class="nav-number">2.</span> <span class="nav-text">可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通变量与volatile变量的区别"><span class="nav-number">2.2.</span> <span class="nav-text">普通变量与volatile变量的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序性"><span class="nav-number">3.</span> <span class="nav-text">有序性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-2"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">4.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">5.</span> <span class="nav-text">参考：</span></a></li></ol></div>
             
 
           </div>
