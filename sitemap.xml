@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caoler.cn/tags/index.html</loc>
+    
+    <lastmod>2017-11-27T05:49:51.325Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://caoler.cn/categories/index.html</loc>
+    
+    <lastmod>2017-11-27T05:49:37.429Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caoler.cn/blog/2017/%E6%AD%BB%E9%94%81%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81.html</loc>
     
     <lastmod>2017-11-27T05:46:27.269Z</lastmod>
@@ -138,20 +152,6 @@
     <loc>https://caoler.cn/blog/2017/442.%20Find%20All%20Duplicates%20in%20an%20Array.html</loc>
     
     <lastmod>2017-11-14T08:45:50.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://caoler.cn/tags/index.html</loc>
-    
-    <lastmod>2017-11-08T04:53:21.566Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://caoler.cn/categories/index.html</loc>
-    
-    <lastmod>2017-11-08T04:53:21.565Z</lastmod>
     
   </url>
   
