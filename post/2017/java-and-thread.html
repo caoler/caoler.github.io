@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -42,6 +49,32 @@
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -108,7 +141,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -673,6 +706,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -707,7 +742,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -718,7 +753,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -729,7 +764,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -815,7 +850,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的实现方式"><span class="nav-number">1.</span> <span class="nav-text">线程的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用内核线程实现"><span class="nav-number">1.2.</span> <span class="nav-text">使用内核线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级进程-LWP"><span class="nav-number">1.2.1.</span> <span class="nav-text">轻量级进程(LWP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程实现"><span class="nav-number">1.3.</span> <span class="nav-text">使用用户线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程加轻量级进程混合实现"><span class="nav-number">1.4.</span> <span class="nav-text">使用用户线程加轻量级进程混合实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA线程调度"><span class="nav-number">2.</span> <span class="nav-text">JAVA线程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非抢占方式-Non-preemptive-Mode"><span class="nav-number">2.1.</span> <span class="nav-text">非抢占方式(Non-preemptive Mode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抢占方式-Preemptive-Mode"><span class="nav-number">2.2.</span> <span class="nav-text">抢占方式(Preemptive Mode)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态转换"><span class="nav-number">3.</span> <span class="nav-text">状态转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的实现方式"><span class="nav-text">线程的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用内核线程实现"><span class="nav-text">使用内核线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级进程-LWP"><span class="nav-text">轻量级进程(LWP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程实现"><span class="nav-text">使用用户线程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用户线程加轻量级进程混合实现"><span class="nav-text">使用用户线程加轻量级进程混合实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA线程调度"><span class="nav-text">JAVA线程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非抢占方式-Non-preemptive-Mode"><span class="nav-text">非抢占方式(Non-preemptive Mode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抢占方式-Preemptive-Mode"><span class="nav-text">抢占方式(Preemptive Mode)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态转换"><span class="nav-text">状态转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -845,15 +880,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
 
 
 

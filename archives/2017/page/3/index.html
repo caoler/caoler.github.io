@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="并发编程,转载," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -114,18 +114,16 @@
 
 
 
-<meta name="description" content="线程安全线程安全：当多个对象访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方法进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那么这个对象是线程安全的。 互斥同步互斥同步是常见的一种并发正确性保障手段。同步是指多个线程并发访问共享数据时，保障数据在同一时刻只被一个（或者是一些，使用信号量的时候）线程使用。 而互斥是实现同步的一">
-<meta name="keywords" content="并发编程,转载">
-<meta property="og:type" content="article">
-<meta property="og:title" content="线程安全及其实现方法">
-<meta property="og:url" content="https://caoler.cn/post/2017/thread-safety-realize.html">
+<meta name="description" content="会写代码，学着做菜">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Caole&#39;s blog">
+<meta property="og:url" content="https://caoler.cn/archives/2017/page/3/index.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="线程安全线程安全：当多个对象访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方法进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那么这个对象是线程安全的。 互斥同步互斥同步是常见的一种并发正确性保障手段。同步是指多个线程并发访问共享数据时，保障数据在同一时刻只被一个（或者是一些，使用信号量的时候）线程使用。 而互斥是实现同步的一">
+<meta property="og:description" content="会写代码，学着做菜">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T12:39:29.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程安全及其实现方法">
-<meta name="twitter:description" content="线程安全线程安全：当多个对象访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方法进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那么这个对象是线程安全的。 互斥同步互斥同步是常见的一种并发正确性保障手段。同步是指多个线程并发访问共享数据时，保障数据在同一时刻只被一个（或者是一些，使用信号量的时候）线程使用。 而互斥是实现同步的一">
+<meta name="twitter:title" content="Caole&#39;s blog">
+<meta name="twitter:description" content="会写代码，学着做菜">
 
 
 
@@ -155,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/post/2017/thread-safety-realize.html"/>
+  <link rel="canonical" href="https://caoler.cn/archives/2017/page/3/"/>
 
 
 
 
 
-  <title>线程安全及其实现方法 | Caole's blog</title>
+  <title>归档 | Caole's blog</title>
   
 
 
@@ -190,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -328,265 +326,78 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 21 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2017">2017</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/thread-safety-realize.html">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/post/2017/Hello-World.html" itemprop="url">
+              
+                <span itemprop="name">Hello World</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">线程安全及其实现方法</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T18:28:00+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:39:29+08:00">
-                2017-11-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/线程安全/" itemprop="url" rel="index">
-                    <span itemprop="name">线程安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/thread-safety-realize.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/thread-safety-realize.html" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/thread-safety-realize.html" class="leancloud_visitors" data-flag-title="线程安全及其实现方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><p>线程安全：当多个对象访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方法进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那么这个对象是线程安全的。</p>
-<h3 id="互斥同步"><a href="#互斥同步" class="headerlink" title="互斥同步"></a>互斥同步</h3><p>互斥同步是常见的一种并发正确性保障手段。<strong>同步是指多个线程并发访问共享数据时，保障数据在同一时刻只被一个（或者是一些，使用信号量的时候）线程使用。</strong> 而互斥是实现同步的一种手段，临界区、互斥量、信号量都是主要的互斥实现方式、因此在这4个字里面，互斥是因、同步是果；互斥是方法，同步是目的。</p>
-<h4 id="synchronied关键字"><a href="#synchronied关键字" class="headerlink" title="synchronied关键字"></a>synchronied关键字</h4><a id="more"></a>
-<p>synchronized是java中最基本的同步手段，他在经过编译之后，会在同步前后分别形成monitorenter和monitorexit这两个字节码，这两个字节码都需要一个reference类型的参数来指明要锁定和解锁的对象。<strong>如果java程序中的synchronized明确指定了对象参数，那就是这个对象的reference；如果没有明确指定，那就根据synchronized修饰的是实例还是类方法去取对应的对象实例或class对象来作为锁对象。</strong></p>
-<p>在虚拟机规范对monitorenter和monitorexit的行为描述中有2点是特别要注意的。</p>
-<ul>
-<li>synchronized同步块对同一条线程来说是可重入的，不会出现自己把自己锁死的问题。</li>
-<li>同步块在已进入的线程执行完之前，会阻塞后面其他线程的进入。</li>
-</ul>
-<p>java线程是映射到操作系统的原生线程之上的，如果要阻塞或者唤醒一个线程都需要操作系统来帮忙完成，这就需要从用户态转到核心态中，因此状态转换需要耗费很多的处理时间。对于代码简单的同步块（如被synchronized修饰的set和get方法），状态转换消耗的时间比用户代码执行的时间还要长，所以synchronized是java语言中一个重量级的操作。</p>
-<h4 id="ReentrantLock重入锁"><a href="#ReentrantLock重入锁" class="headerlink" title="ReentrantLock重入锁"></a>ReentrantLock重入锁</h4><p>基本用法上重入锁和synchronized很相似，他们都具备一样的线程重入特性，只是在代码写法上有点区别，一个表现为API层面的互斥锁，另一个表现在语法层面的互斥锁。不过相比较synchronized，ReetrantLock增加了一些高级功能，主要有以下3项：等待可中断、可实现公平锁，以及锁可以绑定多个条件。</p>
-<ul>
-<li>等待可中断是指当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，改为处理其他事情，可中断特性对处理执行时间非常长的同步块很有帮助。</li>
-<li>公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁；而非公平锁则不保证这一点，在锁被释放时，任何一个等待锁的线程都有机会获得锁。synchronized中的锁是非公平的，ReentrantLock默认情况下也是非公平的，但可以通过带布尔值的构造函数要求使用公平锁。</li>
-<li>锁绑定多个条件是指一个ReentrantLock对象可以同时绑定多个Condition对象，而在synchronized中，锁对象的wait（）和notify（）或notifyAll（）方法可以实现一个隐含的条件，如果要和多于一个的条件关联的时候，就不得不额外地添加一个锁，而ReentrantLock则无需这样做，只需要多次调用newCondition()方法即可。   </li>
-</ul>
-<p>通过对比两种锁的吞吐量可知：<br> 1.6中加入了很多针对锁的优化措施，JDK 1.6发布之后，人们就发现synchronized与ReentrantLock的性能基本上是完全持平了。因此，如果读者的程序是使用JDK 1.6或以上部署的话，性能因素就不再是选择ReentrantLock的理由了，虚拟机在未来的性能改进中肯定也会更加偏向于原生的synchronized，所以还是提倡在synchronized能实现需求的情况下，优先考虑使用synchronized来进行同步。</p>
-<h3 id="非阻塞同步"><a href="#非阻塞同步" class="headerlink" title="非阻塞同步"></a>非阻塞同步</h3><p>互斥同步最主要的问题就是进行线程阻塞和唤醒所带来的性能问题，因此这种同步也称为阻塞同步（Blocking Synchronization）。从处理问题的方式上说，互斥同步属于一种悲观的并发策略，总是认为只要不去做正确的同步措施（例如加锁），那就肯定会出现问题，无论共享数据是否真的会出现竞争，它都要进行加锁（这里讨论的是概念模型，实际上虚拟机会优化掉很大一部分不必要的加锁）、用户态核心态转换、维护锁计数器和检查是否有被阻塞的线程需要唤醒等操作。随着硬件指令集的发展，我们有了另外一个选择：基于冲突检测的乐观并发策略，通俗地说，就是先进行操作，如果没有其他线程争用共享数据，那操作就成功了；如果共享数据有争用，产生了冲突，那就再采取其他的补偿措施（最常见的补偿措施就是不断地重试，直到成功为止），这种乐观的并发策略的许多实现都不需要把线程挂起，因此这种同步操作称为非阻塞同步（Non-Blocking Synchronization）。</p>
-<h3 id="无同步方案"><a href="#无同步方案" class="headerlink" title="无同步方案"></a>无同步方案</h3><p>要保证线程安全，并不是一定就要进行同步，两者没有因果关系。同步只是保证共享数据争用时的正确性的手段，如果一个方法本来就不涉及共享数据，那它自然就无须任何同步措施去保证正确性，因此会有一些代码天生就是线程安全的，笔者简单地介绍其中的两类。</p>
-<h4 id="可重入代码（Reentrant-Code）"><a href="#可重入代码（Reentrant-Code）" class="headerlink" title="可重入代码（Reentrant Code）"></a>可重入代码（Reentrant Code）</h4><p>这种代码也叫做纯代码（Pure Code），可以在代码执行的任何时刻中断它，转而去执行另外一段代码（包括递归调用它本身），而在控制权返回后，原来的程序不会出现任何错误。相对线程安全来说，可重入性是更基本的特性，它可以保证线程安全，<strong>即所有的可重入的代码都是线程安全的，但是并非所有的线程安全的代码都是可重入的。</strong></p>
-<p>可重入代码有一些共同的特征，例如不依赖存储在堆上的数据和公用的系统资源、用到的状态量都由参数中传入、不调用非可重入的方法等。我们可以通过一个简单的原则来判断代码是否具备可重入性：<strong>如果一个方法，它的返回结果是可以预测的，只要输入了相同的数据，就都能返回相同的结果，那它就满足可重入性的要求，当然也就是线程安全的。</strong></p>
-<h4 id="线程本地存储（Thread-Local-Storage）"><a href="#线程本地存储（Thread-Local-Storage）" class="headerlink" title="线程本地存储（Thread Local Storage）"></a>线程本地存储（Thread Local Storage）</h4><p>如果一段代码中所需要的数据必须与其他代码共享，那就看看这些共享数据的代码是否能保证在同一个线程中执行？如果能保证，我们就可以把共享数据的可见范围限制在同一个线程之内，这样，无须同步也能保证线程之间不出现数据争用的问题。<br>符合这种特点的应用并不少见，大部分使用消费队列的架构模式（如“生产者-消费者”模式）都会将产品的消费过程尽量在一个线程中消费完，其中最重要的一个应用实例就是经典Web交互模型中的“一个请求对应一个服务器线程”（Thread-per-Request）的处理方式，这种处理方式的广泛应用使得很多Web服务端应用都可以使用线程本地存储来解决线程安全问题。<br>Java语言中，如果一个变量要被多线程访问，可以使用volatile关键字声明它为“易变的”；如果一个变量要被某个线程独享，Java中就没有类似C++中__declspec（thread）[3]这样的关键字，不过还是可以通过java.lang.ThreadLocal类来实现线程本地存储的功能。每一个线程的Thread对象中都有一个ThreadLocalMap对象，这个对象存储了一组以ThreadLocal.threadLocalHashCode为键，以本地线程变量为值的K-V值对，ThreadLocal对象就是当前线程的ThreadLocalMap的访问入口，每一个ThreadLocal对象都包含了一个独一无二的threadLocalHashCode值，使用这个值就可以在线程K-V值对中找回对应的本地线程变量。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>本文内容摘自周志明老师的深入理解Java虚拟机第十三章线程安全与锁优化。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    Caole
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://caoler.cn/post/2017/thread-safety-realize.html" title="线程安全及其实现方法">https://caoler.cn/post/2017/thread-safety-realize.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-11-03T13:33:33+08:00"
+              content="2017-11-03" >
+          11-03
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/并发编程/" rel="tag"><i class="fa fa-tag"></i> 并发编程</a>
-          
-            <a href="/tags/转载/" rel="tag"><i class="fa fa-tag"></i> 转载</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/post/2017/wmitools.html" rel="next" title="使用WMITool解决浏览器主页被hao123劫持问题">
-                <i class="fa fa-chevron-left"></i> 使用WMITool解决浏览器主页被hao123劫持问题
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/2017/thread-signaling.html" rel="prev" title="线程通信">
-                线程通信 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2017/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><a class="page-number" href="/archives/2017/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
 
 
           </div>
@@ -594,15 +405,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="SOHUCS"></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -625,17 +427,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -752,22 +545,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全"><span class="nav-text">线程安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥同步"><span class="nav-text">互斥同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronied关键字"><span class="nav-text">synchronied关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ReentrantLock重入锁"><span class="nav-text">ReentrantLock重入锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞同步"><span class="nav-text">非阻塞同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无同步方案"><span class="nav-text">无同步方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可重入代码（Reentrant-Code）"><span class="nav-text">可重入代码（Reentrant Code）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程本地存储（Thread-Local-Storage）"><span class="nav-text">线程本地存储（Thread Local Storage）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -917,10 +694,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
