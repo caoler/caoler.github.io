@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caoler.cn/"/>
-  <updated>2018-01-11T08:26:33.380Z</updated>
+  <updated>2018-01-24T03:04:56.984Z</updated>
   <id>https://caoler.cn/</id>
   
   <author>
@@ -17,22 +17,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>最近先停止更新一段时间，要被考试忙死了</title>
-    <link href="https://caoler.cn//post/2017/stop-updating.html"/>
-    <id>https://caoler.cn//post/2017/stop-updating.html</id>
-    <published>2017-12-21T10:33:22.000Z</published>
-    <updated>2018-01-11T08:26:33.380Z</updated>
+    <title>一个小程序员的2017年年度总结</title>
+    <link href="https://caoler.cn//post/2018/summary_for_2017.html"/>
+    <id>https://caoler.cn//post/2018/summary_for_2017.html</id>
+    <published>2018-01-24T03:03:24.000Z</published>
+    <updated>2018-01-24T03:04:56.984Z</updated>
     
-    <content type="html"><![CDATA[<p>忙完这一阵子，应该写一个17年总结 + 一个18年计划我觉得！恩！就这样。</p><p>最近喜欢这两首歌：</p><div style="max-width: 330px;max-height: 550px"><br><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=969641782&auto=1&height=430"></iframe></div>]]></content>
+    <content type="html"><![CDATA[<h3 id="一个小程序员2017年的进步、收获与成长。"><a href="#一个小程序员2017年的进步、收获与成长。" class="headerlink" title="一个小程序员2017年的进步、收获与成长。"></a>一个小程序员2017年的进步、收获与成长。</h3><p>今天是腊八，新历新年已经过去了两个月。在很早之前就打算写一篇年终总结，但是因为考试一直拖延。放假之后愉快的玩♂耍了一周 决定在这个安静的早晨动笔写起。</p><p>2017年是上大学以来最有收获的一年，大概学习了一整个JavaWeb的框架部分，而且还通过参加服务外包比赛让自己的学习成功付诸实现，虽然和组里的DB、HJ比起来自己的实力和别人还有不小差距。但是作为一个容易满足的人，我的2017也算是很完美了。</p><a id="more"></a><h3 id="回顾总结与展望"><a href="#回顾总结与展望" class="headerlink" title="回顾总结与展望"></a>回顾总结与展望</h3><h4 id="学习部分"><a href="#学习部分" class="headerlink" title="学习部分"></a>学习部分</h4><ol><li>学习Spring，刚开学的三月份翻起Spring的教程，从头至尾学习了一遍。</li><li>Hibernate初体验，当时学习的目标就是SSH框架，所以在Spring学习结束之后就直接开始学习Hibernate了。了解到了一个很方便很牛逼的技能–<a href="http://blog.csdn.net/qq_34197553/article/details/77718925" target="_blank" rel="external">IntelliJ IDEA下自动生成Hibernate映射文件以及实体类</a></li><li>遇到了一个国产轻量级的框架——JFinal，一个小提问还得到了框架作者(波总)的回复 <a href="https://www.oschina.net/question/3479290_2245223" target="_blank" rel="external">点我查看</a> 但是问题到现在都没有解决。头晕</li><li>7月，大二的学习生活结束，留校参加了第八届服务外包比赛，用了半个月的时间学习了MyBatis。虽然这个框架学习的时间很短，但是我觉的这个框架是自己吃的最透的一个（其中一部分原因是时间紧迫做项目马上就要用到，逃~）当时用到的几个好工具：<ul><li><a href="http://blog.csdn.net/baidu_32877851/article/details/53959268" target="_blank" rel="external">代码生成器Generator</a></li><li><a href="https://gitee.com/free/Mybatis_PageHelper" target="_blank" rel="external">MyBatis的分页插件–MyBaits_PageHelper</a></li><li><a href="http://baomidou.oschina.io/mybatis-plus-doc/#/" target="_blank" rel="external">MyBatisPlus</a></li></ul></li><li>新学期，再学Spring，这次的学习一部分是为了回顾，另一部分是为了之后的SpringMVC做准备。这次的学习时间比较仓促，也只用了不到半个月，对控制反转IOC 依赖注入DI 面向切面编程有了更深入的了解，跟第一次的学习比较起来收获更大。</li><li>SpringMVC的学习。一直到9月26日，SSM框架整合完毕。框架部分的学习也算告一段落。</li><li>10月，我接触了一部分前端的知识。包括JavaScriptDOM、jQuery，但是这部分的学习学的比较潦草，跟读书一样 只能称作是泛读。</li><li>精度《图解HTTP》，插画风格的书阅读起来很轻松，也很容易理解，虽然书的内容很少，但是我了解了网络协议的传输过程，手里还有一本《图解TCP/IP》也打算好好啃一啃。</li><li>阅读《Core Java》，大一下对JAVASE部分的学习实在是太粗略了，在学习JAVAWEB部分的时候我甚至不知道泛型、迭代器、集合、map。学习《Core Java》这段时间学习很多，以前似懂非懂的东西那段时间里都得到了解决。对Java集合框架部分的内容进行了深入的研究，用四个字来表达，那就是收获颇多！</li><li>JAVA并发编程的学习，这段时间 我一改以前的看视频学习方法，转为看博客，看书。一直通过<a href="http://ifeve.com/" target="_blank" rel="external">并发编程网</a>来进行学习，同时也借鉴了不少博客的内容，包括CSDN 博客园。</li><li>阅读《JAVA并发编程的艺术》《深入理解JVM》，第五部分的内容也就是之前学的并发部分的内容，我的侧重点是第二章和第三章，还没开始看，希望通过这本书我能够深入的了解JAVA内存模型和它的垃圾回收机制。</li><li>做项目之前，学习了Git，项目的过程中和DB同学进行了深入的交♂流。对Git的协作开发有了一定的认识和理解。</li><li>升级了自己的IDE，由之前的Eclipse到现在的IntelliJ IDEA，编程环境更舒适了，代码写作的效率也变高了。</li><li>学习了通过MAVEN编程，抛弃了之前导包的过程，使开发更加方便轻松。</li><li>适应了MarkDown的写作，基本丢弃了以前Word的写作方式，也算是一个进步.</li></ol><p>emmm..学习部分就这些。想到了再补充。</p><h4 id="生活部分"><a href="#生活部分" class="headerlink" title="生活部分"></a>生活部分</h4><ol><li><p>最有成就的就是拿到了驾照，虽然前前后后花了快一年的时间，但是拿到证的那一刻还是非常开心的哈哈哈哈(即使照片其丑无比！！！垃圾摄影师)。下面下面：<br> <img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrh7pj5xcj30uo0h9gq1.jpg" alt=""></p></li><li><p>认识了我的两个好好好朋友FJY,AYS。<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrhqcc0evj30qo0qojtn.jpg" alt=""></p></li><li><p>这一年没有经常去外面玩，除了端午节去长沙玩的几天。但是吃了无数次小龙坎 刘一手！最好吃的还算长沙吃的井格。<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrhr7yo6yj31400u042k.jpg" alt=""></p></li><li><p>看了17年所有自己想看的电影，没有遗憾！（照片没拍，我觉得有二三十张）</p></li><li><p>去夜店蹦迪，去酒吧喝到失去知觉，体验了以前没有体验到的东西。<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrhswxzm8j30u0140acb.jpg" alt=""></p></li><li><p>平时还有不菲的收入，除了必要的生活费没有向父母额外多要一分钱，我很自豪。</p></li><li><p>和几千人一起跨年！！！<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrhtt935oj32io1w0npd.jpg" alt=""></p></li><li><p>生活很规律，每天都有吃早饭，除了玩每天12点前睡觉，喝水很多，也很爱喝水。</p></li><li><p>养了三只小乌龟，其中一个跳楼了。还有三颗富贵竹，希望寒假这段时间不要被冻死。</p></li><li><p>还有就是以前念想的博客，我也按照自己喜欢的风格搭建好了，每一篇学习记录我也都会在这里坚持写下来！–<a href="https://caoler.cn">Caole’s Blog</a></p></li></ol><h4 id="遗憾"><a href="#遗憾" class="headerlink" title="遗憾"></a>遗憾</h4><ol><li>CET-4！！！！！头晕</li><li>没有找到女朋友！！</li></ol><p>我自己很感谢这些点点滴滴的积累带来的变化，并且坚信在新的一年会变得更好。<br><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fnrii8hj1wj30k00zkwgg.jpg" alt=""><br>为了自拍专门下载的相机哈哈！！</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;忙完这一阵子，应该写一个17年总结 + 一个18年计划我觉得！恩！就这样。&lt;/p&gt;
-&lt;p&gt;最近喜欢这两首歌：&lt;/p&gt;
-&lt;div style=&quot;max-width: 330px;max-height: 550px&quot;&gt;&lt;br&gt;&lt;iframe frameborder=&quot;no&quot; b
-      
+      &lt;h3 id=&quot;一个小程序员2017年的进步、收获与成长。&quot;&gt;&lt;a href=&quot;#一个小程序员2017年的进步、收获与成长。&quot; class=&quot;headerlink&quot; title=&quot;一个小程序员2017年的进步、收获与成长。&quot;&gt;&lt;/a&gt;一个小程序员2017年的进步、收获与成长。&lt;/h3&gt;&lt;p&gt;今天是腊八，新历新年已经过去了两个月。在很早之前就打算写一篇年终总结，但是因为考试一直拖延。放假之后愉快的玩♂耍了一周 决定在这个安静的早晨动笔写起。&lt;/p&gt;
+&lt;p&gt;2017年是上大学以来最有收获的一年，大概学习了一整个JavaWeb的框架部分，而且还通过参加服务外包比赛让自己的学习成功付诸实现，虽然和组里的DB、HJ比起来自己的实力和别人还有不小差距。但是作为一个容易满足的人，我的2017也算是很完美了。&lt;/p&gt;
     
     </summary>
     
