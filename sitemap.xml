@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caoler.cn/post/2018/deep-in-jvm-part2.html</loc>
+    
+    <lastmod>2018-03-07T13:18:00.241Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caoler.cn/post/2017/deep-in-jvm-part1.html</loc>
     
     <lastmod>2018-03-07T12:29:11.125Z</lastmod>
