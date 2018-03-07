@@ -124,7 +124,7 @@
 <meta property="og:description" content="第三章 垃圾收集器与内存分配策略概述思考GC需要完成的3件事情：  哪些内存需要回收？ 什么时候回收？ 如何回收？再回头看看第二章介绍的Java内存运行时区域的各个部分：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005DnJLEly1fp4h76x2l2j30nm0ekdia.jpg">
-<meta property="og:updated_time" content="2018-03-07T13:18:00.241Z">
+<meta property="og:updated_time" content="2018-03-07T13:20:54.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机》读书笔记2 - 垃圾收集器与内存分配策略">
 <meta name="twitter:description" content="第三章 垃圾收集器与内存分配策略概述思考GC需要完成的3件事情：  哪些内存需要回收？ 什么时候回收？ 如何回收？再回头看看第二章介绍的Java内存运行时区域的各个部分：">
@@ -400,7 +400,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-07T21:18:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-07T21:20:54+08:00">
                 2018-03-07
               </time>
             
@@ -502,8 +502,9 @@
 <li>虚拟机栈（栈帧中的本地变量表）中引用的对象；</li>
 <li>方法区中类静态属性引用的对象；</li>
 <li>方法区中常量引用的对象；</li>
-<li>本地方法栈中JNI（即一般说的Native方法）引用的对象；<h4 id="再谈引用"><a href="#再谈引用" class="headerlink" title="再谈引用"></a>再谈引用</h4>在JDK 1.2之后，Java对引用的概念进行了扩充，将引用分为强引用、软引用、弱引用和虚引用，这4种引用强度依次减弱。</li>
+<li>本地方法栈中JNI（即一般说的Native方法）引用的对象；</li>
 </ul>
+<h4 id="再谈引用"><a href="#再谈引用" class="headerlink" title="再谈引用"></a>再谈引用</h4><p>在JDK 1.2之后，Java对引用的概念进行了扩充，将引用分为强引用、软引用、弱引用和虚引用，这4种引用强度依次减弱。</p>
 <h4 id="生存还是死亡"><a href="#生存还是死亡" class="headerlink" title="生存还是死亡"></a>生存还是死亡</h4><p>要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize方法（如没有重写finalize方法或者已经被调用过则认为没有必要执行）；如果有必要执行则将该对象放置在F-Queue队列中，并在稍后由一个由虚拟机自己建立的、低优先级的Finalizer线程去执行它；稍后GC将对F-Queue中的对象进行第二次标记，如果对象还是没有被引用，则会被回收。</p>
 <p>但是作者不建议通过finalize方法“拯救”对象，因为它运行代价高、不确定性大、无法保证各个对象的调用顺序。</p>
 <h4 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h4><p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类。</p>
