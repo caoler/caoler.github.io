@@ -3,6 +3,29 @@
 
 
     
+  <url>
+    <loc>https://caoler.cn//post/2018/SpringBeanLife.html</loc>
+    <lastmod>2018-04-07T11:15:06.818Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Bean生命周期</title>
+        <pubTime>2018-04-07T11:13:48.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="Spring" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://caoler.cn//post/2018/deep-in-jvm-part2.html</loc>
