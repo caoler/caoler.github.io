@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[V2RayN 使用教程]]></title>
-    <url>%2F%2Fpost%2F2018%2FV2RayN.html</url>
+    <url>%2F%2Fpost%2F2018%2Fv2rayn.html</url>
     <content type="text"><![CDATA[由于酸酸乳容易被墙，所以更换V2RayN。 勿外传 勿外传 勿外传 勿外传 PC端下载 V2Ray下载链接： https://github.com/v2ray/v2ray-core/releases/latest然后选择 v2ray-windows-64.zip 下载，如果你的系统是 32 位的那就选择 v2ray-windows-32.zip。下载完成，解压。打开解压出来的文件夹 (例如 v2ray-xxxx-windows-64，xxxx为版本号) 下载 V2RayN下载链接： https://github.com/2dust/v2rayN/releases/latest然后选择 V2RayN.exe 下载将下载完成后的 V2RayN.exe 复制到之前打开的 V2Ray 文件夹目录 配置 V2RayN双击 V2RayN.exe 启动，然后在任务栏托盘找到 V2RayN 图标并双击它添加一个 VMess 服务器 复制以下内容1vmess://ew0KICAicHMiOiAiMjMzYmxvZ192MnJheV9SZWRpcmVjdGluZy4uLiIsDQogICJhZGQiOiAiMTk4LjIzLjIzNy4yMjciLA0KICAicG9ydCI6ICI0ODE2MSIsDQogICJpZCI6ICJmOWM5YzVmNS0zZDllLTQ5N2ItYmM1NS0zNzJmYWFhODYyYTEiLA0KICAiYWlkIjogIjIzMyIsDQogICJuZXQiOiAia2NwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJ0bHMiOiAiIg0KfQ== 从剪贴板导入 URL 设置本地监听端口，此处我将它设置为 2333 启用系统代理在任务栏托盘找到 V2RayN 图标并鼠标右键先启动系统代理，然后更新PAC，之后 系统代理模式 》PAC 模式 备注，选择 更新 PAC 之后，双击打开 V2RayN 图标打开主界面在下面信息那里看看有没有显示 PAC更新成功！ 测试一下在完成上面的步骤的时候，正常来说，你已经处于翻出去的状态了 Android (安卓)使用 v2rayNG (对新手友好，推荐使用) Google Play 搜索 v2rayNG 安装即可。备用下载点我 安装完成后打开，点击右上角设置图标，选上绕过中国大陆，分应用代理的话，自己视情况而定就行。 v2rayNG 主界面点击右上角 + 图标，选择扫描二维码即可，便会自动识别 V2Ray 配置信息扫描完成后，点击主界面右下角小飞机图标启动OK，开始愉快的使用互联网吧。 IOS待更新 ## 如何使用1. 手动填写服务器配置 ( 推荐 )shadowrocket 不支持扫入一键脚 本或 V2rayN 生成的二维码。如何填写以及注意事项见以下。 2. 扫码导入服务器配置 ( 不推荐 )正如之前所说，shadowrocket 不支持扫入一键脚本或 V2rayN 生成的二维码，只能扫入 shadowrocket 导出的 vmess 服务器设置，所以这种导入方式没有泛用性。]]></content>
       <categories>
         <category>实用教程</category>
