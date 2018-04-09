@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://caoler.cn//post/2017/deep-in-jvm-part1.html</loc>
+    <lastmod>2018-04-09T03:16:40.259Z</lastmod>
+    <data>
+        <display>
+        <title>《深入理解Java虚拟机》读书笔记1 - Java技术体系、Java内存区域和内存溢出异常</title>
+        <pubTime>2017-12-01T08:18:22.000Z</pubTime>
+        
+        <tag>JVM</tag>
+         
+        <tag>读书笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="JVM" url="https://caoler.cn/categories/JVM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://caoler.cn//post/2018/v2rayn-st.html</loc>
     <lastmod>2018-04-09T02:06:12.962Z</lastmod>
     <data>
@@ -59,28 +81,6 @@
         <display>
         <title>《深入理解Java虚拟机》读书笔记2 - 垃圾收集器与内存分配策略</title>
         <pubTime>2018-03-07T13:17:43.000Z</pubTime>
-        
-        <tag>JVM</tag>
-         
-        <tag>读书笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="JVM" url="https://caoler.cn/categories/JVM/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://caoler.cn//post/2017/deep-in-jvm-part1.html</loc>
-    <lastmod>2018-03-07T12:29:11.125Z</lastmod>
-    <data>
-        <display>
-        <title>《深入理解Java虚拟机》读书笔记1 - Java技术体系、Java内存区域和内存溢出异常</title>
-        <pubTime>2017-12-01T08:18:22.000Z</pubTime>
         
         <tag>JVM</tag>
          
