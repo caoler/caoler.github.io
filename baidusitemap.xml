@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>https://caoler.cn//post/2018/exception.html</loc>
+    <lastmod>2018-05-30T15:13:25.316Z</lastmod>
+    <data>
+        <display>
+        <title>统一异常处理</title>
+        <pubTime>2018-05-30T15:12:29.000Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="SpringBoot" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://caoler.cn//post/2018/springboot-swagger2.html</loc>
+    <lastmod>2018-05-30T15:13:24.019Z</lastmod>
+    <data>
+        <display>
+        <title>Swagger2-生成RESTful接口文档</title>
+        <pubTime>2018-05-29T15:11:37.000Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="SpringBoot" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://caoler.cn//post/2018/10jqka.html</loc>
     <lastmod>2018-05-27T10:47:18.008Z</lastmod>
     <data>

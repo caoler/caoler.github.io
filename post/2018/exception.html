@@ -102,7 +102,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -115,18 +115,20 @@
 
 
 
-<meta name="description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="在用spring Boot做web后台时，经常会出现异常，如果每个异常都自己去处理很麻烦，所以我们创建一个全局异常处理类来统一处理异常">
+<meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="442. Find All Duplicates in an Array">
-<meta property="og:url" content="https://caoler.cn/post/2017/Find-All-Duplicates-in-an-Array.html">
+<meta property="og:title" content="统一异常处理">
+<meta property="og:url" content="https://caoler.cn/post/2018/exception.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
+<meta property="og:description" content="在用spring Boot做web后台时，经常会出现异常，如果每个异常都自己去处理很麻烦，所以我们创建一个全局异常处理类来统一处理异常">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T12:46:03.350Z">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1027049/201711/1027049-20171109171151669-1830164285.png">
+<meta property="og:updated_time" content="2018-05-30T15:13:25.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="442. Find All Duplicates in an Array">
-<meta name="twitter:description" content="Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements that appear twice in this array. Could you do it without extra sp">
+<meta name="twitter:title" content="统一异常处理">
+<meta name="twitter:description" content="在用spring Boot做web后台时，经常会出现异常，如果每个异常都自己去处理很麻烦，所以我们创建一个全局异常处理类来统一处理异常">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/1027049/201711/1027049-20171109171151669-1830164285.png">
 
 
 
@@ -156,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/post/2017/Find-All-Duplicates-in-an-Array.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2018/exception.html"/>
 
 
 
 
 
-  <title>442. Find All Duplicates in an Array | Caole's blog</title>
+  <title>统一异常处理 | Caole's blog</title>
   
 
 
@@ -353,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/Find-All-Duplicates-in-an-Array.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/exception.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -370,7 +372,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">442. Find All Duplicates in an Array</h2>
+          <h2 class="post-title" itemprop="name headline">统一异常处理</h2>
         
 
         <div class="post-meta">
@@ -382,8 +384,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T19:57:00+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T23:12:29+08:00">
+                2018-05-30
               </time>
             
 
@@ -398,8 +400,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:46:03+08:00">
-                2017-11-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-30T23:13:25+08:00">
+                2018-05-30
               </time>
             
           </span>
@@ -417,8 +419,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
+                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
+                    <span itemprop="name">SSM框架</span>
                   </a>
                 </span>
 
@@ -428,8 +430,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/Array/" itemprop="url" rel="index">
-                    <span itemprop="name">Array</span>
+                  <a href="/categories/SSM框架/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
                   </a>
                 </span>
 
@@ -447,8 +449,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2017/Find-All-Duplicates-in-an-Array.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/Find-All-Duplicates-in-an-Array.html" itemprop="commentsCount"></span>
+                <a href="/post/2018/exception.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2018/exception.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -456,7 +458,7 @@
 
           
           
-             <span id="/post/2017/Find-All-Duplicates-in-an-Array.html" class="leancloud_visitors" data-flag-title="442. Find All Duplicates in an Array">
+             <span id="/post/2018/exception.html" class="leancloud_visitors" data-flag-title="统一异常处理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -492,20 +494,30 @@
       
 
       
-        <p>Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
-<p>Find all the elements that appear twice in this array.</p>
-<p>Could you do it without extra space and in O(n) runtime?<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Example:</span></span><br><span class="line"><span class="symbol">Input:</span></span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="symbol">Output:</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+        <p>在用spring Boot做web后台时，经常会出现异常，如果每个异常都自己去处理很麻烦，所以我们创建一个全局异常处理类来统一处理异常</p>
 <a id="more"></a>
-<p><strong>题目大意：</strong><br>给定一个整数数组，1 &lt;= a[i] &lt;= n (n = 数组长度)，某些元素出现两次，某些出现一次。寻找数组中所有出现两次的元素。你可以不使用额外空间并且在O(n)运行时间内完成题目吗？</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>解法一（自己的想法）：首先对数组进行排列，例如[4,3,3,2,1] 排列后变为[1,2,3,3,4]，遍历nums，当nums[i] - nums[i + 1] == 0时，也就是当前数字等于下一个数字，再将当前数字存入数组中。</p>
-<p><strong>代码：</strong></p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">findDuplicates1</span>(<span class="params"><span class="keyword">int</span>[] nums</span>) </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] - nums[ i+<span class="number">1</span> ] == <span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="keyword">add</span>(nums[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解法二：正负号标记法（一趟遍历）</p>
-<p>遍历nums，记当前数字为n（取绝对值），将数字n视为下标（因为a[i]∈[1, n]）</p>
-<p>当n首次出现时，nums[n - 1]-1</p>
-<p>当n再次出现时，则nums[n - 1]一定＜0，将n加入答案</p>
-<p>参考：<a href="https://discuss.leetcode.com/topic/64735/java-simple-solution" target="_blank" rel="external">https://discuss.leetcode.com/topic/64735/java-simple-solution</a><br>代码：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</span><br><span class="line">    // when find a <span class="keyword">number</span> i, flip the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> to negative. </span><br><span class="line">    // <span class="keyword">if</span> the <span class="keyword">number</span> at <span class="keyword">position</span> i-<span class="number">1</span> is already negative, i is the <span class="keyword">number</span> that occurs twice.</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> List&lt;<span class="keyword">Integer</span>&gt; findDuplicates(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;<span class="keyword">Integer</span>&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="built_in">int</span> <span class="built_in">index</span> = Math.<span class="built_in">abs</span>(nums[i])-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">index</span>] &lt; <span class="number">0</span>)</span><br><span class="line">                res.add(Math.<span class="built_in">abs</span>(<span class="built_in">index</span>+<span class="number">1</span>));</span><br><span class="line">            nums[<span class="built_in">index</span>] = -nums[<span class="built_in">index</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码:</p>
+<p>Result.java</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Result</span>&lt;T&gt; &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 错误码. */</span></span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 提示信息. */</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 具体的内容. */</span></span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCode</span><span class="params">(Integer code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ResultUtil .java<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ResultUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">success</span>(<span class="params">Object <span class="keyword">object</span></span>) </span>&#123;</span><br><span class="line">        Result result = <span class="keyword">new</span> Result();</span><br><span class="line">        result.setCode(<span class="number">0</span>);</span><br><span class="line">        result.setMsg(<span class="string">"成功"</span>);</span><br><span class="line">        result.setData(<span class="keyword">object</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">success</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> success(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Result <span class="title">error</span>(<span class="params">Integer code, String msg</span>) </span>&#123;</span><br><span class="line">        Result result = <span class="keyword">new</span> Result();</span><br><span class="line">        result.setCode(code);</span><br><span class="line">        result.setMsg(msg);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Gril</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="meta">@NotNull(message = <span class="meta-string">"这个id必传"</span>)</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer getId(Integer id) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> void setId(Integer id) &#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RestController</span></span><br><span class="line">public class GrilController &#123;   </span><br><span class="line">    <span class="comment">//添加女生</span></span><br><span class="line">    <span class="variable">@PostMapping</span>(value = <span class="string">"/grils/&#123;id&#125;"</span>)</span><br><span class="line">    public Result&lt;Gril&gt; grilAdd(<span class="variable">@Valid</span> Gril gril, BindingResult bindingResult)&#123; </span><br><span class="line">    </span><br><span class="line">        <span class="selector-tag">if</span>(bindingResult.hasErrors())&#123; </span><br><span class="line">            <span class="comment">//这个是把gril里面的这个id必传返回给前端</span></span><br><span class="line">            <span class="selector-tag">return</span> <span class="selector-tag">ResultUtil</span><span class="selector-class">.error</span>(<span class="number">1</span>,bindingResult.getFieldError().getDefaultMessage());</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="selector-tag">return</span> <span class="selector-tag">ResultUtil</span><span class="selector-class">.success</span>(grilpepository.save(gril));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>访问<a href="http://127.0.0.1:8081/grils" target="_blank" rel="external">http://127.0.0.1:8081/grils</a></p>
+<p>返回<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"code"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"msg"</span>: <span class="string">"这个id必传"</span>,</span><br><span class="line">  <span class="attr">"data"</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>访问<a href="http://127.0.0.1:8081/grils/2" target="_blank" rel="external">http://127.0.0.1:8081/grils/2</a></p>
+<p>返回<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">21</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>统一异常处理</strong><br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">GrilException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Integer</span> code;</span><br><span class="line"></span><br><span class="line">    public <span class="type">GrilException</span>(<span class="type">Integer</span> code,<span class="type">String</span> message) &#123;</span><br><span class="line">        <span class="keyword">super</span>(message);</span><br><span class="line">        <span class="keyword">this</span>.code = code();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="type">Integer</span> getCode() &#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(<span class="type">Integer</span> code) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionHandle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(value = Exception.class)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Result <span class="title">Handle</span><span class="params">(Exception e)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (e <span class="keyword">instanceof</span> GrilException)&#123;</span><br><span class="line">            GrilException grilException = (GrilException) e;</span><br><span class="line">            <span class="keyword">return</span> ResultUtil.<span class="keyword">error</span>(grilException.getCode(),grilException.getMessage());</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　<span class="comment">//将系统异常以打印出来</span></span><br><span class="line">            logger.info(<span class="string">"[系统异常]&#123;&#125;"</span>,e);</span><br><span class="line">            <span class="function"><span class="keyword">return</span> ResultUtil.<span class="title">error</span><span class="params">(<span class="number">-1</span>,<span class="string">"未知错误"</span>)</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GirlService</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAge</span><span class="params">(Integer id)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        Girl girl = girlRepository.findOne(id);</span><br><span class="line">        Integer age = girl.getAge();</span><br><span class="line">        <span class="keyword">if</span> (age &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="comment">//返回"你还在上小学吧" code=100</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> GirlException(<span class="number">100</span>,<span class="string">"你还在上小学吧"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (age &gt; <span class="number">10</span> &amp;&amp; age &lt; <span class="number">16</span>) &#123;</span><br><span class="line">            <span class="comment">//返回"你可能在上初中" code=101</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> GirlException(<span class="number">101</span>,<span class="string">"你可能在上初中"</span> );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RestController</span></span><br><span class="line">public class GirlController &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">@Autowired</span></span><br><span class="line">    private GirlService girlService;</span><br><span class="line">   <span class="variable">@GetMapping</span>(value = <span class="string">"girls/getAge/&#123;id&#125;"</span>)</span><br><span class="line">    public void getAge(<span class="variable">@PathVariable</span>(<span class="string">"id"</span>) Integer id) throws Exception&#123;</span><br><span class="line">        <span class="selector-tag">girlService</span><span class="selector-class">.getAge</span>(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2017.cnblogs.com/blog/1027049/201711/1027049-20171109171151669-1830164285.png" alt="image"></p>
+<p><strong>异常是统一维护</strong><br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">GirlException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Integer</span> code;</span><br><span class="line"></span><br><span class="line">    public <span class="type">GirlException</span>(<span class="type">ResultEnum</span> resultEnum) &#123;</span><br><span class="line">        <span class="keyword">super</span>(resultEnum.getMsg());</span><br><span class="line">        <span class="keyword">this</span>.code = resultEnum.getCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="type">Integer</span> getCode() &#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(<span class="type">Integer</span> code) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionHandle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(value = Exception.class)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Result <span class="title">handle</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e <span class="keyword">instanceof</span> GirlException) &#123;</span><br><span class="line">            GirlException girlException = (GirlException) e;</span><br><span class="line">            <span class="keyword">return</span> ResultUtil.<span class="keyword">error</span>(girlException.getCode(), girlException.getMessage());</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            logger.<span class="keyword">error</span>(<span class="string">"【系统异常】&#123;&#125;"</span>, e);</span><br><span class="line">            <span class="function"><span class="keyword">return</span> ResultUtil.<span class="title">error</span><span class="params">(<span class="number">-1</span>, <span class="string">"未知错误"</span>)</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个就是统一维护的文件,采用枚举<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ResultEnum</span> &#123;</span></span><br><span class="line">    UNKONW_ERROR(<span class="number">-1</span>, <span class="string">"未知错误"</span>),</span><br><span class="line">    SUCCESS(<span class="number">0</span>, <span class="string">"成功"</span>),</span><br><span class="line">    PRIMARY_SCHOOL(<span class="number">100</span>, <span class="string">"我猜你可能还在上小学"</span>),</span><br><span class="line">    MIDDLE_SCHOOL(<span class="number">101</span>, <span class="string">"你可能在上初中"</span>),</span><br><span class="line"></span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer code;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">String</span> msg;</span><br><span class="line"></span><br><span class="line">    ResultEnum(Integer code, <span class="keyword">String</span> msg) &#123;</span><br><span class="line">        <span class="built_in">this</span>.code = code;</span><br><span class="line">        <span class="built_in">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer getCode() &#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> getMsg() &#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GirlService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> GirlRepository girlRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAge</span><span class="params">(Integer id)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        Girl girl = girlRepository.findOne(id);</span><br><span class="line">        Integer age = girl.getAge();</span><br><span class="line">        <span class="keyword">if</span> (age &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="comment">//返回"你还在上小学吧" code=100</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> GirlException(ResultEnum.PRIMARY_SCHOOL);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (age &gt; <span class="number">10</span> &amp;&amp; age &lt; <span class="number">16</span>) &#123;</span><br><span class="line">            <span class="comment">//返回"你可能在上初中" code=101</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> GirlException(ResultEnum.MIDDLE_SCHOOL);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果&gt;16岁,加钱</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RestController</span></span><br><span class="line">public class GirlController &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="variable">@Autowired</span></span><br><span class="line">    private GirlService girlService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="variable">@GetMapping</span>(value = <span class="string">"girls/getAge/&#123;id&#125;"</span>)</span><br><span class="line">    public void getAge(<span class="variable">@PathVariable</span>(<span class="string">"id"</span>) Integer id) throws Exception&#123;</span><br><span class="line">        <span class="selector-tag">girlService</span><span class="selector-class">.getAge</span>(id);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>后记：在使用枚举类的时候<code>ResultUtil.error(ResultEnum.UNKONW_ERROR)</code>报错，具体原因待总结</p>
+<p>参考：<br><a href="https://www.cnblogs.com/renshengruozhiruchujian/p/7810463.html" target="_blank" rel="external">springboot统一异常处理及返回数据的处理</a></p>
 
       
     </div>
@@ -526,7 +538,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://caoler.cn/post/2017/Find-All-Duplicates-in-an-Array.html" title="442. Find All Duplicates in an Array">https://caoler.cn/post/2017/Find-All-Duplicates-in-an-Array.html</a>
+    <a href="https://caoler.cn/post/2018/exception.html" title="统一异常处理">https://caoler.cn/post/2018/exception.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -541,7 +553,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
           
         </div>
       
@@ -554,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/2017/Array-Partition-I.html" rel="next" title="561. Array Partition I">
-                <i class="fa fa-chevron-left"></i> 561. Array Partition I
+              <a href="/post/2018/springboot-swagger2.html" rel="next" title="Swagger2-生成RESTful接口文档">
+                <i class="fa fa-chevron-left"></i> Swagger2-生成RESTful接口文档
               </a>
             
           </div>
@@ -563,10 +575,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/2017/java-8-hashmap.html" rel="prev" title="Java 8系列之重新认识HashMap">
-                Java 8系列之重新认识HashMap <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -625,17 +633,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -756,22 +755,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-text">思路：</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
