@@ -102,7 +102,7 @@
 
 
 
-  <meta name="keywords" content="迭代器," />
+  <meta name="keywords" content="Spring," />
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="一、迭代器概述1、什么是迭代器？在Java中，有很多的数据容器，对于这些的操作有很多的共性。Java采用了迭代器来为各种容器提供了公共的操作接口。这样使得对容器的遍历操作与其具体的底层实现相隔离，达到解耦的效果。 在Iterator接口中定义了四个方法：    方法 功能     default void forEachRemaining(Consumer&amp;lt;? super E&amp;gt; act">
-<meta name="keywords" content="迭代器">
+<meta name="description" content="Spring容器负责创建应用程序中的bean并通过DI来协调这些对象之间的关系。但是，作为开发人员，你需要告诉Spring要创建哪些bean并且如何将其装配在一起。当描述bean如何进行装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA迭代器（Interator）详解">
-<meta property="og:url" content="https://caoler.cn/post/2017/java-interator.html">
+<meta property="og:title" content="《Spring实战》读书笔记-Spring装配Bean">
+<meta property="og:url" content="https://caoler.cn/post/2018/SpringInAction-1.html">
 <meta property="og:site_name" content="Caole&#39;s blog">
-<meta property="og:description" content="一、迭代器概述1、什么是迭代器？在Java中，有很多的数据容器，对于这些的操作有很多的共性。Java采用了迭代器来为各种容器提供了公共的操作接口。这样使得对容器的遍历操作与其具体的底层实现相隔离，达到解耦的效果。 在Iterator接口中定义了四个方法：    方法 功能     default void forEachRemaining(Consumer&amp;lt;? super E&amp;gt; act">
+<meta property="og:description" content="Spring容器负责创建应用程序中的bean并通过DI来协调这些对象之间的关系。但是，作为开发人员，你需要告诉Spring要创建哪些bean并且如何将其装配在一起。当描述bean如何进行装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T12:44:08.332Z">
+<meta property="og:updated_time" content="2018-06-08T16:41:33.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA迭代器（Interator）详解">
-<meta name="twitter:description" content="一、迭代器概述1、什么是迭代器？在Java中，有很多的数据容器，对于这些的操作有很多的共性。Java采用了迭代器来为各种容器提供了公共的操作接口。这样使得对容器的遍历操作与其具体的底层实现相隔离，达到解耦的效果。 在Iterator接口中定义了四个方法：    方法 功能     default void forEachRemaining(Consumer&amp;lt;? super E&amp;gt; act">
+<meta name="twitter:title" content="《Spring实战》读书笔记-Spring装配Bean">
+<meta name="twitter:description" content="Spring容器负责创建应用程序中的bean并通过DI来协调这些对象之间的关系。但是，作为开发人员，你需要告诉Spring要创建哪些bean并且如何将其装配在一起。当描述bean如何进行装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：">
 
 
 
@@ -156,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="https://caoler.cn/post/2017/java-interator.html"/>
+  <link rel="canonical" href="https://caoler.cn/post/2018/SpringInAction-1.html"/>
 
 
 
 
 
-  <title>JAVA迭代器（Interator）详解 | Caole's blog</title>
+  <title>《Spring实战》读书笔记-Spring装配Bean | Caole's blog</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/java-interator.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/SpringInAction-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -370,7 +370,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JAVA迭代器（Interator）详解</h2>
+          <h2 class="post-title" itemprop="name headline">《Spring实战》读书笔记-Spring装配Bean</h2>
         
 
         <div class="post-meta">
@@ -382,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T11:40:12+08:00">
-                2017-11-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T00:41:28+08:00">
+                2018-06-09
               </time>
             
 
@@ -398,8 +398,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:44:08+08:00">
-                2017-11-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-09T00:41:33+08:00">
+                2018-06-09
               </time>
             
           </span>
@@ -417,8 +417,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVASE/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVASE</span>
+                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
+                    <span itemprop="name">SSM框架</span>
                   </a>
                 </span>
 
@@ -428,8 +428,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVASE/集合框架/" itemprop="url" rel="index">
-                    <span itemprop="name">集合框架</span>
+                  <a href="/categories/SSM框架/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -447,8 +447,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2017/java-interator.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2017/java-interator.html" itemprop="commentsCount"></span>
+                <a href="/post/2018/SpringInAction-1.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2018/SpringInAction-1.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -456,7 +456,7 @@
 
           
           
-             <span id="/post/2017/java-interator.html" class="leancloud_visitors" data-flag-title="JAVA迭代器（Interator）详解">
+             <span id="/post/2018/SpringInAction-1.html" class="leancloud_visitors" data-flag-title="《Spring实战》读书笔记-Spring装配Bean">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -492,114 +492,77 @@
       
 
       
-        <h2 id="一、迭代器概述"><a href="#一、迭代器概述" class="headerlink" title="一、迭代器概述"></a>一、迭代器概述</h2><h3 id="1、什么是迭代器？"><a href="#1、什么是迭代器？" class="headerlink" title="1、什么是迭代器？"></a>1、什么是迭代器？</h3><p>在Java中，有很多的数据容器，对于这些的操作有很多的共性。Java采用了迭代器来为各种容器提供了公共的操作接口。这样使得对容器的遍历操作与其具体的底层实现相隔离，达到解耦的效果。</p>
-<p>在Iterator接口中定义了四个方法：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>default void forEachRemaining(Consumer&lt;? super E&gt; action)</td>
-<td>对每个剩余元素执行给定的操作，直到所有元素都被处理或动作引发异常。 </td>
-</tr>
-<tr>
-<td>boolean hasNext()</td>
-<td>如果迭代具有更多元素，则返回 true 。  </td>
-</tr>
-<tr>
-<td>E next()</td>
-<td>返回迭代中的下一个元素。  </td>
-</tr>
-<tr>
-<td>default void remove()</td>
-<td>从底层集合中删除此迭代器返回的最后一个元素（可选操作）。  </td>
-</tr>
-</tbody>
-</table>
+        <p>Spring容器负责创建应用程序中的bean并通过DI来协调这些对象之间的关系。但是，作为开发人员，你需要告诉Spring要创建哪些bean并且如何将其装配在一起。当描述bean如何进行装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：</p>
 <a id="more"></a>
-<h3 id="2、迭代器使用"><a href="#2、迭代器使用" class="headerlink" title="2、迭代器使用"></a>2、迭代器使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Collection collection = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    collection.add(<span class="number">123</span>);</span><br><span class="line">    collection.add(<span class="string">"AA"</span>);</span><br><span class="line">    collection.add(<span class="keyword">new</span> Date());</span><br><span class="line">    collection.add(<span class="string">"BB"</span>);</span><br><span class="line">    collection.add(<span class="keyword">new</span> Employee(<span class="string">"Caole"</span>,<span class="number">23</span>));</span><br><span class="line"></span><br><span class="line">    Iterator iterator = collection.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        System.out.println(iterator.next());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行结果：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">123</span><br><span class="line">AA</span><br><span class="line">Wed Nov 01 17:53:43 CST 2017</span><br><span class="line">BB</span><br><span class="line">Employee&#123;<span class="attribute">id</span>=598, <span class="attribute">name</span>=<span class="string">'Caole'</span>, <span class="attribute">salary</span>=23.0&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、ArrayList的Iterator实现"><a href="#二、ArrayList的Iterator实现" class="headerlink" title="二、ArrayList的Iterator实现"></a>二、ArrayList的Iterator实现</h2><p>前段代码的输出结果不用多说，这里的iterator更像是“游标”，不过这游标具体做了啥，我们还得通过list.iterator()好好看看。通过源码了解到该方法产生了一个实现Iterator接口的对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Itr</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cursor;       <span class="comment">// index of next element to return</span></span><br><span class="line">    <span class="keyword">int</span> lastRet = -<span class="number">1</span>; <span class="comment">// index of last element returned; -1 if no such</span></span><br><span class="line">    <span class="keyword">int</span> expectedModCount = modCount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cursor != size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        checkForComodification();</span><br><span class="line">        <span class="keyword">int</span> i = cursor;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= size)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">        Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= elementData.length)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">        cursor = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> (E) elementData[lastRet = i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lastRet &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException();</span><br><span class="line">        checkForComodification();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ArrayList.<span class="keyword">this</span>.remove(lastRet);</span><br><span class="line">            cursor = lastRet;</span><br><span class="line">            lastRet = -<span class="number">1</span>;</span><br><span class="line">            expectedModCount = modCount;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; consumer)</span> </span>&#123;</span><br><span class="line">        Objects.requireNonNull(consumer);</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> size = ArrayList.<span class="keyword">this</span>.size;</span><br><span class="line">        <span class="keyword">int</span> i = cursor;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= size) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">final</span> Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= elementData.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (i != size &amp;&amp; modCount == expectedModCount) &#123;</span><br><span class="line">            consumer.accept((E) elementData[i++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// update once at end of iteration to reduce heap write traffic</span></span><br><span class="line">        cursor = i;</span><br><span class="line">        lastRet = i - <span class="number">1</span>;</span><br><span class="line">        checkForComodification();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">checkForComodification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (modCount != expectedModCount)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Itr</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cursor;       <span class="comment">// index of next element to return</span></span><br><span class="line">    <span class="keyword">int</span> lastRet = -<span class="number">1</span>; <span class="comment">// index of last element returned; -1 if no such</span></span><br><span class="line">    <span class="keyword">int</span> expectedModCount = modCount;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在ArrayList内部定义了一个内部类Itr，该类实现了Iterator接口。</p>
-<p>在Itr中，有三个变量分别是</p>
 <ul>
-<li>cursor：表示下一个元素的索引位置</li>
-<li>lastRet：表示上一个元素的索引位置</li>
-<li>expectModCount：预期被修改的次数</li>
+<li>在XML中进行显式配置。</li>
+<li>在Java中进行显式配置。</li>
+<li>隐式的bean发现机制和自动装配。</li>
 </ul>
-<p>下面看一下Itr类实现了Iterator接口的三个方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> cursor != size;<span class="comment">//当cursor不等于size时，表示仍有索引元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> <span class="comment">//返回下一个元素&#123;</span></span></span><br><span class="line"><span class="function">    <span class="title">checkForComodification</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">int</span> i = cursor;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">    Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= elementData.length)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    cursor = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (E) elementData[lastRet = i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在next()方法中有一个checkForComodification()方法，其实现为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">checkForComodification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到，该函数是用来判断集合的修改次数是否合法。</p>
-<p>　　在集合内部维护一个字段modCount用于记录集合被修改的次数，每当集合内部结构发生变化(add,remove，set)时，modCount+1。</p>
-<p>　　在迭代器内部也维护一个字段expectedModCount，同样记录当前集合修改的次数，初始化为集合的modCount值。当我们在调用Iterator进行遍历操作时，如果有其他线程修改list会出现modCount!=expectedModCount的情况，就会报并发修改异常java.util.ConcurrentModificationException。下面为示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     ArrayList&lt;String&gt; aList=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">     aList.add(<span class="string">"bbc"</span>);</span><br><span class="line">     aList.add(<span class="string">"abc"</span>);</span><br><span class="line">     aList.add(<span class="string">"ysc"</span>);</span><br><span class="line">     aList.add(<span class="string">"saa"</span>);</span><br><span class="line">     System.out.println(<span class="string">"移除前："</span>+aList);</span><br><span class="line"></span><br><span class="line">     Iterator&lt;String&gt; it=aList.iterator();</span><br><span class="line">     <span class="keyword">while</span>(it.hasNext())</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="string">"abc"</span>.equals(it.next()))</span><br><span class="line">         &#123;</span><br><span class="line">            aList.remove(<span class="string">"abc"</span>);          </span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     System.out.println(<span class="string">"移除后："</span>+aList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">移除前：[bbc, abc, ysc, saa]</span><br><span class="line"></span><br><span class="line">java.util.ConcurrentModificationException</span><br><span class="line">	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:<span class="number">901</span>)</span><br><span class="line">	at java.util.ArrayList$Itr.next(ArrayList.java:<span class="number">851</span>)</span><br></pre></td></tr></table></figure>
-<p>上面的代码中，如果我们只使用迭代器来进行删除，则不会出现并发修改异常错误。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">　　　 ArrayList&lt;String&gt; aList=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">     aList.add(<span class="string">"bbc"</span>);</span><br><span class="line">     aList.add(<span class="string">"abc"</span>);</span><br><span class="line">     aList.add(<span class="string">"ysc"</span>);</span><br><span class="line">     aList.add(<span class="string">"saa"</span>);</span><br><span class="line">     System.out.println(<span class="string">"移除前："</span>+aList);</span><br><span class="line">     </span><br><span class="line">     Iterator&lt;String&gt; it=aList.iterator();</span><br><span class="line">     <span class="keyword">while</span>(it.hasNext())</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"abc"</span>.equals(it.next()))</span><br><span class="line">        &#123;</span><br><span class="line">          it.remove();</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     System.out.println(<span class="string">"移除后："</span>+aList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">移除前：[bbc, abc, ysc, saa]</span><br><span class="line">移除后：[bbc, ysc, saa]</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (lastRet &lt; <span class="number">0</span>)</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException();</span><br><span class="line">       checkForComodification();</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           ArrayList.<span class="keyword">this</span>.remove(lastRet);</span><br><span class="line">           cursor = lastRet;</span><br><span class="line">           lastRet = -<span class="number">1</span>;</span><br><span class="line">           expectedModCount = modCount;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在执行remove操作时，同样先执行checkForComodification()，然后会执行ArrayList的remove()方法，该方法会将modCount值加1，这里我们将expectedModCount=modCount，使之保持统一。</p>
-<h2 id="三、ListIterator"><a href="#三、ListIterator" class="headerlink" title="三、ListIterator"></a>三、ListIterator</h2><p>上面可以看到，Iterator只提供了删除元素的方法remove，如果我们想要在遍历的时候添加元素怎么办？</p>
-<p>ListIterator接口继承了Iterator接口，它允许程序员按照任一方向遍历列表，迭代期间修改列表，并获得迭代器在列表中的当前位置。</p>
-<p>ListIterator接口定义了下面几个方法：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void add(E e)</td>
-<td>将指定的元素插入列表（可选操作）。  </td>
-</tr>
-<tr>
-<td>boolean hasNext()</td>
-<td>返回 true如果遍历正向列表，列表迭代器有多个元素。  </td>
-</tr>
-<tr>
-<td>boolean hasPrevious()</td>
-<td>返回 true如果遍历反向列表，列表迭代器有多个元素。  </td>
-</tr>
-<tr>
-<td>E next()</td>
-<td>返回列表中的下一个元素，并且前进光标位置。  </td>
-</tr>
-<tr>
-<td>int nextIndex()</td>
-<td>返回随后调用 next()返回的元素的索引。  </td>
-</tr>
-<tr>
-<td>E previous()</td>
-<td>返回列表中的上一个元素，并向后移动光标位置。  </td>
-</tr>
-<tr>
-<td>int previousIndex()</td>
-<td>返回由后续调用 previous()返回的元素的索引。  </td>
-</tr>
-<tr>
-<td>void remove()</td>
-<td>从列表中删除由 next()或 previous()返回的最后一个元素（可选操作）。  </td>
-</tr>
-<tr>
-<td>void set(E e)</td>
-<td>用 指定的元素替换由 next()或 previous()返回的最后一个元素（可选操作）。  </td>
-</tr>
-</tbody>
-</table>
-<p>下面使用ListIterator来对list进行边遍历边添加元素操作：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ArrayList&lt;String&gt; aList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    aList.add(<span class="string">"bbc"</span>);</span><br><span class="line">    aList.add(<span class="string">"abc"</span>);</span><br><span class="line">    aList.add(<span class="string">"ysc"</span>);</span><br><span class="line">    aList.add(<span class="string">"saa"</span>);</span><br><span class="line">    System.out.println(<span class="string">"移除前："</span> + aList);</span><br><span class="line">    ListIterator&lt;String&gt; listIt = aList.listIterator();</span><br><span class="line">    <span class="keyword">while</span> (listIt.hasNext())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"abc"</span>.equals(listIt.next()))</span><br><span class="line">        &#123;</span><br><span class="line">            listIt.add(<span class="string">"haha"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"移除后："</span> + aList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">移除前：[bbc, abc, ysc, saa]</span><br><span class="line">移除后：[bbc, abc, haha, ysc, saa]</span><br></pre></td></tr></table></figure>
+<p>这三种配置方式既可以单独使用也可以根据实际情况组合使用。作者建议：尽可能地使用自动配置的机制。</p>
+<h2 id="自动化装配Bean"><a href="#自动化装配Bean" class="headerlink" title="自动化装配Bean"></a>自动化装配Bean</h2><p>Spring从两个角度来实现自动化装配：</p>
+<ul>
+<li>组件扫描（component scanning）：Spring会自动发现应用上下文中所创建的bean。</li>
+<li>自动装配（autowiring）：Spring自动满足bean之间的依赖。</li>
+</ul>
+<h3 id="创建可被发现的Bean"><a href="#创建可被发现的Bean" class="headerlink" title="创建可被发现的Bean"></a>创建可被发现的Bean</h3><p>这里举一个例子：CD和播放器，如果你不将CD插入（注入）到CD播放器中，那么CD播放器其实是没有太大用处的。所以，可以这样说，CD播放器依赖于CD才能完成它的使命。</p>
+<p>创建接口CompactDisc<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>CompactDisc&#123;</span><br><span class="line">    void play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后创建这个接口的实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SgtPeppers</span> <span class="keyword">implements</span> <span class="title">CompactDisc</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String title = <span class="string">"Sgt. Perppers' Lonely Hearts Club Band"</span>;</span><br><span class="line">    <span class="keyword">private</span> String artist = <span class="string">"The Beatles"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Playing "</span> + title + <span class="string">" by "</span> + artist);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的就是SgtPeppers类上使用了 <strong>@Component注解</strong>。这个简单的注解表明该类会作为组件类，并告知Spring要为这个类创建bean。</p>
+<p>但是组件扫描默认是不启用的，我们需要手动设置一下：<br>有两种方式</p>
+<ol>
+<li><p>@ComponentScan注解启用扫描</p>
+<p> 在config包中创建</p>
+ <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@ComponentScan</span>(basePackages = <span class="string">"cn.caoler.spring.service.impl"</span>)</span><br><span class="line">public class CDPlayerConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 在这个Java配置文件中有两个注解值得注意：<strong>@Configuration</strong>表示这个.java文件是一个配置文件；<strong>@ComponentScan</strong>表示开启Component扫描，并且可以设置basePackages属性——Spring将会设置该目录以及子目录下所有被@Component注解修饰的类。</p>
+</li>
+<li><p>通过XML启用组件扫描</p>
+ <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">context</span>:<span class="keyword">component</span>-scan base-<span class="keyword">package</span>=<span class="string">"com.spring.sample.soundsystem"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>配置完成之后写一个测试类：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="variable">@ContextConfiguration</span>(classes = CDPlayerConfig.class)</span><br><span class="line">public class CDPlayerTest &#123;</span><br><span class="line">    <span class="variable">@Autowired</span></span><br><span class="line">    private CompactDisc cd;</span><br><span class="line"></span><br><span class="line">    <span class="variable">@Test</span></span><br><span class="line">    public void cdShouldNotBeNull() &#123;</span><br><span class="line">        <span class="selector-tag">Assert</span><span class="selector-class">.assertNotNull</span>(cd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试通过，说明@Autowired注解起作用了，就意味着Spring能够发现CompactDisc类，自动在Spring上下文中将其创建为bean并将其注入到测试代码之中。</p>
+<h3 id="为组件扫描的bean命名"><a href="#为组件扫描的bean命名" class="headerlink" title="为组件扫描的bean命名"></a>为组件扫描的bean命名</h3><p>Spring应用上下文中所有的bean都会给定一个ID。如果没有指定名字，那么spring会自动为该Bean命名，就是将类名的第一个字母变为小写。</p>
+<p>如果需要指定bean名字的话，在@Component(“指定的名字”)即可。</p>
+<h3 id="设置组件扫描的基础包"><a href="#设置组件扫描的基础包" class="headerlink" title="设置组件扫描的基础包"></a>设置组件扫描的基础包</h3><p>如果@ComponentScan没有设置任何属性，那么spring会默认扫描被@ComponentScan标注的类所在包。</p>
+<p>如果你想更加清晰地表明你所设置的是基础包，那么你可以通过basePackages属性进行配置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@ComponentScan</span>(basePackages = &#123;<span class="string">"cn.caoler.spring.service1"</span>, <span class="string">"cn.caoler.spring.service2"</span>&#125;)</span><br><span class="line">public class SoundSystemConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种字符串形式的表示虽然可以，但是不具备“类型安全”，因此Spring也提供了更加类型安全的机制，即通过类或者接口来设置扫描机制的目标目录，例如：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@ComponentScan</span>(basePackageClasses = &#123;CDPlayer.class, DVDPlayer.class&#125;)</span><br><span class="line">public class SoundSystemConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="通过为bean添加注解实现自动装配"><a href="#通过为bean添加注解实现自动装配" class="headerlink" title="通过为bean添加注解实现自动装配"></a>通过为bean添加注解实现自动装配</h3><p>简单来说，自动装配的意思是让Spring从应用上下文中找到对应的bean的引用，并将它们注入到指定的bean。通过@Autowired注解可以完成自动装配。</p>
+<p>例如，考虑下面代码中的CDPlayer类，它的构造函数被@Autowired修饰，表明当Spring创建CDPlayer的bean时，会给这个构造函数传入一个CompactDisc的bean对应的引用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayer</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CompactDisc cd;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CDPlayer</span><span class="params">(CompactDisc cd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.cd = cd;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cd.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还有别的实现方法，例如将@Autowired注解作用在setCompactDisc()方法上:<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setCd</span><span class="params">(CompactDisc cd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cd = cd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者是其他名字的方法上，例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">insertCD</span><span class="params">(CompactDisc cd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cd = cd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>更简单的用法是，可以将@Autowired注解直接作用在成员变量之上，例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> CompactDisc cd;</span><br></pre></td></tr></table></figure></p>
+<p>只要对应类型的bean有且只有一个，则会自动装配到该属性上。如果没有找到对应的bean，应用会抛出对应的异常，如果想避免抛出这个异常，则需要设置@Autowired(required=false)。不过，在应用程序设计中，应该谨慎设置这个属性，因为这会使得你必须面对NullPointerException的问题。</p>
+<p>如果存在多个同一类型的bean，则Spring会抛出异常，表示装配有歧义，解决办法有两个：<br>（1）通过@Qualifier注解指定需要的bean的ID；</p>
+<p>（2）通过@Resource注解指定注入特定ID的bean；</p>
+<h3 id="验证自动配置"><a href="#验证自动配置" class="headerlink" title="验证自动配置"></a>验证自动配置</h3><p>通过下列代码，可以验证：CompactDisc的bean已经注入到CDPlayer的bean中，同时在测试用例中是将CDPlayer的bean注入到当前测试用例。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.<span class="keyword">class</span>)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(classes = SoundSystemConfig.<span class="keyword">class</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayerTest</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(CDPlayerTest.<span class="keyword">class</span>);</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MediaPlayer player;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> playTest() &#123;</span><br><span class="line">        player.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="通过Java代码装配Bean"><a href="#通过Java代码装配Bean" class="headerlink" title="通过Java代码装配Bean"></a>通过Java代码装配Bean</h2><p>有时候 你想要将第三方库中的组件装配到你的应用中，在这种情况下，是没有办法在它的类上添加@Component和@Autowired注解的，因此就不能使用自动化装配的方案了。</p>
+<p>这种情况下就只能通过显示装配的方式去装配，可选方式有两种，先学习通过Java代码去装配。</p>
+<p>在进行显式配置时，JavaConfig是更好的方案，因为它更为强大、类型安全<br>并且对重构友好。</p>
+<p>JavaConfig不同于其他用于实现业务逻辑的Java代码，因此不能将JavaConfig业务逻辑代码混在一起。一般都会给Java配置文件新建一个单独的package。</p>
+<h3 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h3><p>实际上在之前的例子中我们已经实践过基于Java的配置文件，看如下代码：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@ComponentScan</span>(basePackageClasses = &#123;CDPlayer.class, DVDPlayer.class&#125;)</span><br><span class="line">public class SoundSystemConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@Configuration注解表示这个类是配置类，之前我们是通过@ComponentScan注解实现bean的自动扫描和创建，这里我们重点是学习如何显式创建bean，因此首先将<code>@ComponentScan(basePackageClasses = {CDPlayer.class, DVDPlayer.class})</code>这行代码去掉。</p>
+<p>让我们看一下如何使用JavaConfig装配CDPlayer和CompactDisc。</p>
+<h3 id="声明简单的bean"><a href="#声明简单的bean" class="headerlink" title="声明简单的bean"></a>声明简单的bean</h3><p>通过@Bean注解创建一个Spring bean，该bean的默认ID和函数的方法名相同，即sgtPeppers。例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SgtPeppers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样，可以指定bean的ID，例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(name = <span class="string">"lonelyHeartsClub"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="function">CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SgtPeppers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="借助JavaConfig实现注入"><a href="#借助JavaConfig实现注入" class="headerlink" title="借助JavaConfig实现注入"></a>借助JavaConfig实现注入</h3><p>最简单的办法是将被引用的bean的生成函数传入到构造函数或者set函数中，例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CDPlayer <span class="title">cdPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看起来是函数调用，实际上不是：由于sgtPeppers()方法被@Bean注解修饰，所以Spring会拦截这个函数调用，并返回之前已经创建好的bean——确保该SgtPeppers bean为单例。</p>
+<p>假如有下列代码：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CDPlayer <span class="title">cdPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CDPlayer <span class="title">anotherCDPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果把sgtPeppers()方法当作普通Java方法对待，则cdPlayerbean和anotherCDPlayerbean会持有不同的SgtPeppers实例——结合CDPlayer的业务场景看：就相当于将一片CD同时装入两个CD播放机中，显然这不可能。</p>
+<p>默认情况下，Spring中所有的bean都是单例模式，因此cdPlayer和anotherCDPlayer这俩bean持有相同的SgtPeppers实例。</p>
+<p>当然，还有一种更清楚的写法：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CDPlayer <span class="title">cdPlayer</span><span class="params">(CompactDisc compactDisc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(compactDisc);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">CDPlayer <span class="title">anotherCDPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种情况下，cdPlayer和anotherCDPlayer这俩bean持有相同的SgtPeppers实例，该实例的ID为lonelyHeartsClub。这种方法最值得使用，因为它不要求CompactDisc bean在同一个配置文件中定义——只要在应用上下文容器中即可（不管是基于自动扫描发现还是基于XML配置文件定义）。</p>
+<h3 id="通过XML装配bean"><a href="#通过XML装配bean" class="headerlink" title="通过XML装配bean"></a>通过XML装配bean</h3><p>这里暂时略过</p>
+<h3 id="混合使用多种配置方法"><a href="#混合使用多种配置方法" class="headerlink" title="混合使用多种配置方法"></a>混合使用多种配置方法</h3><h4 id="在JavaConfig中解析XML配置"><a href="#在JavaConfig中解析XML配置" class="headerlink" title="在JavaConfig中解析XML配置"></a>在JavaConfig中解析XML配置</h4><p>通过@Import注解导入其他的JavaConfig，并且支持同时导入多个配置文件；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@Import</span>(&#123;CDPlayerConfig.class, CDConfig.class&#125;)</span><br><span class="line">public class SoundSystemConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过@ImportResource注解导入XML配置文件；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@Import</span>(CDPlayerConfig.class)</span><br><span class="line"><span class="variable">@ImportResource</span>(<span class="string">"classpath: cd-config.xml"</span>)</span><br><span class="line">public class SoundSystemConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在XML配置文件中应用JavaConfig"><a href="#在XML配置文件中应用JavaConfig" class="headerlink" title="在XML配置文件中应用JavaConfig"></a>在XML配置文件中应用JavaConfig</h4><p>通过<code>&lt;import&gt;</code>标签引入其他的XML配置文件；<br>通过<code>&lt;bean&gt;</code>标签导入Java配置文件到XML配置文件，例如<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean <span class="keyword">class</span>=<span class="string">"soundsystem.CDConfig"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通常的做法是：无论使用JavaConfig或者XML装配，都要创建一个root configuration，即模块化配置定义；并且在这个配置文件中开启自动扫描机制：<code>&lt;context:component-scan&gt;</code>或者<code>@ComponentScan</code>。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Spring框架的核心是Spring容器。容器负责管理应用中组件的生命周期，它会创建这些组件并保证它们的依赖能够得到满足，这样的话，组件才能完成预定的任务。</p>
+<p>在本章中，我们看到了在Spring中装配bean的三种主要方式：自动化配置、基于Java的显式配置以及基于XML的显式配置。不管你采用什么方式，这些技术都描述了Spring应用中的组件以及这些组件之间的关系。</p>
+<p>我同时建议尽可能使用自动化配置，以避免显式配置所带来的维护成本。但是，如果你确实需要显式配置Spring的话，应该优先选择基于Java的配置，它比基于XML的配置更加强大、类型安全并且易于重构。在本书中的例子中，当决定如何装配组件时，我都会遵循这样的指<br>导意见。</p>
+<p>因为依赖注入是Spring中非常重要的组成部分，所以本章中介绍的技术在本书中所有的地方都会用到。基于这些基础知识，下一章将会介绍一些更为高级的bean装配技术，这些技术能够让你更加充分地发挥Spring容器的威力。</p>
 
       
     </div>
@@ -620,7 +583,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://caoler.cn/post/2017/java-interator.html" title="JAVA迭代器（Interator）详解">https://caoler.cn/post/2017/java-interator.html</a>
+    <a href="https://caoler.cn/post/2018/SpringInAction-1.html" title="《Spring实战》读书笔记-Spring装配Bean">https://caoler.cn/post/2018/SpringInAction-1.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -635,7 +598,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/迭代器/" rel="tag"><i class="fa fa-tag"></i> 迭代器</a>
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
           
         </div>
       
@@ -648,8 +611,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/2017/Hello-World.html" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/post/2018/SpringBoot-MyBaits-summary.html" rel="next" title="SpringBoot整合MyBatis实战总结">
+                <i class="fa fa-chevron-left"></i> SpringBoot整合MyBatis实战总结
               </a>
             
           </div>
@@ -657,10 +620,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/2017/Array-Partition-I.html" rel="prev" title="561. Array Partition I">
-                561. Array Partition I <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -860,7 +819,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、迭代器概述"><span class="nav-text">一、迭代器概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、什么是迭代器？"><span class="nav-text">1、什么是迭代器？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、迭代器使用"><span class="nav-text">2、迭代器使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、ArrayList的Iterator实现"><span class="nav-text">二、ArrayList的Iterator实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、ListIterator"><span class="nav-text">三、ListIterator</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化装配Bean"><span class="nav-text">自动化装配Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建可被发现的Bean"><span class="nav-text">创建可被发现的Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为组件扫描的bean命名"><span class="nav-text">为组件扫描的bean命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置组件扫描的基础包"><span class="nav-text">设置组件扫描的基础包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过为bean添加注解实现自动装配"><span class="nav-text">通过为bean添加注解实现自动装配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证自动配置"><span class="nav-text">验证自动配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过Java代码装配Bean"><span class="nav-text">通过Java代码装配Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建配置类"><span class="nav-text">创建配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明简单的bean"><span class="nav-text">声明简单的bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借助JavaConfig实现注入"><span class="nav-text">借助JavaConfig实现注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过XML装配bean"><span class="nav-text">通过XML装配bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合使用多种配置方法"><span class="nav-text">混合使用多种配置方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在JavaConfig中解析XML配置"><span class="nav-text">在JavaConfig中解析XML配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在XML配置文件中应用JavaConfig"><span class="nav-text">在XML配置文件中应用JavaConfig</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
