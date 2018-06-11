@@ -27,6 +27,52 @@
 
     
   <url>
+    <loc>https://caoler.cn//post/2018/SpringBootMavenPackage.html</loc>
+    <lastmod>2018-06-11T14:13:34.887Z</lastmod>
+    <data>
+        <display>
+        <title>利用maven分环境打包SpringBoot项目</title>
+        <pubTime>2018-06-11T14:13:22.000Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="SpringBoot" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://caoler.cn//post/2018/SpringInAction-2.html</loc>
+    <lastmod>2018-06-11T14:12:04.543Z</lastmod>
+    <data>
+        <display>
+        <title>《Spring实战》读书笔记2-高级装配</title>
+        <pubTime>2018-06-11T14:12:00.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="Spring" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://caoler.cn//post/2018/SpringBoot-MyBaits-summary.html</loc>
     <lastmod>2018-06-02T15:14:32.555Z</lastmod>
     <data>
