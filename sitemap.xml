@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caoler.cn/post/2018/SpringBoot-RestTemplate.html</loc>
+    
+    <lastmod>2018-06-30T07:08:57.574Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://caoler.cn/about/index.html</loc>
+    
+    <lastmod>2018-06-30T07:04:33.479Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caoler.cn/post/2018/SpringInAction-1.html</loc>
     
     <lastmod>2018-06-11T14:13:38.446Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>https://caoler.cn/post/2018/SpringBoot-MyBaits-summary.html</loc>
     
     <lastmod>2018-06-02T15:14:32.555Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://caoler.cn/about/index.html</loc>
-    
-    <lastmod>2018-06-02T15:11:16.852Z</lastmod>
     
   </url>
   

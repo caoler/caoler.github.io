@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://caoler.cn//post/2018/SpringBoot-RestTemplate.html</loc>
+    <lastmod>2018-06-30T07:08:57.574Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot配置RestTemplate的代理和超时时间</title>
+        <pubTime>2018-06-30T07:07:34.000Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="SSM框架" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
+          
+             
+              <breadCrumb title="SpringBoot" url="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://caoler.cn//post/2018/SpringInAction-1.html</loc>
     <lastmod>2018-06-11T14:13:38.446Z</lastmod>
     <data>
@@ -94,7 +118,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://caoler.cn//post/2018/exception.html</loc>
