@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[梦想破灭]]></title>
+    <url>%2F%2Fpost%2F2018%2Fover.html</url>
+    <content type="text"><![CDATA[梦想破灭 2018年9月26日21:48:48]]></content>
+      <categories>
+        <category>CodingLife</category>
+      </categories>
+      <tags>
+        <tag>CodingLife</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[学习Spring的长期or短期目标]]></title>
     <url>%2F%2Fpost%2F2018%2FSpringAims.html</url>
     <content type="text"><![CDATA[最近非常想研究透彻Spring，但是又找不到合适的方法。之前一直打算阅读Spring源码，但是又有人说 如果什么框架要你必须阅读源代码才能掌握，那这个框架一定很烂、不成熟，或者说至少处于成熟的前期。 显然Spring不是这样的框架。 想想自己详细认真读过spring所有项目的reference，并对所有API doc了如指掌吗？我直接开始读源代码干嘛？ 说明书和各种电器参数都不看就想把家里的电视拆了研究的，只能是熊孩子干出来的事。 有时候认为实战是最好的老师。 但是有些事情又是迫不得已必须去做的，必须得在正确的时间里做正确的事。 所以短期目标是看一下源码~嘻嘻，主要是Bean的加载，IOC原理，还有就是SpringAOP。 提供给自己一点资源： 这个是目前最新版的说明书：https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/ 大神翻译的中文版：https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/ 可以说非常想看英文原版了，奈何自己的英语水平实在是太差了！难受啊 :cry:]]></content>

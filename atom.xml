@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caoler.cn/"/>
-  <updated>2018-07-13T14:27:18.692Z</updated>
+  <updated>2018-09-26T13:49:20.907Z</updated>
   <id>https://caoler.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>梦想破灭</title>
+    <link href="https://caoler.cn//post/2018/over.html"/>
+    <id>https://caoler.cn//post/2018/over.html</id>
+    <published>2018-09-26T13:48:57.000Z</published>
+    <updated>2018-09-26T13:49:20.907Z</updated>
+    
+    <content type="html"><![CDATA[<p>梦想破灭</p><p>2018年9月26日21:48:48</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;梦想破灭&lt;/p&gt;
+&lt;p&gt;2018年9月26日21:48:48&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="CodingLife" scheme="https://caoler.cn/categories/CodingLife/"/>
+    
+    
+      <category term="CodingLife" scheme="https://caoler.cn/tags/CodingLife/"/>
+    
+  </entry>
   
   <entry>
     <title>学习Spring的长期or短期目标</title>
@@ -506,41 +533,6 @@
       <category term="并发编程" scheme="https://caoler.cn/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
       <category term="转载" scheme="https://caoler.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用WMITool解决浏览器主页被hao123劫持问题</title>
-    <link href="https://caoler.cn//post/2017/wmitools.html"/>
-    <id>https://caoler.cn//post/2017/wmitools.html</id>
-    <published>2017-11-21T06:50:00.000Z</published>
-    <updated>2017-11-27T12:40:43.002Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。</p><p>一些具体症状：</p><ul><li>删掉原先的快捷方式以后再重新创建一个，问题依然存在；</li><li>快捷方式属性没有问题，没有后缀网址；</li><li>直接启动exe文件没有异常；</li><li>chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；</li><li>改exe文件名可解决但我不想用这种回避的方式。</li></ul><p>本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：</p><a id="more"></a><h3 id="一、下载-WIM-Tools"><a href="#一、下载-WIM-Tools" class="headerlink" title="一、下载 WIM Tools"></a>一、下载 WIM Tools</h3><p>官网连接：<a href="https://www.adremsoft.com/wmitools/" target="_blank" rel="external">https://www.adremsoft.com/wmitools/</a> 软件体积较大(不推荐)</p><p>百度云链接: <a href="https://pan.baidu.com/s/1slJU2Rz" target="_blank" rel="external">https://pan.baidu.com/s/1slJU2Rz</a> 密码: o400</p><h3 id="二、安装完成之后按照如下操作"><a href="#二、安装完成之后按照如下操作" class="headerlink" title="二、安装完成之后按照如下操作"></a>二、安装完成之后按照如下操作</h3><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flpp9oiwtbj30gy0a2wep.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppcbyy6xj30hm09cjrk.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2i3z2j30hm09caah.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2irogj30b907k74i.jpg" alt=""></p><p><strong>在右侧选中后右击——&gt;选择view instant properties</strong></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iv4cj30ki0aswev.jpg" alt=""></p><p>至此查看ScriptText项可知，这是一段VBScript调用系统服务间隔30分钟执行一次，将所有浏览器调用加上如下糟糕链接</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2j33uj30lb0c0jsn.jpg" alt=""></p><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>选中左侧选项，点击上面的X按钮。 删不掉？ 到WMITool安装路径（例如：C:\Program Files (x86)\WMI Tools）下，右键点击wbemeventviewer.exe，选择以管理员身份运行！删之！<br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppfl3r75j30d106cglv.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iaeij30hm09c3yz.jpg" alt=""></p><p>还没完，还要手动将快速启动栏中，将各个浏览器快捷命令中的<a href="http://hk.jtsh123.com/?r=b&amp;m=10去掉！" target="_blank" rel="external">http://hk.jtsh123.com/?r=b&amp;m=10去掉！</a></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppgo35m6j30c307n3yp.jpg" alt=""></p><p>大功告成！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。&lt;/p&gt;
-&lt;p&gt;一些具体症状：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;删掉原先的快捷方式以后再重新创建一个，问题依然存在；&lt;/li&gt;
-&lt;li&gt;快捷方式属性没有问题，没有后缀网址；&lt;/li&gt;
-&lt;li&gt;直接启动exe文件没有异常；&lt;/li&gt;
-&lt;li&gt;chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；&lt;/li&gt;
-&lt;li&gt;改exe文件名可解决但我不想用这种回避的方式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="实用教程" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="浏览器" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-    
-      <category term="原创" scheme="https://caoler.cn/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-      <category term="实用教程" scheme="https://caoler.cn/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
