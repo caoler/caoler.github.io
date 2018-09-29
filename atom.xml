@@ -44,30 +44,6 @@
   </entry>
   
   <entry>
-    <title>学习Spring的长期or短期目标</title>
-    <link href="https://caoler.cn//post/2018/SpringAims.html"/>
-    <id>https://caoler.cn//post/2018/SpringAims.html</id>
-    <published>2018-07-13T14:27:11.000Z</published>
-    <updated>2018-07-13T14:27:18.692Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近非常想研究透彻Spring，但是又找不到合适的方法。之前一直打算阅读Spring源码，但是又有人说 <strong>如果什么框架要你必须阅读源代码才能掌握，那这个框架一定很烂、不成熟，或者说至少处于成熟的前期。</strong> 显然Spring不是这样的框架。</p><a id="more"></a><p>想想自己详细认真读过spring所有项目的reference，并对所有API doc了如指掌吗？我直接开始读源代码干嘛？</p><p>说明书和各种电器参数都不看就想把家里的电视拆了研究的，只能是熊孩子干出来的事。</p><p>有时候认为实战是最好的老师。</p><p>但是有些事情又是迫不得已必须去做的，必须得在正确的时间里做正确的事。</p><p>所以短期目标是看一下源码~嘻嘻，主要是Bean的加载，IOC原理，还有就是SpringAOP。</p><p>提供给自己一点资源：</p><p>这个是目前最新版的说明书：<br><a href="https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/" target="_blank" rel="external">https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/</a></p><p>大神翻译的中文版：<br><a href="https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/" target="_blank" rel="external">https://muyinchen.gitbooks.io/spring-framework-5-0-0-m3/content/</a></p><p>可以说非常想看英文原版了，奈何自己的英语水平实在是太差了！难受啊 :cry:</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近非常想研究透彻Spring，但是又找不到合适的方法。之前一直打算阅读Spring源码，但是又有人说 &lt;strong&gt;如果什么框架要你必须阅读源代码才能掌握，那这个框架一定很烂、不成熟，或者说至少处于成熟的前期。&lt;/strong&gt; 显然Spring不是这样的框架。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SSM框架" scheme="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="Spring" scheme="https://caoler.cn/categories/SSM%E6%A1%86%E6%9E%B6/Spring/"/>
-    
-    
-      <category term="Spring" scheme="https://caoler.cn/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Spring实战》读书笔记3-SpringAOP</title>
     <link href="https://caoler.cn//post/2018/SpringInAction-3.html"/>
     <id>https://caoler.cn//post/2018/SpringInAction-3.html</id>
@@ -533,6 +509,41 @@
       <category term="并发编程" scheme="https://caoler.cn/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
       <category term="转载" scheme="https://caoler.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用WMITool解决浏览器主页被hao123劫持问题</title>
+    <link href="https://caoler.cn//post/2017/wmitools.html"/>
+    <id>https://caoler.cn//post/2017/wmitools.html</id>
+    <published>2017-11-21T06:50:00.000Z</published>
+    <updated>2017-11-27T12:40:43.002Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。</p><p>一些具体症状：</p><ul><li>删掉原先的快捷方式以后再重新创建一个，问题依然存在；</li><li>快捷方式属性没有问题，没有后缀网址；</li><li>直接启动exe文件没有异常；</li><li>chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；</li><li>改exe文件名可解决但我不想用这种回避的方式。</li></ul><p>本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：</p><a id="more"></a><h3 id="一、下载-WIM-Tools"><a href="#一、下载-WIM-Tools" class="headerlink" title="一、下载 WIM Tools"></a>一、下载 WIM Tools</h3><p>官网连接：<a href="https://www.adremsoft.com/wmitools/" target="_blank" rel="external">https://www.adremsoft.com/wmitools/</a> 软件体积较大(不推荐)</p><p>百度云链接: <a href="https://pan.baidu.com/s/1slJU2Rz" target="_blank" rel="external">https://pan.baidu.com/s/1slJU2Rz</a> 密码: o400</p><h3 id="二、安装完成之后按照如下操作"><a href="#二、安装完成之后按照如下操作" class="headerlink" title="二、安装完成之后按照如下操作"></a>二、安装完成之后按照如下操作</h3><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flpp9oiwtbj30gy0a2wep.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppcbyy6xj30hm09cjrk.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2i3z2j30hm09caah.jpg" alt=""></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2irogj30b907k74i.jpg" alt=""></p><p><strong>在右侧选中后右击——&gt;选择view instant properties</strong></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iv4cj30ki0aswev.jpg" alt=""></p><p>至此查看ScriptText项可知，这是一段VBScript调用系统服务间隔30分钟执行一次，将所有浏览器调用加上如下糟糕链接</p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2j33uj30lb0c0jsn.jpg" alt=""></p><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>选中左侧选项，点击上面的X按钮。 删不掉？ 到WMITool安装路径（例如：C:\Program Files (x86)\WMI Tools）下，右键点击wbemeventviewer.exe，选择以管理员身份运行！删之！<br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppfl3r75j30d106cglv.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppa2iaeij30hm09c3yz.jpg" alt=""></p><p>还没完，还要手动将快速启动栏中，将各个浏览器快捷命令中的<a href="http://hk.jtsh123.com/?r=b&amp;m=10去掉！" target="_blank" rel="external">http://hk.jtsh123.com/?r=b&amp;m=10去掉！</a></p><p><img src="https://ws1.sinaimg.cn/large/005DnJLEgy1flppgo35m6j30c307n3yp.jpg" alt=""></p><p>大功告成！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。&lt;/p&gt;
+&lt;p&gt;一些具体症状：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;删掉原先的快捷方式以后再重新创建一个，问题依然存在；&lt;/li&gt;
+&lt;li&gt;快捷方式属性没有问题，没有后缀网址；&lt;/li&gt;
+&lt;li&gt;直接启动exe文件没有异常；&lt;/li&gt;
+&lt;li&gt;chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；&lt;/li&gt;
+&lt;li&gt;改exe文件名可解决但我不想用这种回避的方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="实用教程" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="浏览器" scheme="https://caoler.cn/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    
+      <category term="原创" scheme="https://caoler.cn/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="实用教程" scheme="https://caoler.cn/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
