@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/SpringBeanLife.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/jmm.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -371,7 +371,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2018/SpringBeanLife.html" itemprop="url">Spring Bean生命周期</a></h2>
+                <a class="post-title-link" href="/post/2018/jmm.html" itemprop="url">全面理解Java内存模型</a></h2>
         
 
         <div class="post-meta">
@@ -383,8 +383,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T19:13:48+08:00">
-                2018-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-13T16:38:00+08:00">
+                2018-08-13
               </time>
             
 
@@ -399,8 +399,1496 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-07T19:15:06+08:00">
-                2018-04-07
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:55:51+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/jmm.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/jmm.html" class="cy_cmt_count" data-xid="/post/2018/jmm.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/jmm.html" class="leancloud_visitors" data-flag-title="全面理解Java内存模型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>转载自CSDN-<a href="https://blog.csdn.net/javazejian/article/details/72772461" target="_blank" rel="external">全面理解Java内存模型(JMM)及volatile关键字</a></p>
+<h1 id="理解Java内存区域与Java内存模型"><a href="#理解Java内存区域与Java内存模型" class="headerlink" title="理解Java内存区域与Java内存模型"></a>理解Java内存区域与Java内存模型</h1><h2 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h2><p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1fu8x1lpjxrj30jx097goo.jpg" alt=""></p>
+<p>Java虚拟机在运行程序时会把其自动管理的内存划分为以上几个区域，每个区域都有的用途以及创建销毁的时机，其中蓝色部分代表的是所有线程共享的数据区域，而绿色部分代表的是每个线程的私有数据区域。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/jmm.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/java-lload-class.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/java-lload-class.html" itemprop="url">详解类加载机制</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T16:38:00+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:56:05+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/java-lload-class.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/java-lload-class.html" class="cy_cmt_count" data-xid="/post/2018/java-lload-class.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/java-lload-class.html" class="leancloud_visitors" data-flag-title="详解类加载机制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>从类被加载到虚拟机内存中开始，到卸御出内存为止，它的整个生命周期分为7个阶段，加载(Loading)、验证(Verification)、准备(Preparation)、解析(Resolution)、初始化(Initialization)、使用(Using)、卸御(Unloading)。其中验证、准备、解析三个部分统称为连接。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/java-lload-class.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/springioc-bean.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/springioc-bean.html" itemprop="url">IOC概念和SpringBean的生命周期</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T16:38:00+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:54:13+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/IOC/" itemprop="url" rel="index">
+                    <span itemprop="name">IOC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/springioc-bean.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/springioc-bean.html" class="cy_cmt_count" data-xid="/post/2018/springioc-bean.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/springioc-bean.html" class="leancloud_visitors" data-flag-title="IOC概念和SpringBean的生命周期">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>之前有写过SpringBean的文章，但是大部分都是搬运的，自己对它的深层次思想并没有掌握，所以在这里重写一下。</p>
+<p>IOC部分在第一次学Spring的时候就已经在接触了，但是还是了解的不够深入，最近在看了一部分SpringIOC的源码之后，才模模糊糊的明白了一些，正好赶上组内技术分享，做此下文</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/springioc-bean.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/ConcurrentModificationException.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/ConcurrentModificationException.html" itemprop="url">Java ConcurrentModificationException异常原因和解决方法</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-07T16:38:00+08:00">
+                2018-08-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:54:20+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVASE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVASE</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVASE/集合框架/" itemprop="url" rel="index">
+                    <span itemprop="name">集合框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/ConcurrentModificationException.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/ConcurrentModificationException.html" class="cy_cmt_count" data-xid="/post/2018/ConcurrentModificationException.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/ConcurrentModificationException.html" class="leancloud_visitors" data-flag-title="Java ConcurrentModificationException异常原因和解决方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>　　在前面一篇文章中提到，对Vector、ArrayList在迭代的时候如果同时对其进行修改就会抛出java.util.ConcurrentModificationException异常。下面我们就来讨论以下这个异常出现的原因以及解决办法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/ConcurrentModificationException.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/gson-dynamic-key.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/gson-dynamic-key.html" itemprop="url">Gson解析动态key的JSON文件以及优化记录</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-21T16:38:00+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:54:04+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/JSON/" itemprop="url" rel="index">
+                    <span itemprop="name">JSON</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/gson-dynamic-key.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/gson-dynamic-key.html" class="cy_cmt_count" data-xid="/post/2018/gson-dynamic-key.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/gson-dynamic-key.html" class="leancloud_visitors" data-flag-title="Gson解析动态key的JSON文件以及优化记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>先说说具体场景，当前正在做一个项目，有部分接口是通过股票代码去后台请求数据的，但是作为初入职场的小白，并没有对传入的参数进行判断，所以导致测试服务器上项目每天都是处于<code>504</code>状态（因为安全部门每天凌晨都会对测试服务器上的接口进行注入式攻击，以保证提前发现问题，防止线上灾难）。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/gson-dynamic-key.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/wireshark.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/wireshark.html" itemprop="url">网络抓包工具 wireshark 入门教程</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T16:48:00+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:56:09+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/网络抓包/" itemprop="url" rel="index">
+                    <span itemprop="name">网络抓包</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/wireshark.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/wireshark.html" class="cy_cmt_count" data-xid="/post/2018/wireshark.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/wireshark.html" class="leancloud_visitors" data-flag-title="网络抓包工具 wireshark 入门教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Wireshark（前称Ethereal）是一个网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。</p>
+<p>网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识。当然，有的人也会“居心叵测”的用它来寻找一些敏感信息……。Wireshark相对于tcpdump而言，界面更友好，功能更强大。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/wireshark.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/maven-springboot-mybatis.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/maven-springboot-mybatis.html" itemprop="url">MAVEN多模块项目的创建以及部署(SpringBoot+MyBatis+IDEA)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T16:38:00+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:55:27+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/maven-springboot-mybatis.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/maven-springboot-mybatis.html" class="cy_cmt_count" data-xid="/post/2018/maven-springboot-mybatis.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/maven-springboot-mybatis.html" class="leancloud_visitors" data-flag-title="MAVEN多模块项目的创建以及部署(SpringBoot+MyBatis+IDEA)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>项目基于SpringBoot+MyBatis+Maven构建，由于需要将定时任务与前台业务模块分离开来，所以需要进行maven多模块项目的开发。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/maven-springboot-mybatis.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/mysql-engine.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/mysql-engine.html" itemprop="url">MySQL存储引擎及其对比</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T00:41:28+08:00">
+                2018-07-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:55:36+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/mysql-engine.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/mysql-engine.html" class="cy_cmt_count" data-xid="/post/2018/mysql-engine.html" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/mysql-engine.html" class="leancloud_visitors" data-flag-title="MySQL存储引擎及其对比">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="MySql中有哪些存储引擎？"><a href="#MySql中有哪些存储引擎？" class="headerlink" title="MySql中有哪些存储引擎？"></a>MySql中有哪些存储引擎？</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/2018/mysql-engine.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/SpringAims.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/2018/SpringAims.html" itemprop="url">学习Spring的长期or短期目标</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T22:27:11+08:00">
+                2018-07-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-13T22:27:18+08:00">
+                2018-07-13
               </time>
             
           </span>
@@ -448,8 +1936,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2018/SpringBeanLife.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2018/SpringBeanLife.html" class="cy_cmt_count" data-xid="/post/2018/SpringBeanLife.html" itemprop="commentsCount" ></span>
+                <a href="/post/2018/SpringAims.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/SpringAims.html" class="cy_cmt_count" data-xid="/post/2018/SpringAims.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -457,7 +1945,7 @@
 
           
           
-             <span id="/post/2018/SpringBeanLife.html" class="leancloud_visitors" data-flag-title="Spring Bean生命周期">
+             <span id="/post/2018/SpringAims.html" class="leancloud_visitors" data-flag-title="学习Spring的长期or短期目标">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -489,11 +1977,10 @@
 
       
         
-          <h1 id="Spring-Bean-生命周期"><a href="#Spring-Bean-生命周期" class="headerlink" title="Spring Bean 生命周期"></a>Spring Bean 生命周期</h1><p>BeanFactory和ApplicationContext是Spring两种很重要的容器,前者提供了最基本的依赖注入的支持，而后者在继承前者的基础进行了功能的拓展，例如增加了事件传播，资源访问和国际化的消息访问等功能。</p>
-<p>概括来说主要有四个阶段：实例化，初始化，使用，销毁。</p>
+          <p>最近非常想研究透彻Spring，但是又找不到合适的方法。之前一直打算阅读Spring源码，但是又有人说 <strong>如果什么框架要你必须阅读源代码才能掌握，那这个框架一定很烂、不成熟，或者说至少处于成熟的前期。</strong> 显然Spring不是这样的框架。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/2018/SpringBeanLife.html#more" rel="contents">
+            <a class="btn" href="/post/2018/SpringAims.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -544,7 +2031,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/deep-in-jvm-part2.html">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/SpringInAction-3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Caole">
@@ -563,7 +2050,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/2018/deep-in-jvm-part2.html" itemprop="url">《深入理解Java虚拟机》读书笔记2 - 垃圾收集器与内存分配策略</a></h2>
+                <a class="post-title-link" href="/post/2018/SpringInAction-3.html" itemprop="url">《Spring实战》读书笔记3-SpringAOP</a></h2>
         
 
         <div class="post-meta">
@@ -575,8 +2062,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:17:43+08:00">
-                2018-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T22:25:11+08:00">
+                2018-07-13
               </time>
             
 
@@ -591,8 +2078,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T16:33:04+08:00">
-                2018-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-13T22:27:20+08:00">
+                2018-07-13
               </time>
             
           </span>
@@ -610,8 +2097,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index">
-                    <span itemprop="name">JVM</span>
+                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
+                    <span itemprop="name">SSM框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SSM框架/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -629,8 +2127,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/post/2018/deep-in-jvm-part2.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2018/deep-in-jvm-part2.html" class="cy_cmt_count" data-xid="/post/2018/deep-in-jvm-part2.html" itemprop="commentsCount" ></span>
+                <a href="/post/2018/SpringInAction-3.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::https://caoler.cn/post/2018/SpringInAction-3.html" class="cy_cmt_count" data-xid="/post/2018/SpringInAction-3.html" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -638,7 +2136,7 @@
 
           
           
-             <span id="/post/2018/deep-in-jvm-part2.html" class="leancloud_visitors" data-flag-title="《深入理解Java虚拟机》读书笔记2 - 垃圾收集器与内存分配策略">
+             <span id="/post/2018/SpringInAction-3.html" class="leancloud_visitors" data-flag-title="《Spring实战》读书笔记3-SpringAOP">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -670,1532 +2168,14 @@
 
       
         
-          <h2 id="第三章-垃圾收集器与内存分配策略"><a href="#第三章-垃圾收集器与内存分配策略" class="headerlink" title="第三章 垃圾收集器与内存分配策略"></a>第三章 垃圾收集器与内存分配策略</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>思考GC需要完成的3件事情：</p>
-<ul>
-<li>哪些内存需要回收？</li>
-<li>什么时候回收？</li>
-<li>如何回收？<br>再回头看看第二章介绍的Java内存运行时区域的各个部分：</li>
+          <h3 id="1-参考"><a href="#1-参考" class="headerlink" title="1. 参考"></a>1. 参考</h3><ul>
+<li><a href="https://blog.csdn.net/w1196726224/article/details/50535659" target="_blank" rel="external">Spring 4 学习笔记5：Spring AOP</a></li>
+<li>《Spring实战 第四版》</li>
+<li><a href="https://blog.csdn.net/wangpeng047/article/details/8556800" target="_blank" rel="external">SpringAop 详尽教程</a></li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/post/2018/deep-in-jvm-part2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/summary_for_2017.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2018/summary_for_2017.html" itemprop="url">一个小程序员的2017年年度总结</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T11:03:24+08:00">
-                2018-01-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T11:22:02+08:00">
-                2018-01-24
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CodingLife/" itemprop="url" rel="index">
-                    <span itemprop="name">CodingLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2018/summary_for_2017.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2018/summary_for_2017.html" class="cy_cmt_count" data-xid="/post/2018/summary_for_2017.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2018/summary_for_2017.html" class="leancloud_visitors" data-flag-title="一个小程序员的2017年年度总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="一个小程序员2017年的进步、收获与成长。"><a href="#一个小程序员2017年的进步、收获与成长。" class="headerlink" title="一个小程序员2017年的进步、收获与成长。"></a>一个小程序员2017年的进步、收获与成长。</h3><p>今天是腊八，新历新年已经过去了两个月。在很早之前就打算写一篇年终总结，但是因为考试一直拖延。放假之后愉快的玩♂耍了一周 决定在这个安静的早晨动笔写起。</p>
-<p>2017年是上大学以来最有收获的一年，大概学习了一整个JavaWeb的框架部分，而且还通过参加服务外包比赛让自己的学习成功付诸实现，虽然和组里的DB、HJ比起来自己的实力和别人还有不小差距。但是作为一个容易满足的人，我的2017也算是很完美了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2018/summary_for_2017.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/deep-in-jvm-part1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/deep-in-jvm-part1.html" itemprop="url">《深入理解Java虚拟机》读书笔记1 - Java技术体系、Java内存区域和内存溢出异常</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T16:18:22+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-09T11:16:40+08:00">
-                2018-04-09
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index">
-                    <span itemprop="name">JVM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/deep-in-jvm-part1.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/deep-in-jvm-part1.html" class="cy_cmt_count" data-xid="/post/2017/deep-in-jvm-part1.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/deep-in-jvm-part1.html" class="leancloud_visitors" data-flag-title="《深入理解Java虚拟机》读书笔记1 - Java技术体系、Java内存区域和内存溢出异常">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。</p>
-<p>笔记第一部分对应原书的第一章，主要介绍了Java的技术体系、Java虚拟机的发展历史。第二部分对应原书的第二章，主要介绍了Java运行时区域的划分、对象的创建和访问以及内存溢出的实战。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/deep-in-jvm-part1.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/goole-birthday.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/goole-birthday.html" itemprop="url">有趣</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T11:48:43+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-29T11:50:32+08:00">
-                2017-11-29
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CodingLife/" itemprop="url" rel="index">
-                    <span itemprop="name">CodingLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/goole-birthday.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/goole-birthday.html" class="cy_cmt_count" data-xid="/post/2017/goole-birthday.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/goole-birthday.html" class="leancloud_visitors" data-flag-title="有趣">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://ws1.sinaimg.cn/large/005DnJLEly1flytamyqqvj30j30aw74l.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/join-and-threadlocal.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/join-and-threadlocal.html" itemprop="url">join()方法和TheadLocal类</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T13:37:00+08:00">
-                2017-11-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-28T13:37:00+08:00">
-                2017-11-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/线程通信/" itemprop="url" rel="index">
-                    <span itemprop="name">线程通信</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/join-and-threadlocal.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/join-and-threadlocal.html" class="cy_cmt_count" data-xid="/post/2017/join-and-threadlocal.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/join-and-threadlocal.html" class="leancloud_visitors" data-flag-title="join()方法和TheadLocal类">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Thread-join"><a href="#Thread-join" class="headerlink" title="Thread.join()"></a>Thread.join()</h1><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Thread</span> t = <span class="function"><span class="keyword">new</span> <span class="title">AThread</span>();</span></span><br><span class="line"><span class="function"><span class="title">t</span>.<span class="title">start</span>();</span></span><br><span class="line"><span class="function"><span class="title">t</span>.<span class="title">join</span>();</span></span><br></pre></td></tr></table></figure>
-<h2 id="为什么要用join-方法"><a href="#为什么要用join-方法" class="headerlink" title="为什么要用join()方法"></a>为什么要用join()方法</h2><p>在很多情况下，主线程生成并起动了子线程，如果子线程里要进行大量的耗时的运算，主线程往往将于子线程之前结束，但是如果主线程处理完其他的事务后，需要用到子线程的处理结果，也就是主线程需要等待子线程执行完成之后再结束，这个时候就要用到join()方法了。</p>
-<h2 id="join方法的作用"><a href="#join方法的作用" class="headerlink" title="join方法的作用"></a>join方法的作用</h2><p>JDK中对join方法解释为：“等待该线程终止”，换句话说就是：”当前线程等待子线程的终止“。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了当前线程才能执行。</p>
-<h2 id="用实例来理解"><a href="#用实例来理解" class="headerlink" title="用实例来理解"></a>用实例来理解</h2><ol>
-<li>简单了解join()的用法：</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/join-and-threadlocal.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/deadlock.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/deadlock.html" itemprop="url">死锁以及如何避免死锁</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T10:30:00+08:00">
-                2017-11-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:40:22+08:00">
-                2017-11-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/锁/" itemprop="url" rel="index">
-                    <span itemprop="name">锁</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/deadlock.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/deadlock.html" class="cy_cmt_count" data-xid="/post/2017/deadlock.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/deadlock.html" class="leancloud_visitors" data-flag-title="死锁以及如何避免死锁">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>锁是两个或更多线程阻塞着等待其它处于死锁状态的线程所持有的锁。死锁通常发生在多个线程同时但以不同的顺序请求同一组锁的时候。</p>
-<p>例如，如果线程1锁住了A，然后尝试对B进行加锁，同时线程2已经锁住了B，接着尝试对A进行加锁，这时死锁就发生了。线程1永远得不到B，线程2也永远得不到A，并且它们永远也不会知道发生了这样的事情。为了得到彼此的对象（A和B），它们将永远阻塞下去。这种情况就是一个死锁。</p>
-<p>该情况如下：</p>
-<blockquote>
-<p>Thread 1  locks A, waits for B<br>Thread 2  locks B, waits for A</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/deadlock.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/thread-signaling.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/thread-signaling.html" itemprop="url">线程通信</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T18:31:00+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:37:56+08:00">
-                2017-11-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/线程通信/" itemprop="url" rel="index">
-                    <span itemprop="name">线程通信</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/thread-signaling.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/thread-signaling.html" class="cy_cmt_count" data-xid="/post/2017/thread-signaling.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/thread-signaling.html" class="leancloud_visitors" data-flag-title="线程通信">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>线程通信的目标是使线程间能够互相发送信号。另一方面，线程通信使线程能够等待其他线程的信号。</p>
-<p>例如，线程B可以等待线程A的一个信号，这个信号会通知线程B数据已经准备好了。本文将讲解以下几个JAVA线程间通信的主题：</p>
-<h3 id="通过共享对象通信"><a href="#通过共享对象通信" class="headerlink" title="通过共享对象通信"></a>通过共享对象通信</h3><p>线程间发送信号的一个简单方式是在共享对象的变量里设置信号值。线程A在一个同步块里设置boolean型成员变量hasDataToProcess为true，线程B也在同步块里读取hasDataToProcess这个成员变量。这个简单的例子使用了一个持有信号的对象，并提供了set和check方法:</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/thread-signaling.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/thread-safety-realize.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/thread-safety-realize.html" itemprop="url">线程安全及其实现方法</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T18:28:00+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:39:29+08:00">
-                2017-11-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/" itemprop="url" rel="index">
-                    <span itemprop="name">并发编程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发编程/线程安全/" itemprop="url" rel="index">
-                    <span itemprop="name">线程安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/thread-safety-realize.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/thread-safety-realize.html" class="cy_cmt_count" data-xid="/post/2017/thread-safety-realize.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/thread-safety-realize.html" class="leancloud_visitors" data-flag-title="线程安全及其实现方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><p>线程安全：当多个对象访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方法进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那么这个对象是线程安全的。</p>
-<h3 id="互斥同步"><a href="#互斥同步" class="headerlink" title="互斥同步"></a>互斥同步</h3><p>互斥同步是常见的一种并发正确性保障手段。<strong>同步是指多个线程并发访问共享数据时，保障数据在同一时刻只被一个（或者是一些，使用信号量的时候）线程使用。</strong> 而互斥是实现同步的一种手段，临界区、互斥量、信号量都是主要的互斥实现方式、因此在这4个字里面，互斥是因、同步是果；互斥是方法，同步是目的。</p>
-<h4 id="synchronied关键字"><a href="#synchronied关键字" class="headerlink" title="synchronied关键字"></a>synchronied关键字</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/thread-safety-realize.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2017/wmitools.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Caole">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Caole's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/2017/wmitools.html" itemprop="url">使用WMITool解决浏览器主页被hao123劫持问题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T14:50:00+08:00">
-                2017-11-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-27T20:40:43+08:00">
-                2017-11-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/" itemprop="url" rel="index">
-                    <span itemprop="name">实用教程</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/浏览器/" itemprop="url" rel="index">
-                    <span itemprop="name">浏览器</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/post/2017/wmitools.html#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://caoler.cn/post/2017/wmitools.html" class="cy_cmt_count" data-xid="/post/2017/wmitools.html" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/post/2017/wmitools.html" class="leancloud_visitors" data-flag-title="使用WMITool解决浏览器主页被hao123劫持问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近一段时间发现，无论Chrome 还是 Firefox 主页都被流氓(hao123)劫持了。</p>
-<p>一些具体症状：</p>
-<ul>
-<li>删掉原先的快捷方式以后再重新创建一个，问题依然存在；</li>
-<li>快捷方式属性没有问题，没有后缀网址；</li>
-<li>直接启动exe文件没有异常；</li>
-<li>chrome主页设置也没有问题，但是如果重新设置一遍主页，从快捷方式就可以正常启动chrome，但再次启动电脑又会恢复原样；</li>
-<li>改exe文件名可解决但我不想用这种回避的方式。</li>
-</ul>
-<p>本人又没有安装360，电脑管家等流氓软件的习惯，于是通过Google找到了解决办法，具体如下：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/2017/wmitools.html#more" rel="contents">
+            <a class="btn" href="/post/2018/SpringInAction-3.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2237,7 +2217,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2289,7 +2269,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2300,7 +2280,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2311,7 +2291,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

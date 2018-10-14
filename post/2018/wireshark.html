@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="GXo9FH5t9W" />
+<meta name="google-site-verification" content="x_qu1drPzbdqCUcGF10F3njBAIApJHFfF6m1_J1EgYY" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/apple-touch-icon-next.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="wireshark," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Caole's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Wireshark（前称Ethereal）是一个网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。 网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用W">
+<meta name="keywords" content="wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络抓包工具 wireshark 入门教程">
+<meta property="og:url" content="https://caoler.cn/post/2018/wireshark.html">
+<meta property="og:site_name" content="Caole&#39;s blog">
+<meta property="og:description" content="Wireshark（前称Ethereal）是一个网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。 网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用W">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224550987-2121918276.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224600409-1740577772.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224616378-240890781.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224624862-1963551755.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224633800-670165436.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224641816-326923654.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224650316-930205325.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224707659-397131729.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224716628-1364079332.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224724784-1750849891.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224819253-1056716209.png">
+<meta property="og:image" content="http://www.bo56.com/wp-content/uploads/2014/11/wireshark_tcp_follow_dialog.png">
+<meta property="og:updated_time" content="2018-10-14T12:56:09.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络抓包工具 wireshark 入门教程">
+<meta name="twitter:description" content="Wireshark（前称Ethereal）是一个网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。 网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用W">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224550987-2121918276.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://caoler.cn/post/2018/wireshark.html"/>
+
+
+
+
+
+  <title>网络抓包工具 wireshark 入门教程 | Caole's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f69b52f8252835822cc56a9761b71de1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Caole's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Caole的个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            My2018
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collection">
+          <a href="/collection/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/wireshark.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">网络抓包工具 wireshark 入门教程</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T16:48:00+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:56:09+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/网络抓包/" itemprop="url" rel="index">
+                    <span itemprop="name">网络抓包</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/wireshark.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2018/wireshark.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/wireshark.html" class="leancloud_visitors" data-flag-title="网络抓包工具 wireshark 入门教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Wireshark（前称Ethereal）是一个网络数据包分析软件。网络数据包分析软件的功能是截取网络数据包，并尽可能显示出最为详细的网络数据包数据。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。</p>
+<p>网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识。当然，有的人也会“居心叵测”的用它来寻找一些敏感信息……。Wireshark相对于tcpdump而言，界面更友好，功能更强大。</p>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://www.bo56.com/mac%E5%AE%89%E8%A3%85wireshark/" target="_blank" rel="external">mac上安装wireshark</a></p>
+<p><a href="http://jingyan.baidu.com/article/656db918834874e381249cae.html" target="_blank" rel="external">windows上安装wireshark</a></p>
+<p><a href="http://jingyan.baidu.com/article/656db918834874e381249cae.html" target="_blank" rel="external">linux下安装wireshark</a></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>以下的介绍都是以mac下的wireshark 1.12.2版本为基础。</p>
+<h3 id="认识界面"><a href="#认识界面" class="headerlink" title="认识界面"></a>认识界面</h3><p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224550987-2121918276.jpg" alt="img"></p>
+<p>说明：</p>
+<p>常用按钮从左到右的功能依次是：</p>
+<p>1、列出可用接口。</p>
+<p>2、抓包时需要设置的一些选项。一般会保留最后一次的设置结果。</p>
+<p>3、开始新的一次抓包。</p>
+<p>4、暂停抓包。</p>
+<p>5、继续进行本次抓包。</p>
+<p>6、打开抓包文件。可以打开之前抓包保存后的文件。不仅可以打开wireshark软件保存的文件，也可以打开tcpdump使用-w参数保存的文件。</p>
+<p>7、保存文件。把本次抓包或者分析的结果进行保存。</p>
+<p>8、关闭打开的文件。文件被关闭后，就会切换到初始界面。</p>
+<p>9、重载抓包文件。</p>
+<h3 id="设置数据抓取选项"><a href="#设置数据抓取选项" class="headerlink" title="设置数据抓取选项"></a>设置数据抓取选项</h3><p>点击常用按钮中的设置按钮，就会弹出设置选项对话框。在这个对话框中我们可以选中需要监听的接口，设置混杂模式，设置抓取数据包的过滤条件。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224600409-1740577772.png" alt="img"></p>
+<p>首先，选中需要监听获取数据包的接口。接口列表区列出了所有可以使用的接口。如果接口前面的复选框被选中，说明对这个接口监听捕获数据包。</p>
+<p>其次，设置混杂模式。设置混杂模式的作用是将网卡设置到混杂模式。如果不设置混杂模式，你的计算机只能获取数据包发往的目标是你计算机和从你计算机出去的数据包。如果设置了混杂模式，你就可以捕获局域网中所有的数据包。如果窗口中的 “Use promiscuous mode on all interfaces”前面的复选框被选中，说明对所有的接口使用混杂模式。如果想单独设置，可以双击接口列表中的接口，会弹出如下的对话框。然后选中或者去掉“Capture packets in promiscuous mode”前面复选框。然后点ok按钮。<br><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224616378-240890781.jpg" alt="img"></p>
+<p>再次，设置捕获过滤条件。在点设置按钮弹出的主设置对话框中和双击接口列表弹出的对话框中都会有“Capture Filter”项。在文本框中我们可以设置捕获过滤条件。如，我们只捕获http相关的数据包，我们就可以设置捕获条件为“port 80”。因为http使用的是80端口。</p>
+<p>最后，所有的设置完毕后，点击设置主窗口中的“Start”按钮，开始捕获数据。数据捕获完后，可以点常用按钮中的“保存”按钮保存数据。</p>
+<h3 id="使用显示过滤器"><a href="#使用显示过滤器" class="headerlink" title="使用显示过滤器"></a>使用显示过滤器</h3><p>显示过滤器应用于捕获文件，用来告诉wireshark只显示那些符合过滤条件的数据包。显示过滤器比捕获过滤器更常用。他可以用来过滤不想看到的数据包，但是不会把数据删除。如果想恢复原状，只要把过滤条件删除即可。</p>
+<p>过滤器表达式对话框，是的wireshark的可以很简单的设置过滤表达式。点击“Expression”按钮就可以打开这个对话框。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224624862-1963551755.jpg" alt="img"></p>
+<p>对话框分左中右三部分。左边为可以使用的所有协议域。右边为和协议域相关的条件值。中间为协议域与条件值之间的关系。过滤器表达式对于初学者很有用。如上图，我们创建的表达式的作用是，只显示http协议包中包含关键词“bo56.com”的所有数据包。</p>
+<p>Field name说明：<br>这个列表中展示了所有支持的协议。点击前面的三角标志后，可以列出本协议的可过滤字段。当选中“Field name”列表中的任何一项，只需要输入你想要的协议域，就会自动定位到相应的协议域选项。</p>
+<p>Relation说明：<br>is present    如果选择的协议域存在，则显示相关数据包。<br>contains     判断一个协议，字段或者分片包含一个值<br>matches             判断一个协议或者字符串匹配一个给定的Perl表达式。</p>
+<p>Value（Protocol）说明：<br>此处输入合适的值。如果选择的协议域和这个值满足Relation中指定的关系，则显示相关数据包。</p>
+<p>Predefined values说明：<br>有些协议域包含了预先定义的值，有点类似于c语言中的枚举类型。如果你选择的协议域包含这样的值，你可以在这个列表中选择。</p>
+<p>Function函数说明：<br>过滤器的语言还有下面几个函数：<br>upper(string－field)－把字符串转换成大写<br>lower(string－field)－把字符串转换成小写<br>upper((和lower((在处理大小写敏感的字符串比较时很有用。例如：<br>upper(ncp.nds_stream_name) contains “BO56.COM”<br>lower(mount.dump.hostname) ==”BO56.COM”</p>
+<p>如果你熟悉了这个规则之后你就会发现手动输入表达式更有效率。当时手动在flter文本框中输入表达时，如果输入的语法有问题，文本框的背景色会变成红色。这时候，你可以继续输入或者修改，知道文本框中的表达式正确后，文本框的背景色又会变成绿色。</p>
+<h3 id="使用着色规则"><a href="#使用着色规则" class="headerlink" title="使用着色规则"></a>使用着色规则</h3><p>你经常会在数据包列表区域中看到不同的颜色。这就是wireshark做的很人性化的一方面。它可以让你指定条件，把符合条件的数据包按指定的颜色显示。这样你查找数据包会更方便些。下面我们说一下如何设置颜色规则。</p>
+<p>点击“view”菜单，然后选择“Coloring Rules”选项就会弹出设置颜色规则设置对话框。你点击颜色规则设置的快捷按钮也可以打开颜色设置对话框。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224633800-670165436.jpg" alt="img"></p>
+<p>打开的对话框中默认已经有一些规则。我们抓取的数据包中经常会看到一些不同的颜色，就是应用的这些默认的规则。点击“New”按钮可以添加规则。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224641816-326923654.png" alt="img"></p>
+<p>name字段中填写规则的名称，方便记忆。</p>
+<p>string字段中填写过滤规则。这里的语法和显示规则表达式一致。点击 上图中的“Expression”按钮，你就会看到熟悉的规则表达式对话。</p>
+<p>Foreground Color按钮用于选择前景色。</p>
+<p>Background Color按钮用于选择背景色。</p>
+<p>Disabled按钮用于指示是否禁用这条规则。</p>
+<p>点击ok按钮后，规则自动会添加到规则列表中的最前端。</p>
+<p>注意：wireshark在应用规则的时候，是按自上而下的顺序去应用规则。因此刚添加的规则会优先应用。如果你想调整顺序，可以选中要调整顺序的规则，然后点击右边的“UP” 或则 “Down” 按钮。</p>
+<p>颜色规则设置好后，只需要点apply按钮就可以应用规则了。规则效果应用如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224650316-930205325.jpg" alt="img"></p>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="使用图表"><a href="#使用图表" class="headerlink" title="使用图表"></a>使用图表</h3><p>图形分析是数据分析中必不可少的一部分。也是wireshark的一大亮点。wireshark有不同的图形展现功能，以帮助你了解捕获的数据包。下面我们对经常使用的IO图，双向时间图做下介绍。</p>
+<h4 id="IO图"><a href="#IO图" class="headerlink" title="IO图"></a>IO图</h4><p>wireshark的IO图让你可以对网络上的吞吐量绘图。让你了解网络数据传输过程中的峰值和波动情况。通过“Statistics”菜单中的“IO Graphs”选项可以打开这个IO图对话框。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224707659-397131729.jpg" alt="img"></p>
+<p>可以看到IO图表对话框中会分为三个区。</p>
+<p>过滤器区：设置过滤条件，用于图形化展示过滤条件相关数据包的变化情况。而且可以为每个不同的条件指定不同的颜色。过滤条件的语法和之前介绍的显示过滤器的语法一致。过滤条件为空，此图形显示所有流量。</p>
+<p>坐标区：在这里可以设置图表的x轴和y轴。x轴为时间，y轴为包的数量。如图，我们设置Y轴的单位是Bytes/Tick。</p>
+<p>趋势图区：根据过滤器设置的条件和坐标区设置，数据分析后回在这个区域以图形化方式展示。点击图形中的点，会自动定位到相应的数据包。点击趋势图中的低谷点，你会发现大量的数据包重传。</p>
+<p>IO图表还可以通过函数对数据进行聚合处理。</p>
+<p>点击Y轴中Unit选项中的Advanced后，就会再过滤器区就会增加Calc选项。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224716628-1364079332.jpg" alt="img"></p>
+<p>相关函数说明：</p>
+<p>MIN( ), AVG( ), MAX( ) 分别是统计协议域中数值的最小，平均和最大值。注意，这三个聚合函数只对协议域的值为数字的才有效。</p>
+<p>Count( ) 此函数计算时间间隔内事件发生的次数，在查看TCP分析标识符时很有用，例如重传。</p>
+<p>Sum( ) 该函数统计事件的累加值。和MIN()函数一样，这个也只有协议域的值为数字的情况下才有效。</p>
+<h4 id="双向时间图"><a href="#双向时间图" class="headerlink" title="双向时间图"></a>双向时间图</h4><p>wireshark还有一个功能就是可以对网络传输中的双向时间进行绘图。双向时间（round-trip time, RTT）,就是一个数据包被确认正常接收所花费的时间。以tcp协议为例，就是你push一个数据到一台主机，主机回应一个ack给你的主机，你的主机并成功接收ack回应。这两个过程花费的时间总和就是双向时间。双向时间通常用来寻找网络传输过程中的慢点和瓶颈，用以判断网络传输是否有延迟。</p>
+<p>通过“Statistics”菜单中的“Tcp  StreamGraph”中的“Round Trip Time Graph”选项可以打开这个双向时间图对话框。如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224724784-1750849891.jpg" alt="img"></p>
+<p>这个图表中的每个点代表一个数据包的双向时间。你可以单机图表中的任何一点，然后在数据包列表区就会自动定位到相应的数据包。从数据表来看，我们下载压缩包还是比较稳定的。数据包的rtt时间大多数在0.05s以下，其他大多数在0.1s左右，少数超过了1.5s。</p>
+<h3 id="跟踪tcp流"><a href="#跟踪tcp流" class="headerlink" title="跟踪tcp流"></a>跟踪tcp流</h3><p>Wireshark分析功能中最不错的一个功能是它能够将TCP流重组。重组后的数据格式更容易阅读。跟踪TCP流这个功能可以将接收到的数据排好顺序使之容易查看，而不需要一小块一小块地看。这在查看HTTP、FTP等纯文本应用层协议时非常有用。</p>
+<p>我们以一个简单的HTTP请求举例来说明一下。打开wireshark_bo56_pcap.pcapng，并在显示过滤器中输入“http contains wireshark”，点击“apply”按钮后，在数据包列表框中就会只剩下一条记录。如下图。</p>
+<p><img src="https://images2015.cnblogs.com/blog/381128/201701/381128-20170108224819253-1056716209.png" alt="img"></p>
+<p>右键单击这条记录并选择Follow TCP Stream。这时TCP流就会在一个单独的窗口中显示出来。如下图：</p>
+<p><a href="http://www.bo56.com/wp-content/uploads/2014/11/wireshark_tcp_follow_dialog.png" target="_blank" rel="external"><img src="http://www.bo56.com/wp-content/uploads/2014/11/wireshark_tcp_follow_dialog.png" alt="wireshark_tcp_follow_dialog"></a></p>
+<p>我们看到这个窗口中的文字会有两种颜色。其中红色用于表示从源地址到目标地址的流量。在我们的例子里面就是从我们本机到web服务器的流量。你可以看到最开始的红色部分是一个GET请求。蓝色部分是和红色部分相反的方向，也就是从目标地址到源地址的流量。在我们的例子中，蓝色部分的第一行是“HTTP/1.1 200 OK”，是来自服务器的一个http成功响应。</p>
+<p>在这个窗口中除了能够看到这些原始数据，你还可以在文本间进行搜索，将其保存成一个文件、打印，或者以ASCII码、EBCDIC、十六进制或者C数组的格式去查看。这些选项都可以在跟踪TCP流窗口的下面找到。</p>
+<p>转载自：<a href="https://blog.csdn.net/zjy900507/article/details/79303359" target="_blank" rel="external">https://blog.csdn.net/zjy900507/article/details/79303359</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Caole
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://caoler.cn/post/2018/wireshark.html" title="网络抓包工具 wireshark 入门教程">https://caoler.cn/post/2018/wireshark.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/wireshark/" rel="tag"><i class="fa fa-tag"></i> wireshark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2018/maven-springboot-mybatis.html" rel="next" title="MAVEN多模块项目的创建以及部署(SpringBoot+MyBatis+IDEA)">
+                <i class="fa fa-chevron-left"></i> MAVEN多模块项目的创建以及部署(SpringBoot+MyBatis+IDEA)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2018/gson-dynamic-key.html" rel="prev" title="Gson解析动态key的JSON文件以及优化记录">
+                Gson解析动态key的JSON文件以及优化记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg"
+                alt="Caole" />
+            
+              <p class="site-author-name" itemprop="name">Caole</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/caoler" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:caoler.cn@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/caolercn" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/234007094" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://escnqh.github.io/" title="escnqh" target="_blank">escnqh</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://youyinnn.github.io/" title="youyinnn" target="_blank">youyinnn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dombro96.github.io/" title="dombro96" target="_blank">dombro96</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#认识界面"><span class="nav-text">认识界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置数据抓取选项"><span class="nav-text">设置数据抓取选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用显示过滤器"><span class="nav-text">使用显示过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用着色规则"><span class="nav-text">使用着色规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用图表"><span class="nav-text">使用图表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IO图"><span class="nav-text">IO图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双向时间图"><span class="nav-text">双向时间图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪tcp流"><span class="nav-text">跟踪tcp流</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Caole</span>
+
+  
+</div>
+<!--
+
+
+
+
+
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytiEHHjj';
+      var conf = 'prod_aad5cec19314831e7cec1dca4dddb1e5';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("rhx0iRHJRM6Xsj2s7xsqQJ82-gzGzoHsz", "APla0W4ljRnkPdAjT7Uw8ya5");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

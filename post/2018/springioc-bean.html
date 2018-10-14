@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="GXo9FH5t9W" />
+<meta name="google-site-verification" content="x_qu1drPzbdqCUcGF10F3njBAIApJHFfF6m1_J1EgYY" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/apple-touch-icon-next.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="spring," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Caole's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="之前有写过SpringBean的文章，但是大部分都是搬运的，自己对它的深层次思想并没有掌握，所以在这里重写一下。 IOC部分在第一次学Spring的时候就已经在接触了，但是还是了解的不够深入，最近在看了一部分SpringIOC的源码之后，才模模糊糊的明白了一些，正好赶上组内技术分享，做此下文">
+<meta name="keywords" content="spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOC概念和SpringBean的生命周期">
+<meta property="og:url" content="https://caoler.cn/post/2018/springioc-bean.html">
+<meta property="og:site_name" content="Caole&#39;s blog">
+<meta property="og:description" content="之前有写过SpringBean的文章，但是大部分都是搬运的，自己对它的深层次思想并没有掌握，所以在这里重写一下。 IOC部分在第一次学Spring的时候就已经在接触了，但是还是了解的不够深入，最近在看了一部分SpringIOC的源码之后，才模模糊糊的明白了一些，正好赶上组内技术分享，做此下文">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7y9tZ4LhwAvX4EicI2mjYqialNauwLnDXjIQIjgCXkiaKPvx3GLu9htbxjw/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7ytfXWeJPyadrv9s3Udb9sJ8BIbyQBdbkvfNic807hWDjTFcJYdIVriazQ/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yjQtBJcu47ycp41I35OvRaPKdudkZjhfp2KLK5llQXPmjEnFAwqsgug/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yWDdCzquCJcIzlU4Jukl615394J4ksNYwg6zqEEIjD3lpKZJU9GJIdA/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yoibibdzLsTZ2fK9VtWg0732VkxQLm0388XcHwmQPQCSKrIokCUvTwsnQ/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yahIq03XlRavlSEDd7vcSic8x2337dMnuNhAXMlSgicnvicLUlLmyxAsgQ/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7ytRyyWSibiawRxVGgSmpxEdTNezvDG4XDk6XZzVeQCv8oOsb0j9brt6qQ/?">
+<meta property="og:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yic2lFGziaS4m20ebHy7JsMBEQlnPw2ick5IApp1lKcEXS19SfnkSXGTEw/?">
+<meta property="og:image" content="https://pic002.cnblogs.com/images/2011/230454/2011052709382686.jpg">
+<meta property="og:image" content="https://pic002.cnblogs.com/images/2011/230454/2011052709390013.jpg">
+<meta property="og:image" content="https://pic002.cnblogs.com/images/2011/230454/2011052709391014.jpg">
+<meta property="og:image" content="https://pic002.cnblogs.com/images/2011/230454/2011052709392670.jpg">
+<meta property="og:image" content="https://pic002.cnblogs.com/images/2011/230454/2011052709393897.jpg">
+<meta property="og:image" content="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/107023980/original/fcd37c016e9b1c54b3272e27e5374b0d2fe3cc06/fix-bugs-in-spring-framework-applications.png">
+<meta property="og:image" content="https://javadoop.com/blogimages/spring-context/1.png">
+<meta property="og:image" content="https://javadoop.com/blogimages/spring-context/2.png">
+<meta property="og:image" content="https://images0.cnblogs.com/i/580631/201405/181453414212066.png">
+<meta property="og:image" content="https://images0.cnblogs.com/i/580631/201405/181454040628981.png">
+<meta property="og:image" content="https://yemengying.com/qiniu/image/image/life.png">
+<meta property="og:updated_time" content="2018-10-14T12:54:13.742Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOC概念和SpringBean的生命周期">
+<meta name="twitter:description" content="之前有写过SpringBean的文章，但是大部分都是搬运的，自己对它的深层次思想并没有掌握，所以在这里重写一下。 IOC部分在第一次学Spring的时候就已经在接触了，但是还是了解的不够深入，最近在看了一部分SpringIOC的源码之后，才模模糊糊的明白了一些，正好赶上组内技术分享，做此下文">
+<meta name="twitter:image" content="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7y9tZ4LhwAvX4EicI2mjYqialNauwLnDXjIQIjgCXkiaKPvx3GLu9htbxjw/?">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://caoler.cn/post/2018/springioc-bean.html"/>
+
+
+
+
+
+  <title>IOC概念和SpringBean的生命周期 | Caole's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f69b52f8252835822cc56a9761b71de1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Caole's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Caole的个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            My2018
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collection">
+          <a href="/collection/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://caoler.cn/post/2018/springioc-bean.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Caole">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Caole's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">IOC概念和SpringBean的生命周期</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T16:38:00+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:54:13+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/IOC/" itemprop="url" rel="index">
+                    <span itemprop="name">IOC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/post/2018/springioc-bean.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="/post/2018/springioc-bean.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/post/2018/springioc-bean.html" class="leancloud_visitors" data-flag-title="IOC概念和SpringBean的生命周期">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前有写过SpringBean的文章，但是大部分都是搬运的，自己对它的深层次思想并没有掌握，所以在这里重写一下。</p>
+<p>IOC部分在第一次学Spring的时候就已经在接触了，但是还是了解的不够深入，最近在看了一部分SpringIOC的源码之后，才模模糊糊的明白了一些，正好赶上组内技术分享，做此下文</p>
+<a id="more"></a>
+<h2 id="1-WEB发展简史"><a href="#1-WEB发展简史" class="headerlink" title="1. WEB发展简史"></a>1. WEB发展简史</h2><p>老一辈的软件开发人员一般经历了从Model1到Model2，然后到后来的三层模型，最后到现在的Spring Boot。如果从Model1到Model2说起到我们现在使用的Spring Boot为整个时间轴的话，大致可以分为4个阶段：</p>
+<p>　　(1)初级阶段：使用Model1/Model2/三层模模型进行开发;</p>
+<p>　　(2)中级阶段：使用EJB进行分布式应用开发，忍受重量级框架带来的种种麻烦;</p>
+<p>　　(3)高级阶段：使用Spring春天带给我们的美好，但是还要忍受很多繁琐的配置;</p>
+<p>　　(4)骨灰级阶段：使用Spring Boot，畅享“预定大于配置”带给我们的种种乐趣!</p>
+<h3 id="1-1-Web发展初级阶段"><a href="#1-1-Web发展初级阶段" class="headerlink" title="1.1 Web发展初级阶段"></a>1.1 Web发展初级阶段</h3><p>　<strong>1、Model1开发模式：</strong></p>
+<p>　　Model1的开发模式是：JSP+JavaBean的模式，它的核心是Jsp页面，在这个页面中，Jsp页面负责整合页面和JavaBean(业务逻辑)，而且渲染页面，它的基本流程如下：</p>
+<p>　　<img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7y9tZ4LhwAvX4EicI2mjYqialNauwLnDXjIQIjgCXkiaKPvx3GLu9htbxjw/?" alt="img"></p>
+<p>　　相信很多小伙伴在刚学习Web的时候，肯定使用到了Model1开发模式，也就是我们的业务代码、持久化代码直接写在Jsp页面里边，使用Jsp直接处理Web浏览器的请求，并使用JavaBean处理业务逻辑。</p>
+<p>　　利用我们现在熟悉的MVC模型的思想去看，虽然编写代码十分容易，但Jsp混淆了MVC模型中的视图层和控制层，高度耦合的结果是Jsp代码十分复杂，后期维护困难!</p>
+<p>　<strong>2、Model2开发模式：</strong></p>
+<p>　　Model1虽然在一定程度上解耦了，但JSP依旧即要负责页面控制，又要负责逻辑处理，职责不单一!此时Model2应运而生，使得各个部分各司其职，Model2是基于MVC模式的。</p>
+<p>　　Model2的开发模式是：Jsp+Servlet+JavaBean的模式，它和Model1不同的是，增加了Servlet，将调用页面数据，调用业务逻辑等工作放到了Servlet中处理，从而减轻了Jsp的工作负担!它的基本流程如下：</p>
+<p>　　</p>
+<p><img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7ytfXWeJPyadrv9s3Udb9sJ8BIbyQBdbkvfNic807hWDjTFcJYdIVriazQ/?" alt="img"></p>
+<p>　　Model2开发模式将Servlet的概念引入架构体系中，使用它来分配视图层Jsp的显示页面，同时调用模型层的JavaBean来控制业务逻辑。</p>
+<p>　<strong>3、Model1和Model2的区别：</strong></p>
+<p>　　Model1：简单，适合小型项目的开发，但是Jsp的职责过于繁重，职责分工不明确。在后期的维护工作中，必将为此付出代价!</p>
+<p>　　Model2：相对于Model1来说，职责分工更为明确，在Model1的基础上，抽取了Servlet层，体现了一个分层的思想，适合大型的项目开发!(当时的评判标准是适合大型项目开发的，现在看起来已经过时了!)</p>
+<p>　　Model2看起来已经尽善尽美了，尽管如此，他还不能称之为一个比较完善的MVC设计模式!</p>
+<p>　　<strong>4、Model1和Model2与三层的对比：</strong></p>
+<p>　　在Model2中，我们将Servlet抽取出单独的一层，和Jsp协作完成用户数据交互的工作，也就是表示层。那么作为三层结构来说，又做了什么样的改进呢?三层则是在此基础上，将JavaBean再一次进行分割：业务逻辑、数据持久化，三层如下：</p>
+<p>　　(1)表示层，JSP/Servlet;</p>
+<p>　　(2)业务逻辑层：业务规则;</p>
+<p>　　(3)持久化层：主要包装持久化的逻辑 ;</p>
+<p>　　<img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yjQtBJcu47ycp41I35OvRaPKdudkZjhfp2KLK5llQXPmjEnFAwqsgug/?" alt="img"></p>
+<p>　　各个的耦合性如下图：</p>
+<p>　　<img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yWDdCzquCJcIzlU4Jukl615394J4ksNYwg6zqEEIjD3lpKZJU9GJIdA/?" alt="img"></p>
+<p>　　Model1、Model2、三层是在解耦的基础上一步步进化而来，通过解耦我们可以进行进一步的抽象，以应对现实需求的变动。</p>
+<h3 id="1-2-Web发展初级阶段存在的问题"><a href="#1-2-Web发展初级阶段存在的问题" class="headerlink" title="1.2 Web发展初级阶段存在的问题"></a>1.2 Web发展初级阶段存在的问题</h3><p>　　经历过初级阶段的小伙伴肯定看得懂下边的一个项目结构，一个简单的MVC三层结构，使用JSP+Servlet+MySQL+JDBC技术，面向接口编程：</p>
+<p>　　</p>
+<p><img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yoibibdzLsTZ2fK9VtWg0732VkxQLm0388XcHwmQPQCSKrIokCUvTwsnQ/?" alt="img"></p>
+<p>　<strong>1、面向接口编程的实例化对象</strong></p>
+<p>　　以用户管理模块为例，有一个UserDao接口，有一个接口的实现类UserDaoImpl，如下：</p>
+<p>　　</p>
+<p><img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yahIq03XlRavlSEDd7vcSic8x2337dMnuNhAXMlSgicnvicLUlLmyxAsgQ/?" alt="img"></p>
+<p>　　由于是面向接口编程，因此我们在每次使用UserDao的时候，都要进行实例化一次，实例化代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserDao userDao = <span class="keyword">new</span> UserDaoImpl();</span><br></pre></td></tr></table></figure>
+<p>　　我们在每次使用UserDao的时候都需要进行实例化，当然不仅仅有UserDao需要进行实例化，还有很多需要进行实例化的，举例如下：</p>
+<p>　　</p>
+<p><img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7ytRyyWSibiawRxVGgSmpxEdTNezvDG4XDk6XZzVeQCv8oOsb0j9brt6qQ/?" alt="img"></p>
+<p>　　可以看出，每一个方法中都需要进行实例化我们需要用到的接口的实现类，这就会存在大量的实例化对象，并且他们的生命周期可能就是从方法的调用开始到方法的调用结束为止，加大了GC回收的压力!</p>
+<p>　　<strong>2、使用单例模式的一次改进</strong></p>
+<p>　　了解设计模式的可能会想到使用单例模式的方式来解决这个问题，以此来避免大量重复的创建对象，但是我们还要考虑到众多的这种对象的创建都需要改成单例模式的话，是一个耗时耗力的操作。</p>
+<p>　　对于这个系统来说，如果都把这种面向接口的对象实现类转换为单例模式的方式的话，大概也要写十几个或者上百个这种单例模式代码，而对于一个单例模式的写法来说，往往是模板式的代码，以静态内部类的方式实现代理模式如下：</p>
+<p>　　<img src="http://ss.csdn.net/p?http://mmbiz.qpic.cn/mmbiz_png/UtWdDgynLdaZlHDsiahibvG80sBnZVmc7yic2lFGziaS4m20ebHy7JsMBEQlnPw2ick5IApp1lKcEXS19SfnkSXGTEw/?" alt="img"></p>
+<p>　　可以看出，这种方式有两个问题：</p>
+<p>　　(1)业务代码与单例模式的模板代码放在一个类里，耦合性较高;</p>
+<p>　　(2)大量重复的单例模式的模板代码;</p>
+<p>　　从上述可以看出，使用的单例模式虽然从性能上有所提高，但是却加重了我们的开发成本。因此只会小规模的使用，例如我们操作JDBC的Utils对象等。</p>
+<p>　<strong>3、我们开发中遇到的痛点</strong></p>
+<p>　　从上述代码的演进过程我们可以看得出来，我们即需要一个单例的对象来避免系统中大量重复对象的创建和销毁，又不想因为使用单例模式造成大量重复无用的模板代码和代码的耦合!</p>
+<p>　　<strong>4、我们还能怎么做</strong></p>
+<p>　　作为学院派的书生来说，我们可能会联想到“数据库连接池”,我们在获取数据库连接的时候会从这个池子中拿到一个连接的，假设这个数据库连接池很特殊，有且只能有N个数据库连接，并且每一个连接对象都不同(假设)，那么这个不就相当于每一个连接都是单例的了吗?既可以避免大量对象的创建，也可以实现不会出现大量重复性的模板代码。</p>
+<p>　　因此，这里应该有一个大胆的想法，我们是否可以建立一个池子，将我们的接口实现类对象放入到这个池子中，我们在使用的时候直接从这个池子里边取就行了!</p>
+<p>　<strong>5、这个池子</strong></p>
+<p>　　如果我们要创建这个池子，首先要确定需要把哪些对象放进这个池子，通过怎样的方式放进去，放进去之后如何进行管理，如何进行获取，池子中的每一个对象的生命周期是怎么样的等等这些东西都是我们需要考虑到的!</p>
+<p>​     所以，Spring应运而生了！</p>
+<h2 id="2-IOC理论概念"><a href="#2-IOC理论概念" class="headerlink" title="2. IOC理论概念"></a>2. IOC理论概念</h2><h3 id="2-1-背景"><a href="#2-1-背景" class="headerlink" title="2.1 背景"></a>2.1 背景</h3><p>我们都知道，在采用面向对象方法设计的软件系统中，它的底层实现都是由N个对象组成的，所有的对象通过彼此的合作，最终实现系统的业务逻辑。</p>
+<p><img src="https://pic002.cnblogs.com/images/2011/230454/2011052709382686.jpg" alt="图1"></p>
+<p>如果我们打开机械式手表的后盖，就会看到与上面类似的情形，但是如果有一个齿轮出了问题，就可能会影响到整个齿轮组的正常运转。</p>
+<p>齿轮组中齿轮之间的啮合关系,与软件系统中对象之间的耦合关系非常相似。对象之间的耦合关系是无法避免的，也是必要的，这是协同工作的基础。</p>
+<p><img src="https://pic002.cnblogs.com/images/2011/230454/2011052709390013.jpg" alt=""></p>
+<p><strong>为了解决对象之间的耦合度过高的问题</strong>，软件专家Michael Mattson提出了IOC理论，用来实现对象之间的“解耦”，目前这个理论已经被成功地应用到实践当中，很多的J2EE项目均采用了IOC框架产品Spring。</p>
+<hr>
+<h3 id="2-2-什么是控制反转（IOC）"><a href="#2-2-什么是控制反转（IOC）" class="headerlink" title="2.2 什么是控制反转（IOC）"></a>2.2 什么是控制反转（IOC）</h3><p>IOC是Inversion of Control的缩写，多数书籍翻译成“控制反转”，还有些书籍翻译成为“控制反向”或者“控制倒置”。</p>
+<p>观点大体是这样的：<strong>借助于“第三方”实现具有依赖关系的对象之间的解耦。</strong></p>
+<p><img src="https://pic002.cnblogs.com/images/2011/230454/2011052709391014.jpg" alt=""></p>
+<p>由于引进了中间位置的“第三方”，也就是IOC容器，使得A、B、C、D这4个对象没有了耦合关系，齿轮之间的传动全部依靠“第三方”了，全部对象的控制权全部上缴给“第三方”IOC容器，所以，IOC容器成了整个系统的关键核心，它起到了一种类似“粘合剂”的作用，把系统中的所有对象粘合在一起发挥作用，如果没有这个“粘合剂”，对象与对象之间会彼此失去联系，这就是有人把IOC容器比喻成“粘合剂”的由来。</p>
+<p><img src="https://pic002.cnblogs.com/images/2011/230454/2011052709392670.jpg" alt=""></p>
+<p>拿掉IoC容器后的系统就是现在看到的画面，就是我们要实现整个系统所需要完成的全部内容。</p>
+<p>这时候，A、B、C、D这4个对象之间已经没有了耦合关系，彼此毫无联系，这样的话，当你在实现A的时候，根本无须再去考虑B、C和D了，对象之间的依赖关系已经降低到了最低程度。</p>
+<p><strong>对比：</strong></p>
+<ul>
+<li><p>引入IOC容器之前：</p>
+<p>如图1所示，对象A依赖于对象B，那么对象A在初始化或者运行到某一点的时候，自己必须主动去创建对象B或者使用已经创建的对象B。无论是创建还是使用对象B，控制权都在自己手上。</p>
+</li>
+<li><p>引入IOC容器之后</p>
+<p>如图3所示，由于IOC容器的加入，对象A与对象B之间失去了直接联系，所以，当对象A运行到需要对象B的时候，IOC容器会主动创建一个对象B注入到对象A需要的地方。</p>
+</li>
+</ul>
+<p>通过前后的对比，我们不难看出来：对象A获得依赖对象B的过程,由主动行为变为了被动行为，控制权颠倒过来了，这就是“控制反转”这个名称的由来。</p>
+<hr>
+<h3 id="2-3-IOC的别名：依赖注入（DI）"><a href="#2-3-IOC的别名：依赖注入（DI）" class="headerlink" title="2.3 IOC的别名：依赖注入（DI）"></a>2.3 IOC的别名：依赖注入（DI）</h3><p>既然IOC是控制反转，那么到底是“哪些方面的控制被反转了呢？”</p>
+<p>“获得依赖对象的过程被反转了”</p>
+<p>控制被反转之后，获得依赖对象的过程由自身管理变为了由IOC容器主动注入。</p>
+<p>所谓依赖注入，就是由IOC容器在运行期间，动态地将某种依赖关系注入到对象之中。</p>
+<p>所以，依赖注入(DI)和控制反转(IOC)是从不同的角度的描述的同一件事情，就是指<strong>通过引入IOC容器，利用依赖关系注入的方式，实现对象之间的解耦</strong>。</p>
+<p>收到任务：从外部USB设备读取一个文件。</p>
+<p><img src="https://pic002.cnblogs.com/images/2011/230454/2011052709393897.jpg" alt=""></p>
+<p>电脑主机读取文件的时候，它一点也不会关心USB接口上连接的是什么外部设备，而且它确实也无须知道。它的任务就是读取USB接口，挂接的外部设备只要符合USB接口标准即可。所以，如果我给电脑主机连接上一个U盘，那么主机就从U盘上读取文件；如果我给电脑主机连接上一个外置硬盘，那么电脑主机就从外置硬盘上读取文件。挂接外部设备的权力由我作主，即控制权归我，至于USB接口挂接的是什么设备，电脑主机是决定不了，它只能被动的接受。电脑主机需要外部设备的时候，根本不用它告诉我，我就会主动帮它挂上它想要的外部设备，你看我的服务是多么的到位。这就是我们生活中常见的一个依赖注入的例子。在这个过程中，<strong>我就起到了IOC容器的作用</strong>。</p>
+<p>当电脑主机读取文件的时候，我就把它所要依赖的外部设备，帮他挂接上。整个外部设备注入的过程和一个被依赖的对象在系统运行时被注入另外一个对象内部的过程完全一样。</p>
+<p>我们把依赖注入应用到软件系统中，再来描述一下这个过程：<br>对象A依赖于对象B,当对象 A需要用到对象B的时候，IOC容器就会立即创建一个对象B送给对象A。IOC容器就是一个对象制造工厂，你需要什么，它会给你送去，你直接使用就行了，而再也不用去关心你所用的东西是如何制成的，也不用关心最后是怎么被销毁的，这一切全部由IOC容器包办。</p>
+<p>在传统的实现中，由程序内部代码来控制组件之间的关系。我们经常使用new关键字来实现两个组件之间关系的组合，这种实现方式会造成组件之间耦合。IOC很好地解决了该问题，它将实现组件间关系从程序内部提到外部容器，也就是说由容器在运行期将组件间的某种依赖关系动态注入组件中。</p>
+<hr>
+<h3 id="2-4-IOC带来的好处"><a href="#2-4-IOC带来的好处" class="headerlink" title="2.4 IOC带来的好处"></a>2.4 IOC带来的好处</h3><ol>
+<li>USB设备作为电脑主机的外部设备，在插入主机之前，与电脑主机没有任何的关系，只有被我们连接在一起之后，两者才发生联系，具有相关性。出问题了互不影响，便于调试，可维护性好。</li>
+<li>USB设备和电脑主机的之间无关性，还带来了另外一个好处，生产USB设备的厂商和生产电脑主机的厂商完全可以是互不相干的人，各干各事，他们之间唯一需要遵守的就是USB接口标准。每个开发团队的成员都只需要关心实现自身的业务逻辑，完全不用去关心其它的人工作进展，因为你的任务跟别人没有任何关系，你的任务可以单独测试，你的任务也不用依赖于别人的组件，再也不用扯不清责任了。</li>
+<li>同一个USB外部设备可以插接到任何支持USB的设备。可复用性好</li>
+<li>同USB外部设备一样，模块具有热插拔特性。IOC生成对象的方式转为外置方式，也就是把对象生成放在配置文件里进行定义，这样，当我们更换一个实现子类将会变得很简单，只要修改配置文件就可以了，完全具有热插拨的特性。</li>
+</ol>
+<hr>
+<h2 id="3-IOC容器的技术剖析"><a href="#3-IOC容器的技术剖析" class="headerlink" title="3. IOC容器的技术剖析"></a>3. IOC容器的技术剖析</h2><p><img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/107023980/original/fcd37c016e9b1c54b3272e27e5374b0d2fe3cc06/fix-bugs-in-spring-framework-applications.png" alt=""></p>
+<p>Spring 是一个“引擎”；</p>
+<p>Spring MVC 是基于Spring的一个 MVC 框架 ；</p>
+<p>Spring Boot 是基于Spring的条件注册的一套快速开发整合包。</p>
+<p>IOC中最基本的技术就是“反射(Reflection)”编程，目前.Net C#、<a href="http://lib.csdn.net/base/17" target="_blank" rel="external">Java</a>和PHP5等语言均支持，其中PHP5的技术书籍中，有时候也被翻译成“映射”。<strong>有关反射的概念和用法，大家应该都很清楚，通俗来讲就是根据给出的类名（字符串方式）来动态地生成对象</strong>。</p>
+<p><strong>我们可以把IOC容器的工作模式看做是工厂模式的升华，可以把IOC容器看作是一个工厂，这个工厂里要生产的对象都在配置文件中给出定义，然后利用编程语言的的反射编程，根据配置文件中给出的类名生成相应的对象。从实现来看，IOC是把以前在工厂方法里写死的对象生成代码，改变为由配置文件来定义，也就是把工厂和对象生成这两者独立分隔开来，目的就是提高灵活性和可维护性。</strong></p>
+<p>先看下最基本的启动 Spring 容器的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:applicationfile.xml"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ApplicationContext context = new ClassPathXmlApplicationContext(...)</code> 其实很好理解，从名字上就可以猜出一二，就是在 ClassPath 中寻找 xml 配置文件，根据 xml 文件内容来构建 ApplicationContext。当然，除了 ClassPathXmlApplicationContext 以外，我们也还有其他构建 ApplicationContext 的方案可供选择，我们先来看看大体的继承结构是怎么样的：</p>
+<p><img src="https://javadoop.com/blogimages/spring-context/1.png" alt=""></p>
+<p>我们可以看到，ClassPathXmlApplicationContext 兜兜转转了好久才到 ApplicationContext 接口，同样的，我们也可以使用绿颜色的 <strong>FileSystemXmlApplicationContext</strong> 和 <strong>AnnotationConfigApplicationContext</strong> 这两个类。</p>
+<p><strong>FileSystemXmlApplicationContext</strong> 的构造函数需要一个 xml 配置文件在系统中的路径，其他和 ClassPathXmlApplicationContext 基本上一样。</p>
+<p><strong>AnnotationConfigApplicationContext</strong> 是基于注解来使用的，它不需要配置文件，采用 java 配置类和各种注解来配置，是比较简单的方式，也是大势所趋吧。</p>
+<p>不过今天旨在帮助大家理解整个构建流程，所以决定使用 ClassPathXmlApplicationContext 进行分析。</p>
+<p>定义接口实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageServiceImpl</span> <span class="keyword">implements</span> <span class="title">MessageService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来，我们在 <strong>resources</strong> 目录新建一个配置文件，文件名随意，通常叫 application.xml 或 application-xxx.xml 就可以了：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span> <span class="attr">default-autowire</span>=<span class="string">"byName"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageService"</span> <span class="attr">class</span>=<span class="string">"com.javadoop.example.MessageServiceImpl"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，我们就可以跑起来了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 用我们的配置文件来启动一个 ApplicationContext</span></span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:application.xml"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"context 启动成功"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式</span></span><br><span class="line">        MessageService messageService = context.getBean(MessageService.class);</span><br><span class="line">        <span class="comment">// 这句将输出: hello world</span></span><br><span class="line">        System.out.println(messageService.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上例子很简单，不过也够引出本文的主题了，就是怎么样通过配置文件来启动 Spring 的 ApplicationContext？也就是我们今天要分析的 IOC 的核心了。ApplicationContext 启动过程中，会负责创建实例 Bean，往各个 Bean 中注入依赖等。</p>
+<h3 id="3-1BeanFactory-简介"><a href="#3-1BeanFactory-简介" class="headerlink" title="3.1BeanFactory 简介"></a>3.1BeanFactory 简介</h3><p>BeanFactory，从名字上也很好理解，生产 bean 的工厂，它负责生产和管理各个 bean 实例。</p>
+<p>初学者可别以为我之前说那么多和 BeanFactory 无关，前面说的 ApplicationContext 其实就是一个 BeanFactory。我们来看下和 BeanFactory 接口相关的主要的继承结构：</p>
+<p><img src="https://javadoop.com/blogimages/spring-context/2.png" alt="2"></p>
+<p>我想，大家看完这个图以后，可能就不是很开心了。ApplicationContext 往下的继承结构前面一张图说过了，这里就不重复了。</p>
+<ol>
+<li>ApplicationContext 继承了 ListableBeanFactory，这个 Listable 的意思就是，通过这个接口，我们可以获取多个 Bean。</li>
+<li>ApplicationContext 继承了 HierarchicalBeanFactory，Hierarchical 单词本身已经能说明问题了，也就是说我们可以在应用中起多个 BeanFactory，然后可以将各个 BeanFactory 设置为父子关系。</li>
+<li>AutowireCapableBeanFactory 这个名字中的 Autowire 大家都非常熟悉，它就是用来自动装配 Bean 用的，但是仔细看上图，ApplicationContext 并没有继承它，不过不用担心，不使用继承，不代表不可以使用组合，如果你看到 ApplicationContext 接口定义中的最后一个方法 getAutowireCapableBeanFactory() 就知道了。</li>
+<li>ConfigurableListableBeanFactory 也是一个特殊的接口，看图，特殊之处在于它继承了第二层所有的三个接口，而 ApplicationContext 没有。</li>
+</ol>
+<h3 id="3-2-SpringBean的生命周期"><a href="#3-2-SpringBean的生命周期" class="headerlink" title="3.2 SpringBean的生命周期"></a>3.2 SpringBean的生命周期</h3><p>Spring Bean的完整生命周期从创建Spring容器开始，直到最终Spring容器销毁Bean，这其中包含了一系列关键点。</p>
+<p><img src="https://images0.cnblogs.com/i/580631/201405/181453414212066.png" alt="img"></p>
+<p><img src="https://images0.cnblogs.com/i/580631/201405/181454040628981.png" alt="img"></p>
+<h3 id="3-3接口分类"><a href="#3-3接口分类" class="headerlink" title="3.3接口分类"></a>3.3接口分类</h3><p>Bean的完整生命周期经历了各种方法调用，这些方法可以划分为以下几类：</p>
+<ol>
+<li>Bean自身的方法：这个包括了Bean本身调用的方法和通过配置文件中<bean>的init-method和destroy-method指定的方法</bean></li>
+<li>Bean级生命周期接口方法：这个包括了BeanNameAware、BeanFactoryAware、InitializingBean和DiposableBean这些接口的方法</li>
+<li>容器级生命周期接口方法：这个包括了InstantiationAwareBeanPostProcessor 和 BeanPostProcessor 这两个接口实现，一般称它们的实现类为“后处理器”。</li>
+<li>工厂后处理器接口方法：这个包括了AspectJWeavingEnabler, ConfigurationClassPostProcessor, CustomAutowireConfigurer等等非常有用的工厂后处理器　　接口的方法。工厂后处理器也是容器级的。在应用上下文装配配置文件之后立即调用。</li>
+</ol>
+<h3 id="3-4-演示"><a href="#3-4-演示" class="headerlink" title="3.4 演示"></a>3.4 演示</h3><p>先来看看，Spring在Bean从创建到销毁的生命周期中可能做得事情。</p>
+<p>详细代码在文章底部附录</p>
+<h4 id="3-4-1-实现-Aware接口-在Bean中使用Spring框架的一些对象"><a href="#3-4-1-实现-Aware接口-在Bean中使用Spring框架的一些对象" class="headerlink" title="3.4.1 实现*Aware接口 在Bean中使用Spring框架的一些对象"></a>3.4.1 实现*Aware接口 在Bean中使用Spring框架的一些对象</h4><p>有些时候我们需要在Bean的初始化中使用Spring框架自身的一些对象来执行一些操作，比如获取ServletContext的一些参数，获取ApplicaitionContext中的BeanDefinition的名字，获取Bean在容器中的名字等等。为了让Bean可以获取到框架自身的一些对象，Spring提供了一组名为<em>Aware的接口。<br>这些接口均继承于<code>org.springframework.beans.factory.Aware</code>标记接口，并提供一个将由Bean实现的set</em>方法,Spring通过基于setter的依赖注入方式使相应的对象可以被Bean使用。</p>
+<p>网上说，这些接口是利用观察者模式实现的，因为时间有限，所以我暂时还不太明白，有兴趣的话大家可以去详细的看一下。</p>
+<p>重要的Aware接口：</p>
+<ul>
+<li>ApplicationContextAware: 获得ApplicationContext对象,可以用来获取所有Bean definition的名字。</li>
+<li>BeanFactoryAware:获得BeanFactory对象，可以用来检测Bean的作用域。</li>
+<li>BeanNameAware:获得Bean在配置文件中定义的名字。</li>
+<li>ResourceLoaderAware:获得ResourceLoader对象，可以获得classpath中某个文件。</li>
+<li>ServletContextAware:在一个MVC应用中可以获取ServletContext对象，可以读取context中的参数。</li>
+<li>ServletConfigAware在一个MVC应用中可以获取ServletConfig对象，可以读取config中的参数。</li>
+</ul>
+<h4 id="3-4-2-BeanPostProcessor"><a href="#3-4-2-BeanPostProcessor" class="headerlink" title="3.4.2 BeanPostProcessor"></a>3.4.2 BeanPostProcessor</h4><p>上面的*Aware接口是针对某个实现这些接口的Bean定制初始化的过程，<br>Spring同样可以针对容器中的所有Bean，或者某些Bean定制初始化过程，只需提供一个实现BeanPostProcessor接口的类即可。 该接口中包含两个方法，postProcessBeforeInitialization和postProcessAfterInitialization。 postProcessBeforeInitialization方法会在容器中的Bean初始化之前执行， postProcessAfterInitialization方法在容器中的Bean初始化之后执行。</p>
+<h3 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h3><p>所以。。。结合第一节控制台输出的内容，Spring Bean的生命周期是这样纸的：</p>
+<ul>
+<li>Bean容器找到配置文件中Spring Bean的定义。</li>
+<li>Bean容器利用Java Reflection API创建一个Bean的实例。</li>
+<li>如果涉及到一些属性值 利用set方法设置一些属性值。</li>
+<li>如果Bean实现了BeanNameAware接口，调用setBeanName()方法，传入Bean的名字。</li>
+<li>如果Bean实现了BeanClassLoaderAware接口，调用setBeanClassLoader()方法，传入ClassLoader对象的实例。</li>
+<li>如果Bean实现了BeanFactoryAware接口，调用setBeanClassLoader()方法，传入ClassLoader对象的实例。</li>
+<li>与上面的类似，如果实现了其他*Aware接口，就调用相应的方法。</li>
+<li>如果有和加载这个Bean的Spring容器相关的BeanPostProcessor对象，执行postProcessBeforeInitialization()方法</li>
+<li>如果Bean实现了InitializingBean接口，执行afterPropertiesSet()方法。</li>
+<li>如果Bean在配置文件中的定义包含<code>init-method</code>属性，执行指定的方法。</li>
+<li>如果有和加载这个Bean的Spring容器相关的BeanPostProcessor对象，执行postProcessAfterInitialization()方法</li>
+<li>当要销毁Bean的时候，如果Bean实现了DisposableBean接口，执行destroy()方法。</li>
+<li>当要销毁Bean的时候，如果Bean在配置文件中的定义包含<code>destroy-method</code>属性，执行指定的方法。</li>
+</ul>
+<p><img src="https://yemengying.com/qiniu/image/image/life.png" alt="Spring BeanLifeCycle"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>这篇文章参考了大量的博客，一一列举如下：</p>
+<ul>
+<li><a href="https://caoler.cn/post/2018/SpringBeanLife.html">自己之前写的一篇博客 - Spring Bean生命周期</a></li>
+<li><a href="https://www.jianshu.com/p/3944792a5fff" target="_blank" rel="external">简书 - Spring Bean生命周期</a></li>
+<li><a href="https://yemengying.com/2016/07/14/spring-bean-life-cycle/" target="_blank" rel="external">小姐姐Giraffe的博客 -【Spring】Bean的生命周期</a></li>
+<li><a href="https://blog.csdn.net/yqj2065/article/details/51589813" target="_blank" rel="external">yqj2065-什么是控制反转（Inversion of Control）-渗透了部分严老师的思想</a></li>
+<li><a href="https://www.cnblogs.com/zrtqsk/p/3735273.html" target="_blank" rel="external">Spring Bean的生命周期（非常详细）- 确实非常详细！</a></li>
+<li><a href="https://javadoop.com/post/spring-ioc" target="_blank" rel="external">大佬的技术博客 - 里面还有大量好文章</a></li>
+<li><a href="https://www.cnblogs.com/wang-meng/p/5597490.html" target="_blank" rel="external">Spring IOC的原理及详解 - 原理讲的很透彻</a></li>
+<li><a href="https://www.easemob.com/news/1213" target="_blank" rel="external">这里详细描述了Spring的诞生史</a></li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>演示部分的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.myhexin.ioc.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现InitializingBean和DisposableBean接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person1</span> <span class="keyword">implements</span> <span class="title">BeanFactoryAware</span>, <span class="title">BeanNameAware</span>, <span class="title">InitializingBean</span>, <span class="title">DisposableBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> BeanFactory beanFactory;</span><br><span class="line">    <span class="keyword">private</span> String beanName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【构造器】调用Person1的构造器实例化"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【注入属性】注入属性name"</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【注入属性】注入属性address"</span>);</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhone</span><span class="params">(<span class="keyword">int</span> phone)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【注入属性】注入属性phone"</span>);</span><br><span class="line">        <span class="keyword">this</span>.phone = phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//为一个bean设置属性，除了上面的通过setter注入的方式还有哪几种？</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person&#123;"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", address='"</span> + address + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", phone="</span> + phone +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    这种方法比较简单，但是不建议使用。因为这样会将Bean的实现和Spring框架耦合在一起。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行DisposableBean接口的destroy方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行InitializingBean接口的afterPropertiesSet方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBeanFactory</span><span class="params">(BeanFactory beanFactory)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【BeanFactoryAware接口】调用BeanFactoryAware.setBeanFactory()"</span>);</span><br><span class="line">        <span class="keyword">this</span>.beanFactory = beanFactory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBeanName</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【BeanNameAware接口】调用BeanNameAware.setBeanName()"</span>);</span><br><span class="line">        <span class="keyword">this</span>.beanName = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义的初始化函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myInit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"myInit被调用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义的销毁方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"myDestroy被调用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.myhexin.ioc.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.PostConstruct;</span><br><span class="line"><span class="keyword">import</span> javax.annotation.PreDestroy;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用@PostConstruct和@PreDestroy注解</span></span><br><span class="line"><span class="comment">//@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person2</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"【构造器】调用Person2的构造器实例化"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initPostConstruct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行PostConstruct注解标注的方法,初始化bean"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preDestroy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行preDestroy注解标注的方法，销毁bean"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.myhexin.ioc.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.BeanDefinition;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.BeanFactoryPostProcessor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.ConfigurableListableBeanFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonBeanFactoryPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanFactoryPostProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postProcessBeanFactory</span><span class="params">(ConfigurableListableBeanFactory configurableListableBeanFactory)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"BeanFactoryPostProcessor调用postProcessBeanFactory方法"</span>);</span><br><span class="line">        BeanDefinition bd = configurableListableBeanFactory.getBeanDefinition(<span class="string">"person1"</span>);</span><br><span class="line">        bd.getPropertyValues().addPropertyValue(<span class="string">"phone"</span>, <span class="string">"110"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.myhexin.ioc.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.BeanPostProcessor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonBeanPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanPostProcessor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"BeanPostProcessor接口方法postProcessBeforeInitialization对属性进行更改！"</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessAfterInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"BeanPostProcessor接口方法postProcessAfterInitialization对属性进行更改！"</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.myhexin.ioc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.myhexin.ioc.bean.Person1;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IocApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开始初始化容器"</span>);</span><br><span class="line">        ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:bean.xml"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"xml加载完毕"</span>);</span><br><span class="line">        Person1 person1 = (Person1) ac.getBean(<span class="string">"person1"</span>);</span><br><span class="line">        System.out.println(person1);</span><br><span class="line">        System.out.println(<span class="string">"关闭容器"</span>);</span><br><span class="line">        ((ClassPathXmlApplicationContext)ac).close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:p</span>=<span class="string">"http://www.springframework.org/schema/p"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person1"</span> <span class="attr">destroy-method</span>=<span class="string">"myDestroy"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">init-method</span>=<span class="string">"myInit"</span> <span class="attr">class</span>=<span class="string">"com.myhexin.ioc.bean.Person1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>巫妖王<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>东北<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;property name="phone"&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;value&gt;888&lt;/value&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;/property&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置自定义的后置处理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"personBeanPostProcessor"</span> <span class="attr">class</span>=<span class="string">"com.myhexin.ioc.bean.PersonBeanPostProcessor"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"personBeanFactoryPostProcessor"</span> <span class="attr">class</span>=<span class="string">"com.myhexin.ioc.bean.PersonBeanFactoryPostProcessor"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Caole
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://caoler.cn/post/2018/springioc-bean.html" title="IOC概念和SpringBean的生命周期">https://caoler.cn/post/2018/springioc-bean.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i> spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2018/ConcurrentModificationException.html" rel="next" title="Java ConcurrentModificationException异常原因和解决方法">
+                <i class="fa fa-chevron-left"></i> Java ConcurrentModificationException异常原因和解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/2018/java-lload-class.html" rel="prev" title="详解类加载机制">
+                详解类加载机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ws1.sinaimg.cn/large/005DnJLEgy1flyy8typt9j30ku0kuafw.jpg"
+                alt="Caole" />
+            
+              <p class="site-author-name" itemprop="name">Caole</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/caoler" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:caoler.cn@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/caolercn" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/234007094" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://escnqh.github.io/" title="escnqh" target="_blank">escnqh</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://youyinnn.github.io/" title="youyinnn" target="_blank">youyinnn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dombro96.github.io/" title="dombro96" target="_blank">dombro96</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-WEB发展简史"><span class="nav-text">1. WEB发展简史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Web发展初级阶段"><span class="nav-text">1.1 Web发展初级阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Web发展初级阶段存在的问题"><span class="nav-text">1.2 Web发展初级阶段存在的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-IOC理论概念"><span class="nav-text">2. IOC理论概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-背景"><span class="nav-text">2.1 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-什么是控制反转（IOC）"><span class="nav-text">2.2 什么是控制反转（IOC）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-IOC的别名：依赖注入（DI）"><span class="nav-text">2.3 IOC的别名：依赖注入（DI）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-IOC带来的好处"><span class="nav-text">2.4 IOC带来的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-IOC容器的技术剖析"><span class="nav-text">3. IOC容器的技术剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1BeanFactory-简介"><span class="nav-text">3.1BeanFactory 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-SpringBean的生命周期"><span class="nav-text">3.2 SpringBean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3接口分类"><span class="nav-text">3.3接口分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-演示"><span class="nav-text">3.4 演示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-实现-Aware接口-在Bean中使用Spring框架的一些对象"><span class="nav-text">3.4.1 实现*Aware接口 在Bean中使用Spring框架的一些对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-BeanPostProcessor"><span class="nav-text">3.4.2 BeanPostProcessor</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-总结"><span class="nav-text">3.5 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-text">附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Caole</span>
+
+  
+</div>
+<!--
+
+
+
+
+
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytiEHHjj';
+      var conf = 'prod_aad5cec19314831e7cec1dca4dddb1e5';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("rhx0iRHJRM6Xsj2s7xsqQJ82-gzGzoHsz", "APla0W4ljRnkPdAjT7Uw8ya5");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
